@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.smarthome.io.transport.mqtt.MqttBrokerConnection;
-import org.eclipse.smarthome.io.transport.mqtt.MqttMessageSubscriber;
+import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
+import org.openhab.core.io.transport.mqtt.MqttMessageSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
