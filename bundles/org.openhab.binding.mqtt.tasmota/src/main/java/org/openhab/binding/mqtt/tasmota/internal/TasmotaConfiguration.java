@@ -16,6 +16,7 @@ package org.openhab.binding.mqtt.tasmota.internal;
  * The {@link TasmotaConfiguration} class contains fields mapping thing configuration parameters.
  *
  * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
  */
 public class TasmotaConfiguration {
 

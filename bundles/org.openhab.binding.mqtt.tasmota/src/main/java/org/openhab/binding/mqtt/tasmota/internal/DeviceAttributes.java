@@ -15,6 +15,12 @@ package org.openhab.binding.mqtt.tasmota.internal;
 import org.eclipse.jdt.annotation.NonNull;
 import org.openhab.binding.mqtt.generic.mapping.AbstractMqttAttributeClass;
 
+/**
+ *
+ * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
+ *
+ */
 public class DeviceAttributes extends AbstractMqttAttributeClass {
 
     public String name;
