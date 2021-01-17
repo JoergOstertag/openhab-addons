@@ -20,6 +20,7 @@ import org.openhab.core.thing.ThingTypeUID;
  * used across the whole binding.
  *
  * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
  */
 @NonNullByDefault
 public class TasmotaBindingConstants {

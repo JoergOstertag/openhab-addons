@@ -36,6 +36,7 @@ import org.slf4j.LoggerFactory;
  * sent to one of the channels.
  *
  * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
  */
 @NonNullByDefault
 public class TasmotaHandler extends BaseThingHandler implements TasmotaListener {

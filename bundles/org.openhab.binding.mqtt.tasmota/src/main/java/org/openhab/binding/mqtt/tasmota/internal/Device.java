@@ -24,6 +24,12 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/**
+ *
+ * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
+ *
+ */
 public class Device implements MqttMessageSubscriber {
 
     public final String deviceID;
@@ -72,7 +78,7 @@ public class Device implements MqttMessageSubscriber {
     public void processMessage(String topic, byte[] payload) {
         String[] parts = topic.split("/");
         if (parts.length != 3) {
-            logger.warn("Unknown topic format", topic);
+            logger.warn("Unknown topic format: {}", topic);
             return;
         }
 

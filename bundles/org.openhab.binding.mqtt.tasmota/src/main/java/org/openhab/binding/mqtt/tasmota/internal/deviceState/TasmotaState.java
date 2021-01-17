@@ -14,6 +14,10 @@ package org.openhab.binding.mqtt.tasmota.internal.deviceState;
 
 import java.util.Date;
 
+/**
+ * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
+ */
 public class TasmotaState {
     public String POWER;
     public Date Time;
