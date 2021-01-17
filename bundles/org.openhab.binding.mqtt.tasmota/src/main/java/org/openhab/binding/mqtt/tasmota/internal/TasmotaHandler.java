@@ -59,7 +59,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             return;
         }
 
-        if (SWITCH.equals(channelUID.getId())) {
+        if (CHANNEL_SWITCH.equals(channelUID.getId())) {
             if (command instanceof RefreshType) {
                 // TODO: handle data refresh
             } else {
@@ -67,7 +67,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 device.command("POWER", wantedValue.equals(OnOffType.ON) ? "ON" : "OFF");
             }
 
-        } else if (DIMMER.equals(channelUID.getId())) {
+        } else if (CHANNEL_DIMMER.equals(channelUID.getId())) {
             if (command instanceof RefreshType) {
                 // TODO: handle data refresh
             } else {
@@ -79,7 +79,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
     @Override
     public void initialize() {
-        // logger.debug("Start initializing!");
+        logger.debug("Start initializing Bridge: {}, Thing: {}", this.getBridge(), this.getThing());
         config = getConfigAs(TasmotaConfiguration.class);
 
         Bridge bridge = getBridge();
@@ -88,10 +88,11 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
         while (connection == null) {
             connection = brokerHandler.getConnection();
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-
+            if (null == connection) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                }
             }
         }
 
@@ -110,10 +111,10 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
     public void processVariableState(String name, String payload) {
         switch (name) {
             case "POWER":
-                updateState(SWITCH, payload.equals("ON") ? OnOffType.ON : OnOffType.OFF);
+                updateState(CHANNEL_SWITCH, payload.equals("ON") ? OnOffType.ON : OnOffType.OFF);
                 break;
             case "DIMMER":
-                updateState(DIMMER, PercentType.valueOf(payload));
+                updateState(CHANNEL_DIMMER, PercentType.valueOf(payload));
                 break;
         }
         updateStatus(ThingStatus.ONLINE);
