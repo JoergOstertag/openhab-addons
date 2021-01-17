@@ -32,6 +32,6 @@ public class TasmotaBindingConstants {
     public static final ThingTypeUID TASMOTA_MQTT_DIMMER = new ThingTypeUID(BINDING_ID, "dimmer");
 
     // List of all Channel ids
-    public static final String SWITCH = "switch";
-    public static final String DIMMER = "dimmer";
+    public static final String CHANNEL_SWITCH = "switch";
+    public static final String CHANNEL_DIMMER = "dimmer";
 }

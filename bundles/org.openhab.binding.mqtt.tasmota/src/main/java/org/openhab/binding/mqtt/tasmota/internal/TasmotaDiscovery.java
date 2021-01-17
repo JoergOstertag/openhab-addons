@@ -44,10 +44,16 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     protected final MQTTTopicDiscoveryService discoveryService;
 
+    static final String discoverySubscribeTopic = "tele/+/STATE";
+    static final String discoveryPublishCommand = "cmnd/tasmotas/Teleperiod";
+
     @Activate
     public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService) {
-        super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH), 3, true, "tele/+/STATE");
+        super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH), 3, true, discoverySubscribeTopic);
+        logger.debug("Started Tasmota Discovery with topic '" + discoverySubscribeTopic + "'");
         this.discoveryService = discoveryService;
+
+        triggerMqttDiscoverAnswers();
     }
 
     @Override
@@ -68,13 +74,25 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
     }
 
     @Override
+    protected void startScan() {
+        logger.debug("Start Scanning ....");
+
+        logger.debug("Super Start Scanning ....");
+        super.startScan();
+        logger.debug("DONE Super Start Scanning.");
+        triggerMqttDiscoverAnswers();
+    }
+
+    @Override
     public void receivedMessage(ThingUID connectionBridge, MqttBrokerConnection connection, String topic,
             byte[] payload) {
+        // logger.trace("receivedMessage({}, {}, {}, {})", connectionBridge.getAsString(), connection.getHost(), topic,
+        // new String(payload));
         resetTimeout();
 
-        final String deviceID = extractDeviceID(topic);
+        String deviceID = extractDeviceID(topic);
         if (deviceID == null) {
-            logger.trace("Found tasmota device, but could not extract device ID from {}.", topic);
+            logger.warn("Found tasmota device, but could not extract device ID from {}.", topic);
             return;
         }
 
@@ -82,19 +100,46 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
         Map<String, Object> properties = new HashMap<>();
         properties.put("deviceid", deviceID);
+        properties.put("name", deviceID);
+        properties.put("mqttBridge", connectionBridge.getAsString());
+
+        ThingTypeUID thingTypeUid = null;
 
         if (state.Dimmer != null) {
-            publishDevice(TasmotaBindingConstants.TASMOTA_MQTT_DIMMER, connectionBridge, properties, deviceID);
+            thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_DIMMER;
+            properties.put("hasDimmer", "true");
+        } else if (state.POWER != null) {
+            thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_SWITCH;
+            properties.put("hasPower", "true");
         } else {
-            publishDevice(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH, connectionBridge, properties, deviceID);
+            logger.info("Unknown Tasmota Device Type at topic {} ==> Ignoring", topic);
+            return;
+        }
+
+        try {
+            publishDevice(thingTypeUid, connectionBridge, properties, deviceID);
+        } catch (Exception e) {
+            logger.error("Cannot publishDevice: {}", e.getMessage());
         }
     }
 
     void publishDevice(ThingTypeUID type, ThingUID connectionBridge, Map<String, Object> properties, String deviceID) {
 
-        thingDiscovered(DiscoveryResultBuilder.create(new ThingUID(type, connectionBridge, deviceID))
-                .withBridge(connectionBridge).withProperties(properties).withRepresentationProperty("deviceid")
-                .withLabel(deviceID).build());
+        logger.debug("publishDevice( type: {}, connectionBridge: {}, properties: {}, deviceID: {}", type,
+                connectionBridge, properties, deviceID);
+
+        // ThingUID tasmotaBridge = new ThingUID("tasmota:bridge:thing");
+        // type = new ThingTypeUID("mqtt:broker:default_mqtt:tasmota" + type);
+        // type = new ThingTypeUID(connectionBridge.getAsString() + ":" + type);
+        ThingUID thingUID = new ThingUID(type, connectionBridge, deviceID);
+        logger.debug("ThingUID: {}", thingUID);
+        thingDiscovered( //
+                DiscoveryResultBuilder.create(thingUID) //
+                        .withBridge(connectionBridge) //
+                        // .withThingType(type) //
+                        .withProperties(properties) //
+                        .withRepresentationProperty("deviceid")//
+                        .withLabel(deviceID).build());
     }
 
     @Override
@@ -103,6 +148,33 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         if (deviceID == null) {
             return;
         }
-        thingRemoved(new ThingUID(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH, connectionBridge, deviceID));
+
+        // TODO: Not everything is a switch
+        ThingUID thingUID = new ThingUID(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH, connectionBridge, deviceID);
+
+        thingRemoved(thingUID);
+    }
+
+    protected void triggerMqttDiscoverAnswers() {
+        final boolean retain = false;
+        final int qos = 2;
+
+        String topic = "";
+
+        // TODO: Deactivated until we also listen for the STATUS Answers
+        if (false) {
+            // Status 10, 11
+            topic = "cmnd/tasmotas/Status";
+            for (Integer i = 10; i <= 11; i++) {
+                final byte[] payload = String.valueOf(11).getBytes();
+                logger.debug("publish topic: {}, {}", topic, i);
+                getDiscoveryService().publish(topic, payload, qos, retain);
+            }
+        }
+
+        // Teleperiod triggers tele/+/STATUS Answers
+        topic = "cmnd/tasmotas/Teleperiod";
+        logger.debug("publish topic: {}", topic);
+        getDiscoveryService().publish(topic, "".getBytes(), qos, retain);
     }
 }
