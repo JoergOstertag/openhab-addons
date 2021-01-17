@@ -1,7 +1,7 @@
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import org.eclipse.jdt.annotation.NonNull;
-import org.openhab.binding.mqtt.tasmota.internal.Device.TasmotaState;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
 
 public interface TasmotaListener {
 

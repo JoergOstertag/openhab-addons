@@ -16,17 +16,18 @@ import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
+import org.openhab.binding.mqtt.handler.SystemBrokerHandler;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
+import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.library.types.OnOffType;
 import org.openhab.core.library.types.PercentType;
+import org.openhab.core.thing.Bridge;
 import org.openhab.core.thing.ChannelUID;
 import org.openhab.core.thing.Thing;
 import org.openhab.core.thing.ThingStatus;
 import org.openhab.core.thing.binding.BaseThingHandler;
 import org.openhab.core.types.Command;
 import org.openhab.core.types.RefreshType;
-import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
-import org.openhab.binding.mqtt.handler.SystemBrokerHandler;
-import org.openhab.binding.mqtt.tasmota.internal.Device.TasmotaState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +53,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
 
-        if (device == null) {
+        if (null == device) {
             logger.warn("Handling command without being initialized");
             return;
         }
@@ -80,7 +81,8 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
         // logger.debug("Start initializing!");
         config = getConfigAs(TasmotaConfiguration.class);
 
-        final SystemBrokerHandler brokerHandler = (SystemBrokerHandler) getBridge().getHandler();
+        Bridge bridge = getBridge();
+        final SystemBrokerHandler brokerHandler = (SystemBrokerHandler) bridge.getHandler();
         MqttBrokerConnection connection = null;
 
         while (connection == null) {

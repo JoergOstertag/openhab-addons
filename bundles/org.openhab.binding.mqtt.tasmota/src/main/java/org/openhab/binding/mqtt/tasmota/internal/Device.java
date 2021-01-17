@@ -1,9 +1,9 @@
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import java.util.Date;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.jdt.annotation.NonNull;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.io.transport.mqtt.MqttMessageSubscriber;
 import org.slf4j.Logger;
@@ -53,7 +53,7 @@ public class Device implements MqttMessageSubscriber {
 
     public CompletableFuture<Boolean> publish(String topic, String value) {
         logger.debug("Publishing to topic {}: {}", topic, value);
-        return connection.publish(topic, value.getBytes());
+        return connection.publish(topic, value.getBytes(), 2, false);
     }
 
     @Override
@@ -93,7 +93,11 @@ public class Device implements MqttMessageSubscriber {
     }
 
     public static @NonNull TasmotaState parseState(String state) {
-        return gson.fromJson(state, TasmotaState.class);
+        TasmotaState fromJson = gson.fromJson(state, TasmotaState.class);
+        if (null == fromJson) {
+            fromJson = new TasmotaState();
+        }
+        return fromJson;
     }
 
     private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
@@ -112,11 +116,5 @@ public class Device implements MqttMessageSubscriber {
 
     public void update() {
         command("STATE", "");
-    }
-
-    protected class TasmotaState {
-        String POWER;
-        Date Time;
-        Integer Dimmer;
     }
 }
