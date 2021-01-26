@@ -45,7 +45,19 @@ public class Device implements MqttMessageSubscriber {
         this.listener = listener;
 
         connection.subscribe(getTelemetryTopic("STATE"), this);
+        connection.subscribe(getTelemetryTopic("SENSOR"), this);
         connection.subscribe(getStateTopic("POWER"), this);
+        connection.subscribe(getStateTopic("STATUS"), this);
+        connection.subscribe(getStateTopic("STATUS1"), this);
+        connection.subscribe(getStateTopic("STATUS2"), this);
+        connection.subscribe(getStateTopic("STATUS3"), this);
+        connection.subscribe(getStateTopic("STATUS4"), this);
+        connection.subscribe(getStateTopic("STATUS5"), this);
+        connection.subscribe(getStateTopic("STATUS6"), this);
+        connection.subscribe(getStateTopic("STATUS7"), this);
+        connection.subscribe(getStateTopic("STATUS8"), this);
+        connection.subscribe(getStateTopic("STATUS9"), this);
+        connection.subscribe(getStateTopic("STATUS10"), this);
     }
 
     public String getTopic(String type, String name) {
@@ -64,7 +76,7 @@ public class Device implements MqttMessageSubscriber {
         return getTopic("stat", name);
     }
 
-    public CompletableFuture<Boolean> command(String name, String value) {
+    public CompletableFuture<Boolean> publishCommand(String name, String value) {
         final String topic = getCommandTopic(name);
         return publish(topic, value);
     }
@@ -76,6 +88,8 @@ public class Device implements MqttMessageSubscriber {
 
     @Override
     public void processMessage(String topic, byte[] payload) {
+        logger.debug("processMessage(topic: {}, payload: {}", topic, new String(payload));
+
         String[] parts = topic.split("/");
         if (parts.length != 3) {
             logger.warn("Unknown topic format: {}", topic);
@@ -126,6 +140,30 @@ public class Device implements MqttMessageSubscriber {
                 listener.processState(parseState(payload));
                 break;
 
+            case "SENSOR":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS1":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS7":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS8":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS10":
+                listener.processState(parseState(payload));
+                break;
+
             default:
                 listener.processTelemetryMessage(name, payload);
                 break;
@@ -133,6 +171,7 @@ public class Device implements MqttMessageSubscriber {
     }
 
     public void update() {
-        command("STATE", "");
+        publishCommand("STATE", "");
+        publishCommand("STATUS", "0");
     }
 }

@@ -16,9 +16,10 @@ import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
-import org.openhab.binding.mqtt.handler.SystemBrokerHandler;
+import org.openhab.binding.mqtt.handler.BrokerHandler;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
+import org.openhab.core.library.types.DecimalType;
 import org.openhab.core.library.types.OnOffType;
 import org.openhab.core.library.types.PercentType;
 import org.openhab.core.thing.Bridge;
@@ -49,10 +50,12 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
     public TasmotaHandler(Thing thing) {
         super(thing);
+        logger.debug("Init TasmotaHandler({})", thing);
     }
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
+        logger.debug("handleCommand({}, {})", channelUID, command);
 
         if (null == device) {
             logger.warn("Handling command without being initialized");
@@ -64,7 +67,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 // TODO: handle data refresh
             } else {
                 OnOffType wantedValue = (OnOffType) command;
-                device.command("POWER", wantedValue.equals(OnOffType.ON) ? "ON" : "OFF");
+                device.publishCommand("POWER", wantedValue.equals(OnOffType.ON) ? "ON" : "OFF");
             }
 
         } else if (CHANNEL_DIMMER.equals(channelUID.getId())) {
@@ -72,18 +75,18 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 // TODO: handle data refresh
             } else {
                 PercentType wantedValue = (PercentType) command;
-                device.command("DIMMER", "" + wantedValue.intValue());
+                device.publishCommand("DIMMER", "" + wantedValue.intValue());
             }
         }
     }
 
     @Override
     public void initialize() {
-        logger.debug("Start initializing Bridge: {}, Thing: {}", this.getBridge(), this.getThing());
+        logger.debug("Start initializing Tsmota Handler -- Bridge: {}, Thing: {}", this.getBridge(), this.getThing());
         config = getConfigAs(TasmotaConfiguration.class);
 
         Bridge bridge = getBridge();
-        final SystemBrokerHandler brokerHandler = (SystemBrokerHandler) bridge.getHandler();
+        final BrokerHandler brokerHandler = (BrokerHandler) bridge.getHandler();
         MqttBrokerConnection connection = null;
 
         while (connection == null) {
@@ -96,7 +99,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             }
         }
 
-        logger.info("Have broker connection: {}", connection.toString());
+        logger.info("Have broker connection: {}", toConnectionString(connection));
 
         device = new Device(connection, config.deviceid, this);
 
@@ -104,17 +107,28 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
         device.update();
 
-        logger.debug("Finished initializing!");
+        logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
+    }
+
+    private String toConnectionString(MqttBrokerConnection connection) {
+        String connectionInfoString = connection.getHost();
+        return connectionInfoString;
     }
 
     @Override
     public void processVariableState(String name, String payload) {
         switch (name) {
+
             case "POWER":
                 updateState(CHANNEL_SWITCH, payload.equals("ON") ? OnOffType.ON : OnOffType.OFF);
                 break;
+
             case "DIMMER":
                 updateState(CHANNEL_DIMMER, PercentType.valueOf(payload));
+                break;
+
+            default:
+                logger.error("Unknown name {}", name);
                 break;
         }
         updateStatus(ThingStatus.ONLINE);
@@ -127,13 +141,50 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
     }
 
     @Override
-    public void processState(TasmotaState state) {
-        if (state.Dimmer != null) {
-            processVariableState("DIMMER", "" + state.Dimmer);
+    public void processState(TasmotaState tasmotaState) {
+        if (tasmotaState.Dimmer != null) {
+            processVariableState("DIMMER", "" + tasmotaState.Dimmer);
         }
-        if (state.POWER != null) {
-            processVariableState("POWER", state.POWER);
+        if (tasmotaState.POWER != null) {
+            processVariableState("POWER", tasmotaState.POWER);
         }
+        if (tasmotaState.Dht11 != null) {
+            if (tasmotaState.Dht11.Temperature != null) {
+                updateState(CHANNEL_TEMPERATURE, tasmotaState.Dht11.Temperature);
+            }
+            if (tasmotaState.Dht11.Humidity != null) {
+                updateState(CHANNEL_HUMIDITY, tasmotaState.Dht11.Humidity);
+            }
+            if (tasmotaState.Dht11.DewPoint != null) {
+                updateState(CHANNEL_DEWPOINT, tasmotaState.Dht11.DewPoint);
+            }
+        }
+
+        if (tasmotaState.StatusSNS != null) {
+            if (tasmotaState.StatusSNS.DHT11 != null) {
+                if (tasmotaState.StatusSNS.DHT11.Temperature != null) {
+                    updateState(CHANNEL_TEMPERATURE, tasmotaState.StatusSNS.DHT11.Temperature);
+                }
+                if (tasmotaState.StatusSNS.DHT11.Humidity != null) {
+                    updateState(CHANNEL_HUMIDITY, tasmotaState.StatusSNS.DHT11.Humidity);
+                }
+            }
+
+        }
+        if (tasmotaState.ENERGY != null) {
+            if (tasmotaState.ENERGY.Voltage != null) {
+                updateState(CHANNEL_VOLTAGE, tasmotaState.ENERGY.Voltage);
+            }
+            if (tasmotaState.ENERGY.Power != null) {
+                updateState(CHANNEL_POWER_LOAD, tasmotaState.ENERGY.Power);
+            }
+        }
+
         updateStatus(ThingStatus.ONLINE);
+    }
+
+    private void updateState(String channelID, Double value) {
+        logger.debug("updateChannel({}, {}, {})", this.getThing().getUID(), channelID, value);
+        updateState(channelID, DecimalType.valueOf("" + value));
     }
 }

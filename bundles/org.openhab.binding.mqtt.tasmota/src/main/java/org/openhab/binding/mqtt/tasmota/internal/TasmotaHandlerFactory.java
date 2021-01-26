@@ -12,7 +12,7 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.*;
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.TASMOTA_MQTT_THING;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -41,12 +41,13 @@ public class TasmotaHandlerFactory extends BaseThingHandlerFactory {
 
     private final Logger logger = LoggerFactory.getLogger(TasmotaHandlerFactory.class);
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Stream
-            .of(TASMOTA_MQTT_SWITCH, TASMOTA_MQTT_DIMMER).collect(Collectors.toSet());
+    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Stream.of(TASMOTA_MQTT_THING)
+            .collect(Collectors.toSet());
 
     @Override
     public boolean supportsThingType(ThingTypeUID thingTypeUID) {
         boolean contains = SUPPORTED_THING_TYPES_UIDS.contains(thingTypeUID);
+        // logger.debug("supportsThingType(ThingTypeUID {}) ==> {}", thingTypeUID, contains);
         return contains;
     }
 
@@ -54,8 +55,9 @@ public class TasmotaHandlerFactory extends BaseThingHandlerFactory {
     protected @Nullable ThingHandler createHandler(Thing thing) {
         ThingTypeUID thingTypeUID = thing.getThingTypeUID();
 
-        if (TASMOTA_MQTT_SWITCH.equals(thingTypeUID) //
-                || TASMOTA_MQTT_DIMMER.equals(thingTypeUID)) {
+        logger.error("createHandler ThingTypeUID({}) Thing: {}", thingTypeUID, thing.toString());
+
+        if (TASMOTA_MQTT_THING.equals(thingTypeUID)) {
             return new TasmotaHandler(thing);
         }
 
