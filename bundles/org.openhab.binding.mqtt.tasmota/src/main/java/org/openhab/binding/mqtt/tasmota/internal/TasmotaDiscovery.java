@@ -49,7 +49,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     @Activate
     public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService) {
-        super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH), 3, true, discoverySubscribeTopic);
+        super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_THING), 3, true, discoverySubscribeTopic);
         logger.debug("Started Tasmota Discovery with topic '" + discoverySubscribeTopic + "'");
         this.discoveryService = discoveryService;
 
@@ -96,25 +96,49 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
-        TasmotaState state = Device.parseState(new String(payload));
+        String payloadString = new String(payload);
+        TasmotaState tasmotaState = Device.parseState(payloadString);
 
         Map<String, Object> properties = new HashMap<>();
         properties.put("deviceid", deviceID);
-        properties.put("name", deviceID);
-        properties.put("mqttBridge", connectionBridge.getAsString());
+        // properties.put("name", deviceID);
+        // properties.put("mqttBridge", connectionBridge.getAsString());
 
-        ThingTypeUID thingTypeUid = null;
-
-        if (state.Dimmer != null) {
-            thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_DIMMER;
+        boolean deviceTypeKnown = false;
+        if (tasmotaState.Dimmer != null) {
             properties.put("hasDimmer", "true");
-        } else if (state.POWER != null) {
-            thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_SWITCH;
+            deviceTypeKnown = true;
+        }
+        if (tasmotaState.POWER != null) {
             properties.put("hasPower", "true");
-        } else {
-            logger.info("Unknown Tasmota Device Type at topic {} ==> Ignoring", topic);
+            deviceTypeKnown = true;
+        }
+
+        if (null != tasmotaState.ENERGY) {
+            if (tasmotaState.ENERGY.Power != null) {
+                properties.put("hasEnergy", "true");
+                deviceTypeKnown = true;
+            }
+        }
+
+        if (null != tasmotaState.Dht11) {
+            if (tasmotaState.Dht11.Temperature != null) {
+                properties.put("hasTemperature", "true");
+                deviceTypeKnown = true;
+            }
+            if (tasmotaState.Dht11.Humidity != null) {
+                properties.put("hasHumidity", "true");
+                deviceTypeKnown = true;
+            }
+        }
+
+        if (!deviceTypeKnown) {
+            logger.info("Cannot recognize Tasmota Device from MQTT-Message. Topic: {} PayLoad: {}", topic,
+                    payloadString);
             return;
         }
+
+        ThingTypeUID thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_THING;
 
         try {
             publishDevice(thingTypeUid, connectionBridge, properties, deviceID);
@@ -128,11 +152,8 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         logger.debug("publishDevice( type: {}, connectionBridge: {}, properties: {}, deviceID: {}", type,
                 connectionBridge, properties, deviceID);
 
-        // ThingUID tasmotaBridge = new ThingUID("tasmota:bridge:thing");
-        // type = new ThingTypeUID("mqtt:broker:default_mqtt:tasmota" + type);
-        // type = new ThingTypeUID(connectionBridge.getAsString() + ":" + type);
         ThingUID thingUID = new ThingUID(type, connectionBridge, deviceID);
-        logger.debug("ThingUID: {}", thingUID);
+        // logger.debug("ThingUID: {}", thingUID);
         thingDiscovered( //
                 DiscoveryResultBuilder.create(thingUID) //
                         .withBridge(connectionBridge) //
@@ -149,8 +170,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
-        // TODO: Not everything is a switch
-        ThingUID thingUID = new ThingUID(TasmotaBindingConstants.TASMOTA_MQTT_SWITCH, connectionBridge, deviceID);
+        ThingUID thingUID = new ThingUID(TasmotaBindingConstants.TASMOTA_MQTT_THING, connectionBridge, deviceID);
 
         thingRemoved(thingUID);
     }

@@ -25,13 +25,19 @@ import org.openhab.core.thing.ThingTypeUID;
 @NonNullByDefault
 public class TasmotaBindingConstants {
 
-    private static final String BINDING_ID = "tasmota";
+    private static final String BINDING_ID = "mqtt";
 
     // List of all Thing Type UIDs
-    public static final ThingTypeUID TASMOTA_MQTT_SWITCH = new ThingTypeUID(BINDING_ID, "switch");
-    public static final ThingTypeUID TASMOTA_MQTT_DIMMER = new ThingTypeUID(BINDING_ID, "dimmer");
+    public static final ThingTypeUID TASMOTA_MQTT_THING = new ThingTypeUID(BINDING_ID, "tasmota");
 
     // List of all Channel ids
     public static final String CHANNEL_SWITCH = "switch";
     public static final String CHANNEL_DIMMER = "dimmer";
+
+    public static final String CHANNEL_TEMPERATURE = "temperature";
+    public static final String CHANNEL_HUMIDITY = "humidity";
+    public static final String CHANNEL_DEWPOINT = "dewpoint";
+
+    public static final String CHANNEL_VOLTAGE = "voltage";
+    public static final String CHANNEL_POWER_LOAD = "powerLoad";
 }

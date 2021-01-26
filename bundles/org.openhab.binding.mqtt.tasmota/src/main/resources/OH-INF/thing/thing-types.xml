@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<thing:thing-descriptions bindingId="tasmota"
+<thing:thing-descriptions bindingId="mqtt"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
 	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
 
-	<thing-type id="switch">
+	<thing-type id="tasmota">
 		<supported-bridge-type-refs>
 			<bridge-type-ref id="broker"/>
 			<bridge-type-ref id="systemBroker"/>
 		</supported-bridge-type-refs>
 
 		<label>Tasmota Binding Switch</label>
-		<description>Simplest Tasmota Binding thing</description>
-
-		<channels>
-			<channel id="switch" typeId="switch"/>
-		</channels>
-
-		<config-description>
-			<parameter name="deviceid" type="text" required="true">
-				<label>Device ID</label>
-				<description>Device ID. This is part of the MQTT topics, e.g. "tele/{Device ID}/STATE".</description>
-			</parameter>
-		</config-description>
-
-	</thing-type>
-
-	<thing-type id="dimmer">
-		<supported-bridge-type-refs>
-			<bridge-type-ref id="broker"/>
-			<bridge-type-ref id="systemBroker"/>
-		</supported-bridge-type-refs>
-
-		<label>Tasmota Binding Dimmer</label>
-		<description>Tasmota Binding Dimmer</description>
+		<description>Generic Tasmota Binding thing</description>
 
 		<channels>
 			<channel id="switch" typeId="switch"/>
 			<channel id="dimmer" typeId="dimmer"/>
+
+			<channel id="temperature" typeId="temperature"/>
+			<channel id="humidity" typeId="humidity"/>
+			<channel id="dewPoint" typeId="dewPoint"/>
+
+			<channel id="powerLoad" typeId="powerLoad"/>
+			<channel id="voltage" typeId="voltage"/>
+
+			<!--
+				<channel id="uptimeSec" typeId="uptimeSec"/>
+				<channel id="wifiChannel" typeId="wifiChannel"/>
+				<channel id="wifiRssid" typeId="wifiRssid"/>
+				<channel id="wifiSsid" typeId="wifiSsid"/>
+				<channel id="ipAddress" typeId="ipAddress"/>
+				<channel id="friendlyName" typeId="friendlyName"/>
+				<channel id="deviceName" typeId="deviceName"/>
+
+				<channel id="tempUnit" typeId="tempUnit"/>
+
+				<channel id="powerReactive" typeId="powerReactive"/>
+				<channel id="current" typeId="current"/>
+				<channel id="energyTotal" typeId="energyTotal"/>
+				<channel id="energyTotalStartTime" typeId="energyTotalStartTime"/>
+				<channel id="energyToday" typeId="energyToday"/>
+				<channel id="energyYest" typeId="energyYest"/>
+			-->
 		</channels>
 
 		<config-description>
@@ -48,16 +52,145 @@
 		</config-description>
 
 	</thing-type>
+
 
 	<channel-type id="switch">
 		<item-type>Switch</item-type>
 		<label>On/Off</label>
 	</channel-type>
 
-
 	<channel-type id="dimmer">
 		<item-type>Dimmer</item-type>
 		<label>Dimmer</label>
+	</channel-type>
+
+	<channel-type id="colorHSB">
+		<item-type>Color</item-type>
+		<label>Color Value (Hue,Saturation,Brightness)</label>
+		<description></description>
+		<config-description-ref uri="thing-type:mqtt:color_channel"></config-description-ref>
+	</channel-type>
+
+	<channel-type id="datetime">
+		<item-type>DateTime</item-type>
+		<label>Date/Time Value</label>
+		<description>Current date and/or time</description>
+		<config-description-ref uri="thing-type:mqtt:string_channel"/>
+	</channel-type>
+
+
+	<channel-type id="uptimeSec">
+		<item-type>Number</item-type>
+		<label>Uptime in seconds</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="wifiChannel">
+		<item-type>Number</item-type>
+		<label>Wifi Channel</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="wifiRssid">
+		<item-type>Number</item-type>
+		<label>Wifi Rssid</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="wifiSsid">
+		<item-type>Number</item-type>
+		<label>Wifi Ssid</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="ipAddress">
+		<item-type>Number</item-type>
+		<label>Ip Address</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="friendlyName">
+		<item-type>Number</item-type>
+		<label>Friendly Name</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="deviceName">
+		<item-type>Number</item-type>
+		<label>Device Name</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="temperature">
+		<item-type>Number</item-type>
+		<label>Temperature</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="humidity">
+		<item-type>Number</item-type>
+		<label>Humidity</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="dewPoint">
+		<item-type>Number</item-type>
+		<label>Dew Point</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="tempUnit">
+		<item-type>Number</item-type>
+		<label>Temperature Unit</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="powerLoad">
+		<item-type>Number</item-type>
+		<label>Power Load in Watt</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="powerReactive">
+		<item-type>Number</item-type>
+		<label>Power Reactive</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="voltage">
+		<item-type>Number</item-type>
+		<label>Voltage</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="current">
+		<item-type>Number</item-type>
+		<label>Current</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="energyTotal">
+		<item-type>Number</item-type>
+		<label>Energy Total</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="energyTotalStartTime">
+		<item-type>Number</item-type>
+		<label>Start Time for Energy Total</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="energyToday">
+		<item-type>Number</item-type>
+		<label>Energy Today</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="energyYest">
+		<item-type>Number</item-type>
+		<label>Energy Yesterday</label>
+		<state readOnly="true" pattern="%d"/>
 	</channel-type>
 
 </thing:thing-descriptions>
