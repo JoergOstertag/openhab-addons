@@ -12,10 +12,7 @@
  *
  *
  */
-
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
-
-import java.util.Date;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -25,31 +22,20 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  *
  */
-public class TasmotaState {
-    public Integer Dimmer;
-    public String POWER;
-    public Date Time;
-    public Integer Heap;
-    public Integer LoadAvg;
-    public Integer MqttCount;
-    public Integer Sleep;
-    public String SleepMode;
-    public String Uptime;
-    public Integer UptimeSec;
-    public Energy ENERGY;
-    public DHT11 Dht11;
-    public Wifi Wifi;
-
-    public StatusFWR StatusFWR;
-    public StatusLOG StatusLOG;
-    public StatusMEM StatusMEM;
-    public StatusMQT StatusMQT;
-    public StatusNET StatusNET;
-    public StatusPRM StatusPRM;
-    public StatusPTH StatusPTH;
-    public StatusSNS StatusSNS;
-    public StatusSTS StatusSTS;
-    public StatusTIM StatusTIM;
+public class StatusPRM {
+    public String BCResetTime;
+    public Integer Baudrate;
+    public Integer BootCount;
+    public Integer CfgHolder;
+    public String GroupTopic; // "tasmotas",
+    public String OtaUrl; // "http://ota.tasmota.com/tasmota/release-9.2.0/tasmota-sensors.bin.gz",
+    public String RestartReason; // "Hardware Watchdog",
+    public String SaveAddress; // "F9000",
+    public Integer SaveCount; // 68744,
+    public String SerialConfig; // "8N1",
+    public Integer Sleep; // 100,
+    public String StartupUTC; // "2021-01-11T06:39:47",
+    public String Uptime; // "4T14:13:39"
 
     @Override
     public String toString() {

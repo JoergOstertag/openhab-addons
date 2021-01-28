@@ -13,7 +13,6 @@
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
@@ -99,40 +98,11 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         String payloadString = new String(payload);
         TasmotaState tasmotaState = Device.parseState(payloadString);
 
-        Map<String, Object> properties = new HashMap<>();
+        Map<String, Object> properties = PropertyParser.parseProperties(tasmotaState);
+
         properties.put("deviceid", deviceID);
-        // properties.put("name", deviceID);
-        // properties.put("mqttBridge", connectionBridge.getAsString());
 
-        boolean deviceTypeKnown = false;
-        if (tasmotaState.Dimmer != null) {
-            properties.put("hasDimmer", "true");
-            deviceTypeKnown = true;
-        }
-        if (tasmotaState.POWER != null) {
-            properties.put("hasPower", "true");
-            deviceTypeKnown = true;
-        }
-
-        if (null != tasmotaState.ENERGY) {
-            if (tasmotaState.ENERGY.Power != null) {
-                properties.put("hasEnergy", "true");
-                deviceTypeKnown = true;
-            }
-        }
-
-        if (null != tasmotaState.Dht11) {
-            if (tasmotaState.Dht11.Temperature != null) {
-                properties.put("hasTemperature", "true");
-                deviceTypeKnown = true;
-            }
-            if (tasmotaState.Dht11.Humidity != null) {
-                properties.put("hasHumidity", "true");
-                deviceTypeKnown = true;
-            }
-        }
-
-        if (!deviceTypeKnown) {
+        if (null == properties.get("deviceTypeKnown")) {
             logger.info("Cannot recognize Tasmota Device from MQTT-Message. Topic: {} PayLoad: {}", topic,
                     payloadString);
             return;

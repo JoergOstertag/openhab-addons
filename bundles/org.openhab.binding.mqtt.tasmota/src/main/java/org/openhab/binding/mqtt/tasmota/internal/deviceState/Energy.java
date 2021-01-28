@@ -12,10 +12,7 @@
  *
  *
  */
-
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
-
-import java.util.Date;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -23,33 +20,21 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
- *
  */
-public class TasmotaState {
-    public Integer Dimmer;
-    public String POWER;
-    public Date Time;
-    public Integer Heap;
-    public Integer LoadAvg;
-    public Integer MqttCount;
-    public Integer Sleep;
-    public String SleepMode;
-    public String Uptime;
-    public Integer UptimeSec;
-    public Energy ENERGY;
-    public DHT11 Dht11;
-    public Wifi Wifi;
+public class Energy {
 
-    public StatusFWR StatusFWR;
-    public StatusLOG StatusLOG;
-    public StatusMEM StatusMEM;
-    public StatusMQT StatusMQT;
-    public StatusNET StatusNET;
-    public StatusPRM StatusPRM;
-    public StatusPTH StatusPTH;
-    public StatusSNS StatusSNS;
-    public StatusSTS StatusSTS;
-    public StatusTIM StatusTIM;
+    public Integer ApparentPower;
+    public Double Current;
+    public Double Factor;
+    public Integer Period;
+    public Double Power;
+    public Double ReactivePower;
+    public Double Today;
+    public Double Total;
+    public String TotalStartTime;
+    public Double Voltage;
+    public Double Yesterday;
+    public String Time;
 
     @Override
     public String toString() {
