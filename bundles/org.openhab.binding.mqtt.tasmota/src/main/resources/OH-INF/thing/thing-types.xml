@@ -25,15 +25,7 @@
 			<channel id="voltage" typeId="voltage"/>
 
 			<!--
-				<channel id="uptimeSec" typeId="uptimeSec"/>
-				<channel id="wifiChannel" typeId="wifiChannel"/>
-				<channel id="wifiRssid" typeId="wifiRssid"/>
-				<channel id="wifiSsid" typeId="wifiSsid"/>
-				<channel id="ipAddress" typeId="ipAddress"/>
-				<channel id="friendlyName" typeId="friendlyName"/>
-				<channel id="deviceName" typeId="deviceName"/>
 
-				<channel id="tempUnit" typeId="tempUnit"/>
 
 				<channel id="powerReactive" typeId="powerReactive"/>
 				<channel id="current" typeId="current"/>
@@ -43,6 +35,19 @@
 				<channel id="energyYest" typeId="energyYest"/>
 			-->
 		</channels>
+		<properties>
+			<property name="Config.StatusPRM.OtaUrl"></property>
+			<!--
+				<property name="Config.tempUnit"/>
+				<property name="Config.uptimeSec"/>
+				<property name="Config.wifi.Channel"/>
+				<property name="Config.wifi.Rssid"/>
+				<property name="Config.wifi.Ssid"/>
+				<property name="Config.ipAddress"/>
+				<property name="Config.friendlyName"/>
+				<property name="Config.deviceName"/>
+			-->
+		</properties>
 
 		<config-description>
 			<parameter name="deviceid" type="text" required="true">

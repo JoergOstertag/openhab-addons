@@ -10,12 +10,8 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *
- *
  */
-
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
-
-import java.util.Date;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -25,31 +21,14 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  *
  */
-public class TasmotaState {
-    public Integer Dimmer;
-    public String POWER;
-    public Date Time;
-    public Integer Heap;
-    public Integer LoadAvg;
-    public Integer MqttCount;
-    public Integer Sleep;
-    public String SleepMode;
-    public String Uptime;
-    public Integer UptimeSec;
+public class StatusSNS {
+    // {"StatusSNS":{"Time":"2021-01-28T21:14:52",
+    // "ENERGY":{"TotalStartTime":"2020-" ... "Current":0.128}}}
     public Energy ENERGY;
-    public DHT11 Dht11;
-    public Wifi Wifi;
 
-    public StatusFWR StatusFWR;
-    public StatusLOG StatusLOG;
-    public StatusMEM StatusMEM;
-    public StatusMQT StatusMQT;
-    public StatusNET StatusNET;
-    public StatusPRM StatusPRM;
-    public StatusPTH StatusPTH;
-    public StatusSNS StatusSNS;
-    public StatusSTS StatusSTS;
-    public StatusTIM StatusTIM;
+    public DHT11 DHT11;
+    public String TempUnit;
+    public String Time;
 
     @Override
     public String toString() {

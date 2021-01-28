@@ -14,6 +14,10 @@ package org.openhab.binding.mqtt.tasmota.internal;
 
 import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.*;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.handler.BrokerHandler;
@@ -128,7 +132,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 break;
 
             default:
-                logger.error("Unknown name {}", name);
+                logger.error("processVariableState(): Unknown topic name {}", name);
                 break;
         }
         updateStatus(ThingStatus.ONLINE);
@@ -178,6 +182,17 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             if (tasmotaState.ENERGY.Power != null) {
                 updateState(CHANNEL_POWER_LOAD, tasmotaState.ENERGY.Power);
             }
+        }
+
+        {
+            Map<String, Object> properties = PropertyParser.parseProperties(tasmotaState);
+            Map<String, String> propertiesString = new HashMap<>();
+            for (Entry<String, Object> property : properties.entrySet()) {
+                String propertyName = property.getKey();
+                Object propertyValue = property.getValue();
+                propertiesString.put(propertyName, String.valueOf(propertyValue));
+            }
+            updateProperties(propertiesString);
         }
 
         updateStatus(ThingStatus.ONLINE);
