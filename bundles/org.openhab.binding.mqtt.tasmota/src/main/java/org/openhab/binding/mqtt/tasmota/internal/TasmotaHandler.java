@@ -109,7 +109,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
         updateStatus(ThingStatus.UNKNOWN);
 
-        device.update();
+        device.triggerUpdate();
 
         logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
     }
@@ -121,8 +121,8 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
     @Override
     public void processVariableState(String name, String payload) {
-        switch (name) {
 
+        switch (name) {
             case "POWER":
                 updateState(CHANNEL_SWITCH, payload.equals("ON") ? OnOffType.ON : OnOffType.OFF);
                 break;
@@ -135,6 +135,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 logger.error("processVariableState(): Unknown topic name {}", name);
                 break;
         }
+
         updateStatus(ThingStatus.ONLINE);
     }
 

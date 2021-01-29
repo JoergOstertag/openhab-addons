@@ -152,11 +152,35 @@ public class Device implements MqttMessageSubscriber {
                 listener.processState(parseState(payload));
                 break;
 
+            case "STATUS2":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS3":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS4":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS5":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS6":
+                listener.processState(parseState(payload));
+                break;
+
             case "STATUS7":
                 listener.processState(parseState(payload));
                 break;
 
             case "STATUS8":
+                listener.processState(parseState(payload));
+                break;
+
+            case "STATUS9":
                 listener.processState(parseState(payload));
                 break;
 
@@ -170,8 +194,9 @@ public class Device implements MqttMessageSubscriber {
         }
     }
 
-    public void update() {
+    public void triggerUpdate() {
         publishCommand("STATE", "");
         publishCommand("STATUS", "0");
+        publishCommand("Teleperiond", "");
     }
 }
