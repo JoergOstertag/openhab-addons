@@ -114,13 +114,16 @@ public class Device implements MqttMessageSubscriber {
     }
 
     private void processStateMessage(String name, String payload) {
-        switch (name) {
-            case "RESULT":
-                break;
+        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
+            listener.processState(parseState(payload));
+        } else {
+            switch (name) {
+                case "RESULT":
+                    break;
 
-            default:
-                listener.processVariableState(name, payload);
-
+                default:
+                    listener.processVariableState(name, payload);
+            }
         }
     }
 

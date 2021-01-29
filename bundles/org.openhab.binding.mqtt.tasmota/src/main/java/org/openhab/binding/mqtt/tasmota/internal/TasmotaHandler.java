@@ -131,8 +131,9 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 updateState(CHANNEL_DIMMER, PercentType.valueOf(payload));
                 break;
 
-            default:
+            default: {
                 logger.error("processVariableState(): Unknown topic name {}", name);
+            }
                 break;
         }
 
@@ -141,7 +142,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
     @Override
     public void processTelemetryMessage(String name, String payload) {
-
+        logger.debug("UNHANDLED processTelemetryMessage(name: {}, payload: {})", name, new String(payload));
         updateStatus(ThingStatus.ONLINE);
     }
 
@@ -185,6 +186,12 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             }
         }
 
+        updatePropertiesFromTasmotaState(tasmotaState);
+
+        updateStatus(ThingStatus.ONLINE);
+    }
+
+    private void updatePropertiesFromTasmotaState(TasmotaState tasmotaState) {
         {
             Map<String, Object> properties = PropertyParser.parseProperties(tasmotaState);
             Map<String, String> propertiesString = new HashMap<>();
@@ -192,11 +199,10 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 String propertyName = property.getKey();
                 Object propertyValue = property.getValue();
                 propertiesString.put(propertyName, String.valueOf(propertyValue));
+                logger.debug("updateProperty({},{})", propertyName, String.valueOf(propertyValue));
             }
             updateProperties(propertiesString);
         }
-
-        updateStatus(ThingStatus.ONLINE);
     }
 
     private void updateState(String channelID, Double value) {
