@@ -32,6 +32,6 @@ public class StatusMEM {
     public Integer FlashFrequency; // "40
     public Integer FlashMode; // "3
     public List<String> Features; // "["00000809",...,"00001000"]
-    public List<String> Drivers; // ""1,2,3,4,5,6,7,8,9,10,12,16,18,19,20,21,22,24,26,27,29,30,35,37,45"
-    public List<String> Sensors; // ""1,2,3,4,5,6"}}
+    public String Drivers; // ""1,2,3,4,5,6,7,8,9,10,12,16,18,19,20,21,22,24,26,27,29,30,35,37,45"
+    public String Sensors; // ""1,2,3,4,5,6"}}
 }
