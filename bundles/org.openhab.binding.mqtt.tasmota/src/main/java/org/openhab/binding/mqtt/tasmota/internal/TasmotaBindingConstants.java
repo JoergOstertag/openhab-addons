@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -25,7 +25,8 @@ import org.openhab.core.thing.ThingTypeUID;
 @NonNullByDefault
 public class TasmotaBindingConstants {
 
-    private static final String BINDING_ID = "mqtt";
+    public static final String BINDING_ID = "mqtt";
+    public static final String CHANNEL_TYPE_ID_PREFIX = "tasmota";
 
     // List of all Thing Type UIDs
     public static final ThingTypeUID TASMOTA_MQTT_THING = new ThingTypeUID(BINDING_ID, "tasmota");
