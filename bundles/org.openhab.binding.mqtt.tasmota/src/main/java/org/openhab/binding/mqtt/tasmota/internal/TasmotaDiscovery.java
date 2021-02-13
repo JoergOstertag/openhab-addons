@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -98,7 +98,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         String payloadString = new String(payload);
         TasmotaState tasmotaState = Device.parseState(payloadString);
 
-        Map<String, Object> properties = PropertyParser.parseProperties(tasmotaState);
+        Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
 
         properties.put("deviceid", deviceID);
 
@@ -123,7 +123,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
                 connectionBridge, properties, deviceID);
 
         ThingUID thingUID = new ThingUID(type, connectionBridge, deviceID);
-        // logger.debug("ThingUID: {}", thingUID);
+        logger.debug("thingDiscovered: ThingUID: {}", thingUID);
         thingDiscovered( //
                 DiscoveryResultBuilder.create(thingUID) //
                         .withBridge(connectionBridge) //
@@ -156,7 +156,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             // Status 10, 11
             topic = "cmnd/tasmotas/Status";
             for (Integer i = 10; i <= 11; i++) {
-                final byte[] payload = String.valueOf(11).getBytes();
+                byte[] payload = String.valueOf(11).getBytes();
                 logger.debug("publish topic: {}, {}", topic, i);
                 getDiscoveryService().publish(topic, payload, qos, retain);
             }

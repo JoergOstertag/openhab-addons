@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -25,19 +25,20 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 /**
- *
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
- *
  */
 public class Device implements MqttMessageSubscriber {
 
     public final String deviceID;
 
-    private final Logger logger = LoggerFactory.getLogger(Device.class);
+    private static final Logger logger = LoggerFactory.getLogger(Device.class);
+
     private MqttBrokerConnection connection;
 
     private TasmotaListener listener;
+
+    private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
 
     public Device(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaListener listener) {
         this.deviceID = deviceID;
@@ -77,7 +78,7 @@ public class Device implements MqttMessageSubscriber {
     }
 
     public CompletableFuture<Boolean> publishCommand(String name, String value) {
-        final String topic = getCommandTopic(name);
+        String topic = getCommandTopic(name);
         return publish(topic, value);
     }
 
@@ -108,92 +109,35 @@ public class Device implements MqttMessageSubscriber {
                 break;
 
             case "stat":
-                processStateMessage(name, strPayload);
+                if (name.matches("(STATE|SENSOR|STATUS.*)")) {
+                    listener.processState(parseState(strPayload));
+                } else if ("RESULT".equals(name)) {
+                    // Ignore Rule Results (At least for now)
+                } else {
+                    listener.processVariableState(name, strPayload);
+                }
                 break;
-        }
-    }
-
-    private void processStateMessage(String name, String payload) {
-        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            listener.processState(parseState(payload));
-        } else {
-            switch (name) {
-                case "RESULT":
-                    break;
-
-                default:
-                    listener.processVariableState(name, payload);
-            }
         }
     }
 
     public static @NonNull TasmotaState parseState(String state) {
-        TasmotaState fromJson = gson.fromJson(state, TasmotaState.class);
-        if (null == fromJson) {
-            fromJson = new TasmotaState();
+        TasmotaState tasmotaStateFromJson = null;
+        try {
+            tasmotaStateFromJson = gson.fromJson(state, TasmotaState.class);
+        } catch (Exception ex) {
+            logger.error("Error parsing json: {}", ex.getMessage());
         }
-        return fromJson;
+        if (null == tasmotaStateFromJson) {
+            tasmotaStateFromJson = new TasmotaState();
+        }
+        return tasmotaStateFromJson;
     }
 
-    private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
-
     private void processTelemetryMessage(String name, String payload) {
-        switch (name) {
-            case "STATE":
-                listener.processState(parseState(payload));
-                break;
-
-            case "SENSOR":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS1":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS2":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS3":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS4":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS5":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS6":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS7":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS8":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS9":
-                listener.processState(parseState(payload));
-                break;
-
-            case "STATUS10":
-                listener.processState(parseState(payload));
-                break;
-
-            default:
-                listener.processTelemetryMessage(name, payload);
-                break;
+        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
+            listener.processState(parseState(payload));
+        } else {
+            listener.processTelemetryMessage(name, payload);
         }
     }
 
