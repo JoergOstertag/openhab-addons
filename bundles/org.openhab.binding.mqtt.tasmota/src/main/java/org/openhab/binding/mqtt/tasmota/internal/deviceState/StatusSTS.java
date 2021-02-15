@@ -12,20 +12,17 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import java.util.List;
 
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
- *
  */
-public class StatusSTS {
+public class StatusSTS extends AbstractJsonDTO {
 
     public Integer Heap; // " : 22,
     public Integer LoadAvg; // " : 9,
     public Integer MqttCount; // " : 54,
-    public String POWER; // "OFF",
     public Integer Sleep; // " : 100,
     public String SleepMode; // " : "Dynamic",
     public String Time; // " : "2021-01-15T21:53:26",
@@ -33,8 +30,17 @@ public class StatusSTS {
     public Integer UptimeSec; // " : 221482,
     public Wifi Wifi;
 
-    @Override
-    public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
+    public String Color;
+    public String HSBColor;
+    public List<String> Channel;
+    public String Scheme;
+    public String Fade;
+    public String Speed;
+    public String LedTable;
+
+    public String POWER; // "OFF",
+    public String POWER1;
+    public String POWER2;
+    public String POWER3;
+    public String POWER4;
 }
