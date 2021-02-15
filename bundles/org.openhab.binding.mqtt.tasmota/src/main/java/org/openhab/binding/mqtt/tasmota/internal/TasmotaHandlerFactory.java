@@ -25,7 +25,11 @@ import org.openhab.core.thing.ThingTypeUID;
 import org.openhab.core.thing.binding.BaseThingHandlerFactory;
 import org.openhab.core.thing.binding.ThingHandler;
 import org.openhab.core.thing.binding.ThingHandlerFactory;
+import org.openhab.core.thing.type.ChannelGroupTypeRegistry;
+import org.openhab.core.thing.type.ChannelTypeRegistry;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +48,18 @@ public class TasmotaHandlerFactory extends BaseThingHandlerFactory {
     private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Stream.of(TASMOTA_MQTT_THING)
             .collect(Collectors.toSet());
 
+    private ChannelTypeRegistry channelTypeRegistry;
+    private ChannelGroupTypeRegistry channelGroupTypeRegistry;
+
+    @Activate
+    public TasmotaHandlerFactory( //
+            @Reference ChannelTypeRegistry channelTypeRegistry, //
+            @Reference ChannelGroupTypeRegistry channelGroupTypeRegistry //
+    ) {
+        this.channelTypeRegistry = channelTypeRegistry;
+        this.channelGroupTypeRegistry = channelGroupTypeRegistry;
+    }
+
     @Override
     public boolean supportsThingType(ThingTypeUID thingTypeUID) {
         boolean contains = SUPPORTED_THING_TYPES_UIDS.contains(thingTypeUID);
@@ -58,7 +74,7 @@ public class TasmotaHandlerFactory extends BaseThingHandlerFactory {
         logger.info("createHandler ThingTypeUID({}) Thing: {}", thingTypeUID, thing.getUID().toString());
 
         if (TASMOTA_MQTT_THING.equals(thingTypeUID)) {
-            return new TasmotaHandler(thing);
+            return new TasmotaHandler(thing, channelTypeRegistry);
         }
 
         logger.error("createHandler failed: ThingTypeUID({}) is not a known Type for thing: {}", thingTypeUID, thing);

@@ -115,6 +115,7 @@ public class Device implements MqttMessageSubscriber {
                     // Ignore Rule Results (At least for now)
                 } else {
                     listener.processVariableState(name, strPayload);
+
                 }
                 break;
         }

@@ -51,8 +51,14 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_THING), 3, true, discoverySubscribeTopic);
         logger.debug("Started Tasmota Discovery with topic '" + discoverySubscribeTopic + "'");
         this.discoveryService = discoveryService;
-
+        discoveryService.subscribe(this, "stat/#");
         triggerMqttDiscoverAnswers();
+    }
+
+    @Override
+    protected void stopBackgroundDiscovery() {
+        discoveryService.unsubscribe(this);
+        super.stopBackgroundDiscovery();
     }
 
     @Override
@@ -152,7 +158,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         String topic = "";
 
         // TODO: Deactivated until we also listen for the STATUS Answers
-        if (false) {
+        if (true) {
             // Status 10, 11
             topic = "cmnd/tasmotas/Status";
             for (Integer i = 10; i <= 11; i++) {

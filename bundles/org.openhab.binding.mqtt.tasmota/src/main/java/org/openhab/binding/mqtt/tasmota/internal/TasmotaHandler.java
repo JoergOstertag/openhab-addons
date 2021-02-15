@@ -14,6 +14,7 @@ package org.openhab.binding.mqtt.tasmota.internal;
 
 import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.*;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -23,14 +24,13 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.handler.BrokerHandler;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
-import org.openhab.core.library.types.DecimalType;
-import org.openhab.core.library.types.OnOffType;
-import org.openhab.core.library.types.PercentType;
-import org.openhab.core.library.types.StringType;
+import org.openhab.core.library.types.*;
 import org.openhab.core.thing.*;
 import org.openhab.core.thing.binding.BaseThingHandler;
 import org.openhab.core.thing.binding.builder.ChannelBuilder;
 import org.openhab.core.thing.binding.builder.ThingBuilder;
+import org.openhab.core.thing.type.ChannelType;
+import org.openhab.core.thing.type.ChannelTypeRegistry;
 import org.openhab.core.thing.type.ChannelTypeUID;
 import org.openhab.core.types.Command;
 import org.openhab.core.types.RefreshType;
@@ -49,15 +49,46 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
     private final Logger logger = LoggerFactory.getLogger(TasmotaHandler.class);
 
-    private static boolean skipPropertyUpdateForDebugging = false;
-
     private @Nullable TasmotaConfiguration config;
 
     protected @Nullable Device device;
 
-    public TasmotaHandler(Thing thing) {
+    private final ChannelTypeRegistry channelTypeRegistry;
+
+    public TasmotaHandler(Thing thing, ChannelTypeRegistry channelTypeRegistry) {
         super(thing);
+        this.channelTypeRegistry = channelTypeRegistry;
         logger.debug("Init TasmotaHandler({})", thing);
+    }
+
+    @Override
+    public void initialize() {
+        logger.debug("Start initializing Tsmota Handler -- Bridge: {}, Thing: {}", getBridge(), getThing());
+        config = getConfigAs(TasmotaConfiguration.class);
+
+        Bridge bridge = getBridge();
+        BrokerHandler brokerHandler = (BrokerHandler) bridge.getHandler();
+        MqttBrokerConnection connection = null;
+
+        while (connection == null) {
+            connection = brokerHandler.getConnection();
+            if (null == connection) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                }
+            }
+        }
+
+        logger.debug("Have broker connection: {}", toConnectionString(connection));
+
+        device = new Device(connection, config.deviceid, this);
+
+        updateStatus(ThingStatus.UNKNOWN);
+
+        device.triggerUpdate();
+
+        logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
     }
 
     @Override
@@ -85,36 +116,6 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 device.publishCommand("DIMMER", "" + wantedValue.intValue());
             }
         }
-    }
-
-    @Override
-    public void initialize() {
-        logger.debug("Start initializing Tsmota Handler -- Bridge: {}, Thing: {}", getBridge(), getThing());
-        config = getConfigAs(TasmotaConfiguration.class);
-
-        Bridge bridge = getBridge();
-        BrokerHandler brokerHandler = (BrokerHandler) bridge.getHandler();
-        MqttBrokerConnection connection = null;
-
-        while (connection == null) {
-            connection = brokerHandler.getConnection();
-            if (null == connection) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                }
-            }
-        }
-
-        logger.info("Have broker connection: {}", toConnectionString(connection));
-
-        device = new Device(connection, config.deviceid, this);
-
-        updateStatus(ThingStatus.UNKNOWN);
-
-        device.triggerUpdate();
-
-        logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
     }
 
     private String toConnectionString(MqttBrokerConnection connection) {
@@ -203,7 +204,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
     }
 
     private void updatePropertiesFromTasmotaState(TasmotaState tasmotaState) {
-        if (skipPropertyUpdateForDebugging) {
+        if (TasmotaBindingConstants.skipPropertyUpdateForDebugging) {
             logger.warn("skip PropertyUpdate For Easier Debugging");
         } else {
             Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
@@ -216,36 +217,55 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                     logger.debug("updateProperty({},{})", propertyName, String.valueOf(propertyValue));
                 }
             }
-            updateProperties(propertiesString);
+            try {
+                updateProperties(propertiesString);
+            } catch (Exception ex) {
+                logger.error("Error while updating Propperties: {}", ex.getMessage());
+            }
         }
     }
 
     private void updateChannelsFromTasmotaState(TasmotaState tasmotaState) {
-        logger.debug("updateChannelsFromTasmotaState");
+        logger.trace("updateChannelsFromTasmotaState");
         Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
         for (Entry<String, Object> property : properties.entrySet()) {
             String key = property.getKey();
             Object value = property.getValue();
-            if (null != value) {
-                String name = key.replaceAll("\\.", "_");
-                String description = key.replaceAll("\\.", " ");
-                logger.debug("update Channel(name: {}, description: {}, value: {})", name, description,
-                        String.valueOf(value));
+            if ((!TasmotaBindingConstants.addChannelsForConfigValues) && (key.startsWith("Config."))) {
+                logger.trace("updateChannel: Ignore Config Value of {}, {}", key, value);
+            } else {
+                if (null != value) {
+                    if (key.startsWith("deviceTypeKnown")) {
+                        continue;
+                    }
+                    String name = key.replaceAll("\\.", "_");
+                    String description = key.replaceAll("\\.", " ");
+                    logger.debug("update Channel(name: {}, description: {}, value: {})", name, description,
+                            String.valueOf(value));
 
-                ChannelUID channelUID = new ChannelUID(thing.getUID(), name);
-                addChannelIfMissing(thing, name, description);
-                try {
-                    updateState(channelUID, StringType.valueOf("" + value));
-                } catch (Exception ex) {
-                    logger.error("Error updating Channel Value: {}", ex.getMessage());
+                    ChannelUID channelUID = new ChannelUID(thing.getUID(), name);
+                    addChannelIfMissing(thing, name, description);
+                    try {
+                        if (value.getClass().isInstance(Date.class)) {
+                            updateState(channelUID, DateTimeType.valueOf(("" + value)));
+                        } else if (value.getClass().isInstance(Double.class)) {
+                            updateState(channelUID, DecimalType.valueOf(("" + value)));
+                        } else if (value.getClass().isInstance(Number.class)) {
+                            updateState(channelUID, DecimalType.valueOf(("" + value)));
+                        } else {
+                            updateState(channelUID, StringType.valueOf("" + value));
+                        }
+                    } catch (Exception ex) {
+                        logger.error("Error updating Channel Value: {}", ex.getMessage());
+                    }
+
                 }
-
             }
         }
     }
 
     private void addChannelIfMissing(Thing thing, String name, String description) {
-        logger.debug("addChannelIfMissing(Thing {},name: {}, description: {}) ", thing.getUID(), name, description);
+        logger.trace("addChannelIfMissing(Thing {},name: {}, description: {}) ", thing.getUID(), name, description);
 
         ChannelTypeUID channelTypeUID = new ChannelTypeUID(BINDING_ID, name);
         ChannelUID channelUID = new ChannelUID(thing.getUID(), name);
@@ -258,25 +278,46 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             // debugShowChannels("this.getThing()", this.getThing());
             try {
                 String itemType = "String";
+
+                // Check if ChannelType is already defined. (If print template for user to add to thing-types.xml)
+                if (null != channelTypeRegistry) {
+                    @Nullable
+                    ChannelType channelType = channelTypeRegistry.getChannelType(channelTypeUID);
+                    if (null == channelType) {
+                        logger.debug("Missing channel-type({}): Suggestion to add to thing-type.xml", channelTypeUID);
+                        System.out.println("" //
+                                + " <channel-type id=\"" + name + "\">\n" //
+                                + " \t<item-type>" + itemType + "</item-type>\n" //
+                                + " \t<label>" + description + "</label>\n" //
+                                + " </channel-type>\n" //
+                                + "");
+                        System.out.println();
+                    } else {
+                        @Nullable
+                        String channelItemType = channelType.getItemType();
+                        if (null != channelItemType) {
+                            itemType = channelItemType;
+                        }
+                        String channelTypeDescription = channelType.getDescription();
+                        if (null != channelTypeDescription) {
+                            description = channelTypeDescription;
+                        }
+                    }
+                }
+
                 ChannelBuilder channelBuilder = ChannelBuilder//
-                        .create(channelUID, itemType) //
+                        .create(channelUID) //
                         // .withDescription(description)//
                         .withLabel(description) //
+                        .withAcceptedItemType(itemType) //
                         .withType(channelTypeUID);
                 Channel newChannel = channelBuilder.build();
+
                 ThingBuilder thingBuilder = editThing();
                 thingBuilder.withChannel(newChannel);
                 Thing newThing = thingBuilder.build();
                 updateThing(newThing);
                 // debugShowChannels("new Thing", newThing);
-
-                System.out.println("" //
-                        + "    <channel-type id=\"" + name + "\">\n" //
-                        + "         <item-type>" + itemType + "</item-type>\n" //
-                        + "         <label>" + description + "</label>\n" //
-                        + "    </channel-type>\n" //
-                        + "");
-                System.out.println();
 
             } catch (Exception ex) {
                 logger.error("Error adding channel({}): {},{}", name, ex.getMessage(), ex.getCause());
