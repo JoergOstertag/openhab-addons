@@ -26,7 +26,6 @@ import org.openhab.core.thing.ThingTypeUID;
 public class TasmotaBindingConstants {
 
     public static final String BINDING_ID = "mqtt";
-    public static final String CHANNEL_TYPE_ID_PREFIX = "tasmota";
 
     // List of all Thing Type UIDs
     public static final ThingTypeUID TASMOTA_MQTT_THING = new ThingTypeUID(BINDING_ID, "tasmota");
@@ -35,10 +34,14 @@ public class TasmotaBindingConstants {
     public static final String CHANNEL_SWITCH = "switch";
     public static final String CHANNEL_DIMMER = "dimmer";
 
-    public static final String CHANNEL_TEMPERATURE = "temperature";
-    public static final String CHANNEL_HUMIDITY = "humidity";
-    public static final String CHANNEL_DEWPOINT = "dewpoint";
+    public static final String CHANNEL_TEMPERATURE = "Sensor_DHT11_Temperature";
+    public static final String CHANNEL_HUMIDITY = "Sensor_DHT11_Humidity";
+    public static final String CHANNEL_DEWPOINT = "Sensor_DHT11_dewPoint";
 
-    public static final String CHANNEL_VOLTAGE = "voltage";
-    public static final String CHANNEL_POWER_LOAD = "powerLoad";
+    public static final String CHANNEL_VOLTAGE = "Sensor_ENERGY_Voltage";
+    public static final String CHANNEL_POWER_LOAD = "Sensor_ENERGY_PowerLoad";
+
+    public static boolean addChannelsForConfigValues = false;
+
+    public static boolean skipPropertyUpdateForDebugging = true;
 }

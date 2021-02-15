@@ -15,10 +15,10 @@
 
         <channels>
 
-            <channel id="state" typeId="state"/>
             <!--
-                <channel id="switch" typeId="switch"/>
                 <channel id="dimmer" typeId="dimmer"/>
+                <channel id="state" typeId="state"/>
+                <channel id="switch" typeId="switch"/>
 
                 <channel id="temperature" typeId="temperature"/>
                 <channel id="humidity" typeId="humidity"/>
@@ -306,103 +306,103 @@
 
 
     <channel-type id="Config_StatusLOG_SerialLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG SerialLog</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_SSId">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG SSId</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_TelePeriod">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG TelePeriod</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_Sunset">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM Sunset</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_MqttLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG MqttLog</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_UTC">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM UTC</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_WebLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG WebLog</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_SSId">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG SSId</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_LogPort">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG LogPort</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_TelePeriod">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG TelePeriod</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_Sunset">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM Sunset</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_MqttLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG MqttLog</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_Sunrise">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM Sunrise</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_Sunset">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM Sunset</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_StartDST">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM StartDST</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_Sunrise">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM Sunrise</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusTIM_Local">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusTIM Local</label>
     </channel-type>
 
@@ -504,31 +504,31 @@
 
 
     <channel-type id="Config_StatusLOG_SerialLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG SerialLog</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_SSId">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG SSId</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_TelePeriod">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG TelePeriod</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_MqttLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG MqttLog</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_WebLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG WebLog</label>
     </channel-type>
 
@@ -546,13 +546,13 @@
 
 
     <channel-type id="Config_StatusLOG_SSId">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG SSId</label>
     </channel-type>
 
 
     <channel-type id="Config_StatusLOG_LogPort">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG LogPort</label>
     </channel-type>
 
@@ -564,7 +564,7 @@
 
 
     <channel-type id="Config_StatusLOG_TelePeriod">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG TelePeriod</label>
     </channel-type>
 
@@ -576,7 +576,7 @@
 
 
     <channel-type id="Config_StatusLOG_MqttLog">
-        <item-type>String</item-type>"
+        <item-type>String</item-type>
         <label>Config StatusLOG MqttLog</label>
     </channel-type>
 
@@ -608,6 +608,16 @@
     <channel-type id="Config_StatusLOG_SetOption">
         <item-type>String</item-type>
         <label>Config StatusLOG SetOption</label>
+    </channel-type>
+
+    <channel-type id="Sensor_DS1820_Temperature">
+        <item-type>String</item-type>
+        <label>Sensor DS1820 Temperature</label>
+    </channel-type>
+
+    <channel-type id="Sensor_DS1820_Id">
+        <item-type>String</item-type>
+        <label>Sensor DS1820 Id</label>
     </channel-type>
 
 

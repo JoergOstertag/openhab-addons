@@ -19,15 +19,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
-public class StatusSNS {
-    // {"StatusSNS":{"Time":"2021-01-28T21:14:52",
-    // "ENERGY":{"TotalStartTime":"2020-" ... "Current":0.128}}}
-    public Energy ENERGY;
+public class DS18B20 {
 
-    public DHT11 DHT11;
-    public DS18B20 DS18B20;
-    public String TempUnit;
-    public String Time;
+    public String Id;
+    public Double Temperature;
 
     @Override
     public String toString() {
