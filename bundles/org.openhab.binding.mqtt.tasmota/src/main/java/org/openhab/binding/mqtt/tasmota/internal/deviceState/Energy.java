@@ -9,19 +9,14 @@
  * http://www.eclipse.org/legal/epl-2.0
  *
  * SPDX-License-Identifier: EPL-2.0
- *
- *
  */
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
-
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
-public class Energy {
+public class Energy extends AbstractJsonDTO {
 
     public Integer ApparentPower;
     public Double Current;
@@ -35,9 +30,4 @@ public class Energy {
     public Double Voltage;
     public Double Yesterday;
     public String Time;
-
-    @Override
-    public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
 }

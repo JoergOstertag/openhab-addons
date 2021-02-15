@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- * <p>
+ *
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- * <p>
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- * <p>
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -15,14 +15,10 @@ package org.openhab.binding.mqtt.tasmota.internal;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.jdt.annotation.NonNull;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.io.transport.mqtt.MqttMessageSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /**
  * @author Daan Meijer - Initial contribution
@@ -37,8 +33,6 @@ public class Device implements MqttMessageSubscriber {
     private MqttBrokerConnection connection;
 
     private TasmotaListener listener;
-
-    private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
 
     public Device(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaListener listener) {
         this.deviceID = deviceID;
@@ -103,48 +97,29 @@ public class Device implements MqttMessageSubscriber {
 
         String strPayload = new String(payload);
 
-        switch (base) {
-            case "tele":
-                processTelemetryMessage(name, strPayload);
-                break;
-
-            case "stat":
-                if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-                    listener.processState(parseState(strPayload));
-                } else if ("RESULT".equals(name)) {
-                    // Ignore Rule Results (At least for now)
-                } else {
-                    listener.processVariableState(name, strPayload);
-
-                }
-                break;
-        }
-    }
-
-    public static @NonNull TasmotaState parseState(String state) {
-        TasmotaState tasmotaStateFromJson = null;
-        try {
-            tasmotaStateFromJson = gson.fromJson(state, TasmotaState.class);
-        } catch (Exception ex) {
-            logger.error("Error parsing json: {}", ex.getMessage());
-        }
-        if (null == tasmotaStateFromJson) {
-            tasmotaStateFromJson = new TasmotaState();
-        }
-        return tasmotaStateFromJson;
-    }
-
-    private void processTelemetryMessage(String name, String payload) {
         if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            listener.processState(parseState(payload));
+            listener.processState(DeviceStateParser.parseState(strPayload));
         } else {
-            listener.processTelemetryMessage(name, payload);
+            switch (base) {
+                case "tele":
+                    listener.processTelemetryMessage(name, strPayload);
+                    break;
+
+                case "stat":
+                    if ("RESULT".equals(name)) {
+                        // Ignore Rule Results (At least for now)
+                    } else {
+                        listener.processVariableState(name, strPayload);
+
+                    }
+                    break;
+            }
         }
     }
 
     public void triggerUpdate() {
         publishCommand("STATE", "");
         publishCommand("STATUS", "0");
-        publishCommand("Teleperiond", "");
+        publishCommand("Teleperiod", "");
     }
 }

@@ -9,17 +9,15 @@
  * http://www.eclipse.org/legal/epl-2.0
  *
  * SPDX-License-Identifier: EPL-2.0
- *
- *
  */
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
 
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
- *
  */
-public class StatusMQT {
+public class StatusMQT extends AbstractJsonDTO {
+
     public String MqttHost; // ""10.12.12.22"
     public Integer MqttPort; // 1883
     public String MqttClientMask; // "Client-Pow-1"

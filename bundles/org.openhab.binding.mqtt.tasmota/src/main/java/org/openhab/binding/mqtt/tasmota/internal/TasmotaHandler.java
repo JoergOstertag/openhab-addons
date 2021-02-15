@@ -21,7 +21,11 @@ import java.util.Map.Entry;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
 import org.openhab.binding.mqtt.handler.BrokerHandler;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.DHT11;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.DS18B20;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.Energy;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.library.types.*;
@@ -160,38 +164,61 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
         if (tasmotaState.Dimmer != null) {
             processVariableState("DIMMER", "" + tasmotaState.Dimmer);
         }
+
+        // Power
         if (tasmotaState.POWER != null) {
             processVariableState("POWER", tasmotaState.POWER);
         }
-        if (tasmotaState.Dht11 != null) {
-            if (tasmotaState.Dht11.Temperature != null) {
-                updateState(CHANNEL_TEMPERATURE, tasmotaState.Dht11.Temperature);
-            }
-            if (tasmotaState.Dht11.Humidity != null) {
-                updateState(CHANNEL_HUMIDITY, tasmotaState.Dht11.Humidity);
-            }
-            if (tasmotaState.Dht11.DewPoint != null) {
-                updateState(CHANNEL_DEWPOINT, tasmotaState.Dht11.DewPoint);
+        if (tasmotaState.POWER1 != null) {
+            processVariableState("POWER1", tasmotaState.POWER1);
+        }
+        if (tasmotaState.POWER2 != null) {
+            processVariableState("POWER2", tasmotaState.POWER2);
+        }
+        if (tasmotaState.POWER3 != null) {
+            processVariableState("POWER3", tasmotaState.POWER3);
+        }
+        if (tasmotaState.POWER4 != null) {
+            processVariableState("POWER4", tasmotaState.POWER4);
+        }
+
+        // DS18B20
+        DS18B20 ds18B20 = tasmotaState.DS18B20;
+        if (null == ds18B20 && tasmotaState.StatusSNS != null) {
+            ds18B20 = tasmotaState.StatusSNS.DS18B20;
+        }
+        if (null != ds18B20) {
+            if (ds18B20.Temperature != null) {
+                updateState(CHANNEL_TEMPERATURE, ds18B20.Temperature);
             }
         }
 
-        if (tasmotaState.StatusSNS != null) {
-            if (tasmotaState.StatusSNS.DHT11 != null) {
-                if (tasmotaState.StatusSNS.DHT11.Temperature != null) {
-                    updateState(CHANNEL_TEMPERATURE, tasmotaState.StatusSNS.DHT11.Temperature);
-                }
-                if (tasmotaState.StatusSNS.DHT11.Humidity != null) {
-                    updateState(CHANNEL_HUMIDITY, tasmotaState.StatusSNS.DHT11.Humidity);
-                }
+        // DHT11
+        DHT11 dht11 = tasmotaState.Dht11;
+        if (null == dht11 && tasmotaState.StatusSNS != null) {
+            dht11 = tasmotaState.StatusSNS.DHT11;
+        }
+        if (dht11 != null) {
+            if (dht11.Temperature != null) {
+                updateState(CHANNEL_TEMPERATURE, dht11.Temperature);
+            }
+            if (dht11.Humidity != null) {
+                updateState(CHANNEL_HUMIDITY, dht11.Humidity);
+            }
+            if (dht11.DewPoint != null) {
+                updateState(CHANNEL_DEWPOINT, dht11.DewPoint);
             }
 
         }
-        if (tasmotaState.ENERGY != null) {
-            if (tasmotaState.ENERGY.Voltage != null) {
-                updateState(CHANNEL_VOLTAGE, tasmotaState.ENERGY.Voltage);
+
+        // ENERGY
+        Energy energy = tasmotaState.ENERGY;
+        if (energy != null) {
+            if (energy.Voltage != null) {
+                updateState(CHANNEL_VOLTAGE, energy.Voltage);
             }
-            if (tasmotaState.ENERGY.Power != null) {
-                updateState(CHANNEL_POWER_LOAD, tasmotaState.ENERGY.Power);
+            if (energy.Power != null) {
+                updateState(CHANNEL_POWER_LOAD, energy.Power);
             }
         }
 
@@ -203,20 +230,11 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
         updateState(channelID, DecimalType.valueOf("" + value));
     }
 
-    private void updatePropertiesFromTasmotaState(TasmotaState tasmotaState) {
+    public void updatePropertiesFromTasmotaState(TasmotaState tasmotaState) {
         if (TasmotaBindingConstants.skipPropertyUpdateForDebugging) {
             logger.warn("skip PropertyUpdate For Easier Debugging");
         } else {
-            Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
-            Map<String, String> propertiesString = new HashMap<>();
-            for (Entry<String, Object> property : properties.entrySet()) {
-                String propertyName = property.getKey();
-                Object propertyValue = property.getValue();
-                if (null != propertyValue) {
-                    propertiesString.put(propertyName, String.valueOf(propertyValue));
-                    logger.debug("updateProperty({},{})", propertyName, String.valueOf(propertyValue));
-                }
-            }
+            Map<String, String> propertiesString = getPropertiesStringMap(tasmotaState);
             try {
                 updateProperties(propertiesString);
             } catch (Exception ex) {
@@ -225,14 +243,30 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
         }
     }
 
-    private void updateChannelsFromTasmotaState(TasmotaState tasmotaState) {
-        logger.trace("updateChannelsFromTasmotaState");
+    @NotNull
+    private Map<String, String> getPropertiesStringMap(TasmotaState tasmotaState) {
+        Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
+        Map<String, String> propertiesString = new HashMap<>();
+        for (Entry<String, Object> property : properties.entrySet()) {
+            String propertyName = property.getKey();
+            Object propertyValue = property.getValue();
+            if (null != propertyValue) {
+                propertiesString.put(propertyName, String.valueOf(propertyValue));
+                logger.trace("updateProperty({},{})", propertyName, String.valueOf(propertyValue));
+            }
+        }
+        return propertiesString;
+    }
+
+    public void updateChannelsFromTasmotaState(TasmotaState tasmotaState) {
+        logger.trace("updateChannelsFromTasmotaState ...");
         Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
         for (Entry<String, Object> property : properties.entrySet()) {
             String key = property.getKey();
             Object value = property.getValue();
+            ThingUID thingUID = this.getThing().getUID();
             if ((!TasmotaBindingConstants.addChannelsForConfigValues) && (key.startsWith("Config."))) {
-                logger.trace("updateChannel: Ignore Config Value of {}, {}", key, value);
+                logger.trace("Thing: {}\tupdateChannel: Ignore Config Value( {}, {})", thingUID, key, value);
             } else {
                 if (null != value) {
                     if (key.startsWith("deviceTypeKnown")) {
@@ -240,8 +274,8 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                     }
                     String name = key.replaceAll("\\.", "_");
                     String description = key.replaceAll("\\.", " ");
-                    logger.debug("update Channel(name: {}, description: {}, value: {})", name, description,
-                            String.valueOf(value));
+                    logger.debug("update Channel(Thing: {}, Channel: {}, Description: {}, Value: {})", thingUID, name,
+                            description, String.valueOf(value));
 
                     ChannelUID channelUID = new ChannelUID(thing.getUID(), name);
                     addChannelIfMissing(thing, name, description);
@@ -256,7 +290,9 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                             updateState(channelUID, StringType.valueOf("" + value));
                         }
                     } catch (Exception ex) {
-                        logger.error("Error updating Channel Value: {}", ex.getMessage());
+                        logger.error(
+                                "Error updating Channel(Thing: {}, Channel: {}, Description: {}, Value: {}) ==> Message: {}",
+                                thingUID, name, description, String.valueOf(value), ex.getMessage());
                     }
 
                 }
@@ -305,6 +341,9 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                     }
                 }
 
+                logger.debug("Create new Channel(Thing: {}, ChannelUID: {}, itemType: {}, description: {}, name: {}",
+                        thing.getUID(), itemType, description, name, channelTypeUID);
+
                 ChannelBuilder channelBuilder = ChannelBuilder//
                         .create(channelUID) //
                         // .withDescription(description)//
@@ -320,7 +359,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                 // debugShowChannels("new Thing", newThing);
 
             } catch (Exception ex) {
-                logger.error("Error adding channel({}): {},{}", name, ex.getMessage(), ex.getCause());
+                logger.error("Error adding channel:{}, {}, {} {}", name, ex.getMessage(), ex.getCause(), "");
             }
         }
     }

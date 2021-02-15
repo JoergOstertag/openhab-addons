@@ -1,3 +1,15 @@
+/**
+ * Copyright (c) 2010-2021 Contributors to the openHAB project
+ * <p>
+ * See the NOTICE file(s) distributed with this work for additional
+ * information.
+ * <p>
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ * <p>
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import java.util.HashMap;
@@ -9,16 +21,51 @@ import org.openhab.binding.mqtt.tasmota.internal.deviceState.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.LongSerializationPolicy;
+
+/**
+ * @author Jörg Ostertag - Parse more of the Json responses from Tasmota
+ */
 public class DeviceStateParser {
+
+    private static final Gson gson = new GsonBuilder() //
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss") //
+            .setLongSerializationPolicy(LongSerializationPolicy.DEFAULT) //
+            .create();
 
     private static final Logger logger = LoggerFactory.getLogger(DeviceStateParser.class);
 
     private static boolean onlyLimitedParsingForDebugging = false;
 
+    public static @NonNull TasmotaState parseState(String stateAsJson) {
+        TasmotaState tasmotaStateFromJson = null;
+        try {
+            tasmotaStateFromJson = gson.fromJson(stateAsJson, TasmotaState.class);
+
+            boolean forDebugCheckIfAllIsParsed = false;
+            if (forDebugCheckIfAllIsParsed) {
+                String toJson = gson.toJson(tasmotaStateFromJson);
+                if (Math.abs(stateAsJson.length() - toJson.length()) > 12) {
+                    System.out.println();
+                    System.out.println("in:  " + stateAsJson);
+                    System.out.println("out: " + toJson);
+                    System.out.println();
+                }
+            }
+        } catch (Exception ex) {
+            logger.error("Error parsing json: {}", ex.getMessage());
+        }
+        if (null == tasmotaStateFromJson) {
+            tasmotaStateFromJson = new TasmotaState();
+        }
+        return tasmotaStateFromJson;
+    }
+
     public static Map<@NonNull String, @NonNull Object> stateToHashMap(TasmotaState tasmotaState) {
 
         Map<String, Object> deviceStateMap = new HashMap<>();
-        deviceStateMap.putAll(parseDeviceTypeKnown(tasmotaState));
         deviceStateMap.putAll(parseSensors(tasmotaState));
         deviceStateMap.putAll(parseConfigItems(tasmotaState));
 
@@ -133,8 +180,12 @@ public class DeviceStateParser {
 
         StatusSNS statusSNS = tasmotaState.StatusSNS;
         if (null != statusSNS) {
-            configMap.put("Config.StatusSNS.TempUnit", statusSNS.TempUnit);
-            configMap.put("Config.StatusSNS.Time", statusSNS.Time);
+            if (null != statusSNS.TempUnit) {
+                configMap.put("Config.StatusSNS.TempUnit", statusSNS.TempUnit);
+            }
+            if (statusSNS.Time != null) {
+                configMap.put("Config.StatusSNS.Time", statusSNS.Time);
+            }
         }
 
         StatusSTS statusSTS = tasmotaState.StatusSTS;
@@ -163,14 +214,21 @@ public class DeviceStateParser {
         return configMap;
     }
 
-    public static Map<String, Object> parseDeviceTypeKnown(TasmotaState tasmotaState) {
+    public static boolean parseDeviceTypeKnown(TasmotaState tasmotaState, Map<String, Object> deviceStateMap) {
         boolean deviceKnown = false;
         deviceKnown |= (tasmotaState.Dimmer != null);
         deviceKnown |= (tasmotaState.POWER != null);
+        if (null != tasmotaState.Status) {
+            deviceKnown |= (tasmotaState.Status.Power != null);
+        }
 
-        if (null != tasmotaState.ENERGY) {
-            deviceKnown |= (tasmotaState.ENERGY.Power != null);
-            deviceKnown |= (tasmotaState.ENERGY.Current != null);
+        Energy energy = tasmotaState.ENERGY;
+        if (null == energy && (null != tasmotaState.StatusSNS)) {
+            energy = tasmotaState.StatusSNS.ENERGY;
+        }
+        if (null != energy) {
+            deviceKnown |= (energy.Power != null);
+            deviceKnown |= (energy.Current != null);
         }
 
         DHT11 dht11 = tasmotaState.Dht11;
@@ -189,11 +247,12 @@ public class DeviceStateParser {
             deviceKnown |= (ds18B20.Temperature != null);
         }
 
-        Map<String, Object> deviceStateMap = new HashMap<>();
-        if (deviceKnown) {
-            deviceStateMap.put("deviceTypeKnown", true);
+        for (Map.Entry<String, Object> property : deviceStateMap.entrySet()) {
+            String propertyName = property.getKey();
+            Object propertyValue = property.getValue();
+            deviceKnown |= (propertyName.startsWith("Sensor.") && (null != propertyValue));
         }
-        return deviceStateMap;
+        return deviceKnown;
     }
 
     private static void parseWifi(Map<String, Object> properties, Wifi wifi) {
@@ -219,19 +278,23 @@ public class DeviceStateParser {
             deviceStateMap.put("Sensor.Power", tasmotaState.POWER);
         }
 
-        if (null != tasmotaState.ENERGY) {
-            deviceStateMap.put("Sensor.ENERGY.ApparentPower", tasmotaState.ENERGY.ApparentPower);
-            deviceStateMap.put("Sensor.ENERGY.Current", tasmotaState.ENERGY.Current);
-            deviceStateMap.put("Sensor.ENERGY.Factor", tasmotaState.ENERGY.Factor);
-            deviceStateMap.put("Sensor.ENERGY.Power", tasmotaState.ENERGY.Power);
-            deviceStateMap.put("Sensor.ENERGY.Period", tasmotaState.ENERGY.Period);
-            deviceStateMap.put("Sensor.ENERGY.Time", tasmotaState.ENERGY.Time);
-            deviceStateMap.put("Sensor.ENERGY.Today", tasmotaState.ENERGY.Today);
-            deviceStateMap.put("Sensor.ENERGY.Total", tasmotaState.ENERGY.Total);
-            deviceStateMap.put("Sensor.ENERGY.TotalStartTime", tasmotaState.ENERGY.TotalStartTime);
-            deviceStateMap.put("Sensor.ENERGY.Voltage", tasmotaState.ENERGY.Voltage);
-            deviceStateMap.put("Sensor.ENERGY.Yesterday", tasmotaState.ENERGY.Yesterday);
-            deviceStateMap.put("Sensor.ENERGY.ReactivePower", tasmotaState.ENERGY.ReactivePower);
+        Energy energy = tasmotaState.ENERGY;
+        if (null == energy && null != tasmotaState.StatusSNS) {
+            energy = tasmotaState.StatusSNS.ENERGY;
+        }
+        if (null != energy) {
+            deviceStateMap.put("Sensor.ENERGY.ApparentPower", energy.ApparentPower);
+            deviceStateMap.put("Sensor.ENERGY.Current", energy.Current);
+            deviceStateMap.put("Sensor.ENERGY.Factor", energy.Factor);
+            deviceStateMap.put("Sensor.ENERGY.Power", energy.Power);
+            deviceStateMap.put("Sensor.ENERGY.Period", energy.Period);
+            deviceStateMap.put("Sensor.ENERGY.Time", energy.Time);
+            deviceStateMap.put("Sensor.ENERGY.Today", energy.Today);
+            deviceStateMap.put("Sensor.ENERGY.Total", energy.Total);
+            deviceStateMap.put("Sensor.ENERGY.TotalStartTime", energy.TotalStartTime);
+            deviceStateMap.put("Sensor.ENERGY.Voltage", energy.Voltage);
+            deviceStateMap.put("Sensor.ENERGY.Yesterday", energy.Yesterday);
+            deviceStateMap.put("Sensor.ENERGY.ReactivePower", energy.ReactivePower);
         }
 
         DHT11 dht11 = tasmotaState.Dht11;
@@ -254,5 +317,9 @@ public class DeviceStateParser {
 
         }
         return deviceStateMap;
+    }
+
+    public static TasmotaState parseState(byte[] payload) {
+        return parseState(new String(payload));
     }
 }

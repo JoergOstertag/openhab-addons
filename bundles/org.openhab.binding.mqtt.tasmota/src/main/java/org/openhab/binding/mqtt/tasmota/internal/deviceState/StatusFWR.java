@@ -9,17 +9,14 @@
  * http://www.eclipse.org/legal/epl-2.0
  *
  * SPDX-License-Identifier: EPL-2.0
- *
- *
  */
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
 
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
- *
  */
-public class StatusFWR {
+public class StatusFWR extends AbstractJsonDTO {
 
     public String Version; // ":"9.2.0(tasmota)"
     public String BuildDateTime; // ":"2020-12-21 T15:03:40"

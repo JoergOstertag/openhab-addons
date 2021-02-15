@@ -12,6 +12,8 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
+import static org.openhab.binding.mqtt.tasmota.internal.DeviceStateParser.parseDeviceTypeKnown;
+
 import java.util.Collections;
 import java.util.Map;
 
@@ -20,11 +22,15 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.discovery.AbstractMQTTDiscovery;
 import org.openhab.binding.mqtt.discovery.MQTTTopicDiscoveryService;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
+import org.openhab.core.config.discovery.DiscoveryResult;
 import org.openhab.core.config.discovery.DiscoveryResultBuilder;
 import org.openhab.core.config.discovery.DiscoveryService;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
+import org.openhab.core.thing.Thing;
+import org.openhab.core.thing.ThingRegistry;
 import org.openhab.core.thing.ThingTypeUID;
 import org.openhab.core.thing.ThingUID;
+import org.openhab.core.thing.binding.ThingHandler;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -45,10 +51,13 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     static final String discoverySubscribeTopic = "tele/+/STATE";
     static final String discoveryPublishCommand = "cmnd/tasmotas/Teleperiod";
+    private ThingRegistry thingRegistry;
 
     @Activate
-    public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService) {
+    public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService, //
+            @Reference ThingRegistry thingRegistry) {
         super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_THING), 3, true, discoverySubscribeTopic);
+        this.thingRegistry = thingRegistry;
         logger.debug("Started Tasmota Discovery with topic '" + discoverySubscribeTopic + "'");
         this.discoveryService = discoveryService;
         discoveryService.subscribe(this, "stat/#");
@@ -101,42 +110,52 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
-        String payloadString = new String(payload);
-        TasmotaState tasmotaState = Device.parseState(payloadString);
+        TasmotaState tasmotaState = DeviceStateParser.parseState(payload);
 
-        Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
+        Map<String, Object> deviceStateMap = DeviceStateParser.stateToHashMap(tasmotaState);
 
-        properties.put("deviceid", deviceID);
-
-        if (null == properties.get("deviceTypeKnown")) {
-            logger.info("Cannot recognize Tasmota Device from MQTT-Message. Topic: {} PayLoad: {}", topic,
-                    payloadString);
-            return;
-        }
+        deviceStateMap.put("deviceid", deviceID);
 
         ThingTypeUID thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_THING;
+        ThingUID thingUID = new ThingUID(thingTypeUid, connectionBridge, deviceID);
 
         try {
-            publishDevice(thingTypeUid, connectionBridge, properties, deviceID);
-        } catch (Exception e) {
-            logger.error("Cannot publishDevice: {}", e.getMessage());
-        }
-    }
+            // publishDevice(thingTypeUid, connectionBridge, deviceStateMap, deviceID, tasmotaState);
+            logger.debug("received Message for Device( thing: {}, properties: {}, deviceID: {}", thingUID,
+                    deviceStateMap, deviceID);
 
-    void publishDevice(ThingTypeUID type, ThingUID connectionBridge, Map<String, Object> properties, String deviceID) {
-
-        logger.debug("publishDevice( type: {}, connectionBridge: {}, properties: {}, deviceID: {}", type,
-                connectionBridge, properties, deviceID);
-
-        ThingUID thingUID = new ThingUID(type, connectionBridge, deviceID);
-        logger.debug("thingDiscovered: ThingUID: {}", thingUID);
-        thingDiscovered( //
-                DiscoveryResultBuilder.create(thingUID) //
+            @Nullable
+            Thing existingThing = thingRegistry.get(thingUID);
+            if (null != existingThing) {
+                logger.debug("Discovery: Thing {} already exists: Updating", thingUID);
+                logger.debug("Discovery: Thing {} already exists: Updating", thingUID);
+                @Nullable
+                ThingHandler existingThingHandler = existingThing.getHandler();
+                if (existingThingHandler != null && existingThingHandler.getClass().isInstance(TasmotaHandler.class)) {
+                    TasmotaHandler existingTasmotaHandler = (TasmotaHandler) existingThingHandler;
+                    existingTasmotaHandler.updatePropertiesFromTasmotaState(tasmotaState);
+                    existingTasmotaHandler.updateChannelsFromTasmotaState(tasmotaState);
+                }
+            } else {
+                if (!parseDeviceTypeKnown(tasmotaState, deviceStateMap)) {
+                    logger.info("Cannot fully recognize Tasmota Device from MQTT-Message. Topic: {} PayLoad: {}", topic,
+                            new String(payload));
+                    // return;
+                }
+                logger.debug("New Thing Discovered: ThingUID: {}", thingUID);
+                DiscoveryResult discoveryResult = DiscoveryResultBuilder.create(thingUID) //
                         .withBridge(connectionBridge) //
                         // .withThingType(type) //
-                        .withProperties(properties) //
+                        .withProperties(deviceStateMap) //
                         .withRepresentationProperty("deviceid")//
-                        .withLabel(deviceID).build());
+                        .withLabel(deviceID).build();
+                thingDiscovered(discoveryResult);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Cannot publishDevice({}): {}, {}", thingUID, e.getMessage(), e.getCause());
+        }
     }
 
     @Override
