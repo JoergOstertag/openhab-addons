@@ -1,38 +1,30 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
-
-import com.google.gson.annotations.SerializedName;
 
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
-public class StatusSNS extends AbstractJsonDTO {
-    // {"StatusSNS":{"Time":"2021-01-28T21:14:52",
-    // "ENERGY":{"TotalStartTime":"2020-" ... "Current":0.128}}}
-    public Energy ENERGY;
+public class StatusNETDTO extends AbstractJsonDTO {
 
-    public DHT11 DHT11;
-
-    public ANALOG ANALOG;
-
-    @SerializedName(value = "SHT3X-0x45")
-    public SHT3X_0x45 SHT3X_0x45;
-
-    public DS18B20 DS18B20;
-
-    public String TempUnit;
-
-    public String Time;
+    public String Hostname; // ""ESP-Pow-1"
+    public String IPAddress; // ""192.168.10.201"
+    public String Gateway; // ""10.11.0.1"
+    public String Subnetmask; // ""255.255.0.0"
+    public String DNSServer; // ""10.11.0.1"
+    public String Mac; // ""BC:DD:C2:41:2A:14"
+    public Integer Webserver; // "2
+    public Integer WifiConfig; // "4
+    public String WifiPower; // "17.0}}
 }

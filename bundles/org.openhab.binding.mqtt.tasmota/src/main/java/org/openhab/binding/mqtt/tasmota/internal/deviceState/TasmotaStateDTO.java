@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
-public class TasmotaState extends AbstractJsonDTO {
+public class TasmotaStateDTO extends AbstractJsonDTO {
 
     public String POWER;
     public String POWER1;
@@ -58,32 +58,32 @@ public class TasmotaState extends AbstractJsonDTO {
     public Integer UptimeSec;
     public Integer TelePeriod;
 
-    public Energy ENERGY;
+    public EnergyDTO ENERGY;
 
-    public DS18B20 DS18B20;
+    public Ds18B20DTO DS18B20;
 
-    public ANALOG ANALOG;
+    public AnalogDTO ANALOG;
 
     @SerializedName(value = "Dht11", alternate = "DHT11")
-    public DHT11 Dht11;
+    public Dht11DTO Dht11;
 
     @SerializedName(value = "SHT3X-0x45")
-    public SHT3X_0x45 SHT3X_0x45;
+    public Sht3X_0x45DTO SHT3X_0x45;
 
     public String Event;
 
-    public Wifi Wifi;
+    public WifiDTO Wifi;
 
-    public Status Status;
-    public StatusFWR StatusFWR;
-    public StatusLOG StatusLOG;
-    public StatusMEM StatusMEM;
-    public StatusMQT StatusMQT;
-    public StatusNET StatusNET;
-    public StatusPRM StatusPRM;
-    public StatusPTH StatusPTH;
-    public StatusSNS StatusSNS;
-    public StatusSTS StatusSTS;
-    public StatusSTK StatusSTK;
-    public StatusTIM StatusTIM;
+    public StatusDTO Status;
+    public StatusFWRDTO StatusFWR;
+    public StatusLOGDTO StatusLOG;
+    public StatusMEMDTO StatusMEM;
+    public StatusMQTDTO StatusMQT;
+    public StatusNETDTO StatusNET;
+    public StatusPRMDTO StatusPRM;
+    public StatusPTHDTO StatusPTH;
+    public StatusSNSDTO StatusSNS;
+    public StatusSTSDTO StatusSTS;
+    public StatusSTKDTO StatusSTK;
+    public StatusTIMDTO StatusTIM;
 }

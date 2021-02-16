@@ -21,7 +21,7 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.discovery.AbstractMQTTDiscovery;
 import org.openhab.binding.mqtt.discovery.MQTTTopicDiscoveryService;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaState;
+import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
 import org.openhab.core.config.discovery.DiscoveryResult;
 import org.openhab.core.config.discovery.DiscoveryResultBuilder;
 import org.openhab.core.config.discovery.DiscoveryService;
@@ -110,9 +110,9 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
-        TasmotaState tasmotaState = DeviceStateParser.parseState(payload);
+        TasmotaStateDTO tasmotaStateDTO = DeviceStateParser.parseState(payload);
 
-        Map<String, Object> deviceStateMap = DeviceStateParser.stateToHashMap(tasmotaState);
+        Map<String, Object> deviceStateMap = DeviceStateParser.stateToHashMap(tasmotaStateDTO);
 
         deviceStateMap.put("deviceid", deviceID);
 
@@ -133,11 +133,11 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
                 ThingHandler existingThingHandler = existingThing.getHandler();
                 if (existingThingHandler != null && existingThingHandler.getClass().isInstance(TasmotaHandler.class)) {
                     TasmotaHandler existingTasmotaHandler = (TasmotaHandler) existingThingHandler;
-                    existingTasmotaHandler.updatePropertiesFromTasmotaState(tasmotaState);
-                    existingTasmotaHandler.updateChannelsFromTasmotaState(tasmotaState);
+                    existingTasmotaHandler.updatePropertiesFromTasmotaState(tasmotaStateDTO);
+                    existingTasmotaHandler.updateChannelsFromTasmotaState(tasmotaStateDTO);
                 }
             } else {
-                if (!parseDeviceTypeKnown(tasmotaState, deviceStateMap)) {
+                if (!parseDeviceTypeKnown(tasmotaStateDTO, deviceStateMap)) {
                     logger.info("Cannot fully recognize Tasmota Device from MQTT-Message. Topic: {} PayLoad: {}", topic,
                             new String(payload));
                     // return;

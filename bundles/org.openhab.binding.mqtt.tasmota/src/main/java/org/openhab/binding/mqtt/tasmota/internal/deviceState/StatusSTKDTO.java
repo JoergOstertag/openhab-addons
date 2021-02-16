@@ -18,7 +18,7 @@ import java.util.List;
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
-public class StatusSTK extends AbstractJsonDTO {
+public class StatusSTKDTO extends AbstractJsonDTO {
     public Integer Exception;
     public String Reason;
     public List<String> EPC;

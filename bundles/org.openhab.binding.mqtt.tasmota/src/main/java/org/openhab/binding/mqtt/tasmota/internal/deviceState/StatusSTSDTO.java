@@ -18,7 +18,7 @@ import java.util.List;
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
-public class StatusSTS extends AbstractJsonDTO {
+public class StatusSTSDTO extends AbstractJsonDTO {
 
     public Integer Heap; // " : 22,
     public Integer LoadAvg; // " : 9,
@@ -28,7 +28,7 @@ public class StatusSTS extends AbstractJsonDTO {
     public String Time; // " : "2021-01-15T21:53:26",
     public String Uptime; // " : "2T13:31:22",
     public Integer UptimeSec; // " : 221482,
-    public Wifi Wifi;
+    public WifiDTO Wifi;
 
     public String Color;
     public String HSBColor;
