@@ -39,14 +39,14 @@ public class DeviceStateParser {
 
     private static boolean onlyLimitedParsingForDebugging = false;
 
-    public static @NonNull TasmotaState parseState(String stateAsJson) {
-        TasmotaState tasmotaStateFromJson = null;
+    public static @NonNull TasmotaStateDTO parseState(String stateAsJson) {
+        TasmotaStateDTO tasmotaStateDTOFromJson = null;
         try {
-            tasmotaStateFromJson = gson.fromJson(stateAsJson, TasmotaState.class);
+            tasmotaStateDTOFromJson = gson.fromJson(stateAsJson, TasmotaStateDTO.class);
 
             boolean forDebugCheckIfAllIsParsed = false;
             if (forDebugCheckIfAllIsParsed) {
-                String toJson = gson.toJson(tasmotaStateFromJson);
+                String toJson = gson.toJson(tasmotaStateDTOFromJson);
                 if (Math.abs(stateAsJson.length() - toJson.length()) > 12) {
                     System.out.println();
                     System.out.println("in:  " + stateAsJson);
@@ -57,13 +57,13 @@ public class DeviceStateParser {
         } catch (Exception ex) {
             logger.error("Error parsing json: {}", ex.getMessage());
         }
-        if (null == tasmotaStateFromJson) {
-            tasmotaStateFromJson = new TasmotaState();
+        if (null == tasmotaStateDTOFromJson) {
+            tasmotaStateDTOFromJson = new TasmotaStateDTO();
         }
-        return tasmotaStateFromJson;
+        return tasmotaStateDTOFromJson;
     }
 
-    public static Map<@NonNull String, @NonNull Object> stateToHashMap(TasmotaState tasmotaState) {
+    public static Map<@NonNull String, @NonNull Object> stateToHashMap(TasmotaStateDTO tasmotaState) {
 
         Map<String, Object> deviceStateMap = new HashMap<>();
         deviceStateMap.putAll(parseSensors(tasmotaState));
@@ -73,21 +73,21 @@ public class DeviceStateParser {
     }
 
     @Nullable
-    public static Map<String, Object> parseConfigItems(TasmotaState tasmotaState) {
+    public static Map<String, Object> parseConfigItems(TasmotaStateDTO tasmotaState) {
         Map<String, Object> configMap = new HashMap<>();
         configMap.put("Config.Sleep", tasmotaState.Sleep);
         configMap.put("Config.SleepMode", tasmotaState.SleepMode);
 
-        StatusFWR statusFWR = tasmotaState.StatusFWR;
-        if (null != statusFWR) {
-            configMap.put("Config.StatusFWR.Boot", statusFWR.Boot);
-            configMap.put("Config.StatusFWR.BuildDateTime", statusFWR.BuildDateTime); //
-            configMap.put("Config.StatusFWR.Core", statusFWR.Core);
-            configMap.put("Config.StatusFWR.CpuFrequency", statusFWR.CpuFrequency);
-            configMap.put("Config.StatusFWR.CR", statusFWR.CR);
-            configMap.put("Config.StatusFWR.Hardware", statusFWR.Hardware);
-            configMap.put("Config.StatusFWR.SDK", statusFWR.SDK);
-            configMap.put("Config.StatusFWR.Version", statusFWR.Version); //
+        StatusFWRDTO statusFWRDTO = tasmotaState.StatusFWR;
+        if (null != statusFWRDTO) {
+            configMap.put("Config.StatusFWR.Boot", statusFWRDTO.Boot);
+            configMap.put("Config.StatusFWR.BuildDateTime", statusFWRDTO.BuildDateTime); //
+            configMap.put("Config.StatusFWR.Core", statusFWRDTO.Core);
+            configMap.put("Config.StatusFWR.CpuFrequency", statusFWRDTO.CpuFrequency);
+            configMap.put("Config.StatusFWR.CR", statusFWRDTO.CR);
+            configMap.put("Config.StatusFWR.Hardware", statusFWRDTO.Hardware);
+            configMap.put("Config.StatusFWR.SDK", statusFWRDTO.SDK);
+            configMap.put("Config.StatusFWR.Version", statusFWRDTO.Version); //
         }
 
         if (onlyLimitedParsingForDebugging) {
@@ -95,126 +95,126 @@ public class DeviceStateParser {
             return configMap;
         }
 
-        Wifi wifi = tasmotaState.Wifi;
-        parseWifi(configMap, wifi);
+        WifiDTO wifiDTO = tasmotaState.Wifi;
+        parseWifi(configMap, wifiDTO);
 
-        StatusLOG statusLOG = tasmotaState.StatusLOG;
-        if (null != statusLOG) {
-            configMap.put("Config.StatusLOG.LogHost", statusLOG.LogHost);
-            configMap.put("Config.StatusLOG.LogPort", statusLOG.LogPort);
-            configMap.put("Config.StatusLOG.MqttLog", statusLOG.MqttLog);
-            configMap.put("Config.StatusLOG.Resolution", statusLOG.Resolution);
-            configMap.put("Config.StatusLOG.SerialLog", statusLOG.SerialLog);
-            configMap.put("Config.StatusLOG.SetOption", statusLOG.SetOption);
-            configMap.put("Config.StatusLOG.SSId", statusLOG.SSId);
-            configMap.put("Config.StatusLOG.TelePeriod", statusLOG.TelePeriod);
-            configMap.put("Config.StatusLOG.WebLog", statusLOG.WebLog);
+        StatusLOGDTO statusLOGDTO = tasmotaState.StatusLOG;
+        if (null != statusLOGDTO) {
+            configMap.put("Config.StatusLOG.LogHost", statusLOGDTO.LogHost);
+            configMap.put("Config.StatusLOG.LogPort", statusLOGDTO.LogPort);
+            configMap.put("Config.StatusLOG.MqttLog", statusLOGDTO.MqttLog);
+            configMap.put("Config.StatusLOG.Resolution", statusLOGDTO.Resolution);
+            configMap.put("Config.StatusLOG.SerialLog", statusLOGDTO.SerialLog);
+            configMap.put("Config.StatusLOG.SetOption", statusLOGDTO.SetOption);
+            configMap.put("Config.StatusLOG.SSId", statusLOGDTO.SSId);
+            configMap.put("Config.StatusLOG.TelePeriod", statusLOGDTO.TelePeriod);
+            configMap.put("Config.StatusLOG.WebLog", statusLOGDTO.WebLog);
         }
 
-        StatusMEM statusMEM = tasmotaState.StatusMEM;
-        if (null != statusMEM) {
-            configMap.put("Config.StatusMEM.Drivers", statusMEM.Drivers);
-            configMap.put("Config.StatusMEM.Features", statusMEM.Features);
-            configMap.put("Config.StatusMEM.FlashChipId", statusMEM.FlashChipId);
-            configMap.put("Config.StatusMEM.FlashFrequency", statusMEM.FlashFrequency);
-            configMap.put("Config.StatusMEM.FlashMode", statusMEM.FlashMode);
-            configMap.put("Config.StatusMEM.FlashSize", statusMEM.FlashSize);
-            configMap.put("Config.StatusMEM.Free", statusMEM.Free);
-            configMap.put("Config.StatusMEM.Heap", statusMEM.Heap);
-            configMap.put("Config.StatusMEM.ProgramFlashSize", statusMEM.ProgramFlashSize);
-            configMap.put("Config.StatusMEM.ProgramSize", statusMEM.ProgramSize);
-            configMap.put("Config.StatusMEM.Sensors", statusMEM.Sensors);
+        StatusMEMDTO statusMEMDTO = tasmotaState.StatusMEM;
+        if (null != statusMEMDTO) {
+            configMap.put("Config.StatusMEM.Drivers", statusMEMDTO.Drivers);
+            configMap.put("Config.StatusMEM.Features", statusMEMDTO.Features);
+            configMap.put("Config.StatusMEM.FlashChipId", statusMEMDTO.FlashChipId);
+            configMap.put("Config.StatusMEM.FlashFrequency", statusMEMDTO.FlashFrequency);
+            configMap.put("Config.StatusMEM.FlashMode", statusMEMDTO.FlashMode);
+            configMap.put("Config.StatusMEM.FlashSize", statusMEMDTO.FlashSize);
+            configMap.put("Config.StatusMEM.Free", statusMEMDTO.Free);
+            configMap.put("Config.StatusMEM.Heap", statusMEMDTO.Heap);
+            configMap.put("Config.StatusMEM.ProgramFlashSize", statusMEMDTO.ProgramFlashSize);
+            configMap.put("Config.StatusMEM.ProgramSize", statusMEMDTO.ProgramSize);
+            configMap.put("Config.StatusMEM.Sensors", statusMEMDTO.Sensors);
         }
 
-        StatusMQT statusMQT = tasmotaState.StatusMQT;
-        if (null != statusMQT) {
-            configMap.put("Config.StatusMQT.KEEPALIVE", statusMQT.KEEPALIVE);
-            configMap.put("Config.StatusMQT.MAX_PACKET_SIZE", statusMQT.MAX_PACKET_SIZE);
-            configMap.put("Config.StatusMQT.MqttClient", statusMQT.MqttClient);
-            configMap.put("Config.StatusMQT.MqttClientMask", statusMQT.MqttClientMask);
-            configMap.put("Config.StatusMQT.MqttCount", statusMQT.MqttCount);
-            configMap.put("Config.StatusMQT.MqttHost", statusMQT.MqttHost);
-            configMap.put("Config.StatusMQT.MqttPort", statusMQT.MqttPort);
-            configMap.put("Config.StatusMQT.MqttUser", statusMQT.MqttUser);
+        StatusMQTDTO statusMQTDTO = tasmotaState.StatusMQT;
+        if (null != statusMQTDTO) {
+            configMap.put("Config.StatusMQT.KEEPALIVE", statusMQTDTO.KEEPALIVE);
+            configMap.put("Config.StatusMQT.MAX_PACKET_SIZE", statusMQTDTO.MAX_PACKET_SIZE);
+            configMap.put("Config.StatusMQT.MqttClient", statusMQTDTO.MqttClient);
+            configMap.put("Config.StatusMQT.MqttClientMask", statusMQTDTO.MqttClientMask);
+            configMap.put("Config.StatusMQT.MqttCount", statusMQTDTO.MqttCount);
+            configMap.put("Config.StatusMQT.MqttHost", statusMQTDTO.MqttHost);
+            configMap.put("Config.StatusMQT.MqttPort", statusMQTDTO.MqttPort);
+            configMap.put("Config.StatusMQT.MqttUser", statusMQTDTO.MqttUser);
         }
 
-        StatusNET statusNET = tasmotaState.StatusNET;
-        if (null != statusNET) {
-            configMap.put("Config.StatusNET.DNSServer", statusNET.DNSServer);
-            configMap.put("Config.StatusNET.Gateway", statusNET.Gateway);
-            configMap.put("Config.StatusNET.Hostname", statusNET.Hostname);
-            configMap.put("Config.StatusNET.IPAddress", statusNET.IPAddress);
-            configMap.put("Config.StatusNET.Mac", statusNET.Mac);
-            configMap.put("Config.StatusNET.Subnetmask", statusNET.Subnetmask);
-            configMap.put("Config.StatusNET.Webserver", statusNET.Webserver);
-            configMap.put("Config.StatusNET.WifiConfig", statusNET.WifiConfig);
-            configMap.put("Config.StatusNET.WifiPower", statusNET.WifiPower);
+        StatusNETDTO statusNETDTO = tasmotaState.StatusNET;
+        if (null != statusNETDTO) {
+            configMap.put("Config.StatusNET.DNSServer", statusNETDTO.DNSServer);
+            configMap.put("Config.StatusNET.Gateway", statusNETDTO.Gateway);
+            configMap.put("Config.StatusNET.Hostname", statusNETDTO.Hostname);
+            configMap.put("Config.StatusNET.IPAddress", statusNETDTO.IPAddress);
+            configMap.put("Config.StatusNET.Mac", statusNETDTO.Mac);
+            configMap.put("Config.StatusNET.Subnetmask", statusNETDTO.Subnetmask);
+            configMap.put("Config.StatusNET.Webserver", statusNETDTO.Webserver);
+            configMap.put("Config.StatusNET.WifiConfig", statusNETDTO.WifiConfig);
+            configMap.put("Config.StatusNET.WifiPower", statusNETDTO.WifiPower);
         }
 
-        StatusPRM statusPRM = tasmotaState.StatusPRM;
-        if (null != statusPRM) {
-            configMap.put("Config.StatusPRM.OtaUrl", statusPRM.Baudrate);
-            configMap.put("Config.StatusPRM.BCResetTime", statusPRM.BCResetTime);
-            configMap.put("Config.StatusPRM.BootCount", statusPRM.BootCount);
-            configMap.put("Config.StatusPRM.CfgHolder", statusPRM.CfgHolder);
-            configMap.put("Config.StatusPRM.GroupTopic", statusPRM.GroupTopic);
-            configMap.put("Config.StatusPRM.OtaUrl", statusPRM.OtaUrl);
-            configMap.put("Config.StatusPRM.RestartReason", statusPRM.RestartReason);
-            configMap.put("Config.StatusPRM.SaveAddress", statusPRM.SaveAddress);
-            configMap.put("Config.StatusPRM.SaveCount", statusPRM.SaveCount);
-            configMap.put("Config.StatusPRM.SerialConfig", statusPRM.SerialConfig);
-            configMap.put("Config.StatusPRM.SerialConfig", statusPRM.Sleep);
-            configMap.put("Config.StatusPRM.StartupUTC", statusPRM.StartupUTC);
-            configMap.put("Config.StatusPRM.Uptime", statusPRM.Uptime);
+        StatusPRMDTO statusPRMDTO = tasmotaState.StatusPRM;
+        if (null != statusPRMDTO) {
+            configMap.put("Config.StatusPRM.OtaUrl", statusPRMDTO.Baudrate);
+            configMap.put("Config.StatusPRM.BCResetTime", statusPRMDTO.BCResetTime);
+            configMap.put("Config.StatusPRM.BootCount", statusPRMDTO.BootCount);
+            configMap.put("Config.StatusPRM.CfgHolder", statusPRMDTO.CfgHolder);
+            configMap.put("Config.StatusPRM.GroupTopic", statusPRMDTO.GroupTopic);
+            configMap.put("Config.StatusPRM.OtaUrl", statusPRMDTO.OtaUrl);
+            configMap.put("Config.StatusPRM.RestartReason", statusPRMDTO.RestartReason);
+            configMap.put("Config.StatusPRM.SaveAddress", statusPRMDTO.SaveAddress);
+            configMap.put("Config.StatusPRM.SaveCount", statusPRMDTO.SaveCount);
+            configMap.put("Config.StatusPRM.SerialConfig", statusPRMDTO.SerialConfig);
+            configMap.put("Config.StatusPRM.SerialConfig", statusPRMDTO.Sleep);
+            configMap.put("Config.StatusPRM.StartupUTC", statusPRMDTO.StartupUTC);
+            configMap.put("Config.StatusPRM.Uptime", statusPRMDTO.Uptime);
         }
 
-        StatusPTH statusPTH = tasmotaState.StatusPTH;
-        if (null != statusPTH) {
-            configMap.put("Config.StatusSTS.CurrentHigh", statusPTH.CurrentHigh);
-            configMap.put("Config.StatusSTS.CurrentLow", statusPTH.CurrentLow);
-            configMap.put("Config.StatusSTS.PowerDelta", statusPTH.PowerDelta);
-            configMap.put("Config.StatusSTS.PowerLow", statusPTH.PowerLow);
-            configMap.put("Config.StatusSTS.VoltageHigh", statusPTH.VoltageHigh);
-            configMap.put("Config.StatusSTS.VoltageLow", statusPTH.VoltageLow);
+        StatusPTHDTO statusPTHDTO = tasmotaState.StatusPTH;
+        if (null != statusPTHDTO) {
+            configMap.put("Config.StatusSTS.CurrentHigh", statusPTHDTO.CurrentHigh);
+            configMap.put("Config.StatusSTS.CurrentLow", statusPTHDTO.CurrentLow);
+            configMap.put("Config.StatusSTS.PowerDelta", statusPTHDTO.PowerDelta);
+            configMap.put("Config.StatusSTS.PowerLow", statusPTHDTO.PowerLow);
+            configMap.put("Config.StatusSTS.VoltageHigh", statusPTHDTO.VoltageHigh);
+            configMap.put("Config.StatusSTS.VoltageLow", statusPTHDTO.VoltageLow);
         }
 
-        StatusSNS statusSNS = tasmotaState.StatusSNS;
-        if (null != statusSNS) {
-            if (null != statusSNS.TempUnit) {
-                configMap.put("Config.StatusSNS.TempUnit", statusSNS.TempUnit);
+        StatusSNSDTO statusSNSDTO = tasmotaState.StatusSNS;
+        if (null != statusSNSDTO) {
+            if (null != statusSNSDTO.TempUnit) {
+                configMap.put("Config.StatusSNS.TempUnit", statusSNSDTO.TempUnit);
             }
-            if (statusSNS.Time != null) {
-                configMap.put("Config.StatusSNS.Time", statusSNS.Time);
+            if (statusSNSDTO.Time != null) {
+                configMap.put("Config.StatusSNS.Time", statusSNSDTO.Time);
             }
         }
 
-        StatusSTS statusSTS = tasmotaState.StatusSTS;
-        if (null != statusSTS) {
-            configMap.put("Config.StatusSTS.Heap", statusSTS.Heap);
-            configMap.put("Config.StatusSTS.LoadAvg", statusSTS.LoadAvg);
-            configMap.put("Config.StatusSTS.MqttCount", statusSTS.MqttCount);
-            configMap.put("Config.StatusSTS.Sleep", statusSTS.Sleep);
-            configMap.put("Config.StatusSTS.SleepMode", statusSTS.SleepMode);
-            configMap.put("Config.StatusSTS.Time", statusSTS.Time);
-            configMap.put("Config.StatusSTS.Uptime", statusSTS.Uptime);
-            configMap.put("Config.StatusSTS.UptimeSec", statusSTS.UptimeSec);
-            parseWifi(configMap, statusSTS.Wifi);
+        StatusSTSDTO statusSTSDTO = tasmotaState.StatusSTS;
+        if (null != statusSTSDTO) {
+            configMap.put("Config.StatusSTS.Heap", statusSTSDTO.Heap);
+            configMap.put("Config.StatusSTS.LoadAvg", statusSTSDTO.LoadAvg);
+            configMap.put("Config.StatusSTS.MqttCount", statusSTSDTO.MqttCount);
+            configMap.put("Config.StatusSTS.Sleep", statusSTSDTO.Sleep);
+            configMap.put("Config.StatusSTS.SleepMode", statusSTSDTO.SleepMode);
+            configMap.put("Config.StatusSTS.Time", statusSTSDTO.Time);
+            configMap.put("Config.StatusSTS.Uptime", statusSTSDTO.Uptime);
+            configMap.put("Config.StatusSTS.UptimeSec", statusSTSDTO.UptimeSec);
+            parseWifi(configMap, statusSTSDTO.Wifi);
         }
 
-        StatusTIM statusTIM = tasmotaState.StatusTIM;
-        if (null != statusTIM) {
-            configMap.put("Config.StatusTIM.EndDST", statusTIM.EndDST);
-            configMap.put("Config.StatusTIM.Local", statusTIM.Local);
-            configMap.put("Config.StatusTIM.StartDST", statusTIM.StartDST);
-            configMap.put("Config.StatusTIM.Sunrise", statusTIM.Sunrise);
-            configMap.put("Config.StatusTIM.Sunset", statusTIM.Sunset);
-            configMap.put("Config.StatusTIM.Timezone", statusTIM.Timezone);
-            configMap.put("Config.StatusTIM.UTC", statusTIM.UTC);
+        StatusTIMDTO statusTIMDTO = tasmotaState.StatusTIM;
+        if (null != statusTIMDTO) {
+            configMap.put("Config.StatusTIM.EndDST", statusTIMDTO.EndDST);
+            configMap.put("Config.StatusTIM.Local", statusTIMDTO.Local);
+            configMap.put("Config.StatusTIM.StartDST", statusTIMDTO.StartDST);
+            configMap.put("Config.StatusTIM.Sunrise", statusTIMDTO.Sunrise);
+            configMap.put("Config.StatusTIM.Sunset", statusTIMDTO.Sunset);
+            configMap.put("Config.StatusTIM.Timezone", statusTIMDTO.Timezone);
+            configMap.put("Config.StatusTIM.UTC", statusTIMDTO.UTC);
         }
         return configMap;
     }
 
-    public static boolean parseDeviceTypeKnown(TasmotaState tasmotaState, Map<String, Object> deviceStateMap) {
+    public static boolean parseDeviceTypeKnown(TasmotaStateDTO tasmotaState, Map<String, Object> deviceStateMap) {
         boolean deviceKnown = false;
         deviceKnown |= (tasmotaState.Dimmer != null);
         deviceKnown |= (tasmotaState.POWER != null);
@@ -222,29 +222,29 @@ public class DeviceStateParser {
             deviceKnown |= (tasmotaState.Status.Power != null);
         }
 
-        Energy energy = tasmotaState.ENERGY;
-        if (null == energy && (null != tasmotaState.StatusSNS)) {
-            energy = tasmotaState.StatusSNS.ENERGY;
+        EnergyDTO energyDTO = tasmotaState.ENERGY;
+        if (null == energyDTO && (null != tasmotaState.StatusSNS)) {
+            energyDTO = tasmotaState.StatusSNS.ENERGY;
         }
-        if (null != energy) {
-            deviceKnown |= (energy.Power != null);
-            deviceKnown |= (energy.Current != null);
+        if (null != energyDTO) {
+            deviceKnown |= (energyDTO.Power != null);
+            deviceKnown |= (energyDTO.Current != null);
         }
 
-        DHT11 dht11 = tasmotaState.Dht11;
-        if (null == dht11 && null != tasmotaState.StatusSNS) {
-            dht11 = tasmotaState.StatusSNS.DHT11;
+        Dht11DTO dht11DTO = tasmotaState.Dht11;
+        if (null == dht11DTO && null != tasmotaState.StatusSNS) {
+            dht11DTO = tasmotaState.StatusSNS.DHT11;
         }
-        if (null != dht11) {
-            deviceKnown |= (dht11.Temperature != null);
-            deviceKnown |= (dht11.Humidity != null);
+        if (null != dht11DTO) {
+            deviceKnown |= (dht11DTO.Temperature != null);
+            deviceKnown |= (dht11DTO.Humidity != null);
         }
-        DS18B20 ds18B20 = tasmotaState.DS18B20;
-        if (null == ds18B20 && null != tasmotaState.StatusSNS) {
-            ds18B20 = tasmotaState.StatusSNS.DS18B20;
+        Ds18B20DTO ds18B20DTO = tasmotaState.DS18B20;
+        if (null == ds18B20DTO && null != tasmotaState.StatusSNS) {
+            ds18B20DTO = tasmotaState.StatusSNS.DS18B20;
         }
-        if (null != ds18B20) {
-            deviceKnown |= (ds18B20.Temperature != null);
+        if (null != ds18B20DTO) {
+            deviceKnown |= (ds18B20DTO.Temperature != null);
         }
 
         for (Map.Entry<String, Object> property : deviceStateMap.entrySet()) {
@@ -255,21 +255,21 @@ public class DeviceStateParser {
         return deviceKnown;
     }
 
-    private static void parseWifi(Map<String, Object> properties, Wifi wifi) {
-        if (null != wifi) {
-            properties.put("Config.Wifi.AP", wifi.AP);
-            properties.put("Config.Wifi.BSSId", wifi.BSSId);
-            properties.put("Config.Wifi.Channel", wifi.Channel);
-            properties.put("Config.Wifi.Downtime", wifi.Downtime);
-            properties.put("Config.Wifi.LinkCount", wifi.LinkCount);
-            properties.put("Config.Wifi.wifi.RSSI", wifi.RSSI);
-            properties.put("Config.Wifi.Signal", wifi.Signal);
-            properties.put("Config.Wifi.SSId", wifi.SSId);
+    private static void parseWifi(Map<String, Object> properties, WifiDTO wifiDTO) {
+        if (null != wifiDTO) {
+            properties.put("Config.Wifi.AP", wifiDTO.AP);
+            properties.put("Config.Wifi.BSSId", wifiDTO.BSSId);
+            properties.put("Config.Wifi.Channel", wifiDTO.Channel);
+            properties.put("Config.Wifi.Downtime", wifiDTO.Downtime);
+            properties.put("Config.Wifi.LinkCount", wifiDTO.LinkCount);
+            properties.put("Config.Wifi.wifi.RSSI", wifiDTO.RSSI);
+            properties.put("Config.Wifi.Signal", wifiDTO.Signal);
+            properties.put("Config.Wifi.SSId", wifiDTO.SSId);
 
         }
     }
 
-    public static Map<String, Object> parseSensors(TasmotaState tasmotaState) {
+    public static Map<String, Object> parseSensors(TasmotaStateDTO tasmotaState) {
         Map<String, Object> deviceStateMap = new HashMap<>();
         if (tasmotaState.Dimmer != null) {
             deviceStateMap.put("Sensor.Dimmer", tasmotaState.Dimmer);
@@ -278,48 +278,48 @@ public class DeviceStateParser {
             deviceStateMap.put("Sensor.Power", tasmotaState.POWER);
         }
 
-        Energy energy = tasmotaState.ENERGY;
-        if (null == energy && null != tasmotaState.StatusSNS) {
-            energy = tasmotaState.StatusSNS.ENERGY;
+        EnergyDTO energyDTO = tasmotaState.ENERGY;
+        if (null == energyDTO && null != tasmotaState.StatusSNS) {
+            energyDTO = tasmotaState.StatusSNS.ENERGY;
         }
-        if (null != energy) {
-            deviceStateMap.put("Sensor.ENERGY.ApparentPower", energy.ApparentPower);
-            deviceStateMap.put("Sensor.ENERGY.Current", energy.Current);
-            deviceStateMap.put("Sensor.ENERGY.Factor", energy.Factor);
-            deviceStateMap.put("Sensor.ENERGY.Power", energy.Power);
-            deviceStateMap.put("Sensor.ENERGY.Period", energy.Period);
-            deviceStateMap.put("Sensor.ENERGY.Time", energy.Time);
-            deviceStateMap.put("Sensor.ENERGY.Today", energy.Today);
-            deviceStateMap.put("Sensor.ENERGY.Total", energy.Total);
-            deviceStateMap.put("Sensor.ENERGY.TotalStartTime", energy.TotalStartTime);
-            deviceStateMap.put("Sensor.ENERGY.Voltage", energy.Voltage);
-            deviceStateMap.put("Sensor.ENERGY.Yesterday", energy.Yesterday);
-            deviceStateMap.put("Sensor.ENERGY.ReactivePower", energy.ReactivePower);
-        }
-
-        DHT11 dht11 = tasmotaState.Dht11;
-        if (null == dht11 && null != tasmotaState.StatusSNS) {
-            dht11 = tasmotaState.StatusSNS.DHT11;
-        }
-        if (null != dht11) {
-            deviceStateMap.put("Sensor.DHT11.Temperature", dht11.Temperature);
-            deviceStateMap.put("Sensor.DHT11.DewPoint", dht11.DewPoint);
-            deviceStateMap.put("Sensor.DHT11.Humidity", dht11.Humidity);
+        if (null != energyDTO) {
+            deviceStateMap.put("Sensor.ENERGY.ApparentPower", energyDTO.ApparentPower);
+            deviceStateMap.put("Sensor.ENERGY.Current", energyDTO.Current);
+            deviceStateMap.put("Sensor.ENERGY.Factor", energyDTO.Factor);
+            deviceStateMap.put("Sensor.ENERGY.Power", energyDTO.Power);
+            deviceStateMap.put("Sensor.ENERGY.Period", energyDTO.Period);
+            deviceStateMap.put("Sensor.ENERGY.Time", energyDTO.Time);
+            deviceStateMap.put("Sensor.ENERGY.Today", energyDTO.Today);
+            deviceStateMap.put("Sensor.ENERGY.Total", energyDTO.Total);
+            deviceStateMap.put("Sensor.ENERGY.TotalStartTime", energyDTO.TotalStartTime);
+            deviceStateMap.put("Sensor.ENERGY.Voltage", energyDTO.Voltage);
+            deviceStateMap.put("Sensor.ENERGY.Yesterday", energyDTO.Yesterday);
+            deviceStateMap.put("Sensor.ENERGY.ReactivePower", energyDTO.ReactivePower);
         }
 
-        DS18B20 ds18B20 = tasmotaState.DS18B20;
-        if (null == ds18B20 && null != tasmotaState.StatusSNS) {
-            ds18B20 = tasmotaState.StatusSNS.DS18B20;
+        Dht11DTO dht11DTO = tasmotaState.Dht11;
+        if (null == dht11DTO && null != tasmotaState.StatusSNS) {
+            dht11DTO = tasmotaState.StatusSNS.DHT11;
         }
-        if (null != ds18B20) {
-            deviceStateMap.put("Sensor.DS1820.Temperature", ds18B20.Temperature);
-            deviceStateMap.put("Sensor.DS1820.Id", ds18B20.Id);
+        if (null != dht11DTO) {
+            deviceStateMap.put("Sensor.DHT11.Temperature", dht11DTO.Temperature);
+            deviceStateMap.put("Sensor.DHT11.DewPoint", dht11DTO.DewPoint);
+            deviceStateMap.put("Sensor.DHT11.Humidity", dht11DTO.Humidity);
+        }
+
+        Ds18B20DTO ds18B20DTO = tasmotaState.DS18B20;
+        if (null == ds18B20DTO && null != tasmotaState.StatusSNS) {
+            ds18B20DTO = tasmotaState.StatusSNS.DS18B20;
+        }
+        if (null != ds18B20DTO) {
+            deviceStateMap.put("Sensor.DS1820.Temperature", ds18B20DTO.Temperature);
+            deviceStateMap.put("Sensor.DS1820.Id", ds18B20DTO.Id);
 
         }
         return deviceStateMap;
     }
 
-    public static TasmotaState parseState(byte[] payload) {
+    public static TasmotaStateDTO parseState(byte[] payload) {
         return parseState(new String(payload));
     }
 }
