@@ -158,6 +158,7 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
 
     @Override
     public void processState(TasmotaStateDTO tasmotaState) {
+        updateStatus(ThingStatus.ONLINE);
         updatePropertiesFromTasmotaState(tasmotaState);
         updateChannelsFromTasmotaState(tasmotaState);
 
@@ -181,11 +182,11 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
         if (tasmotaState.POWER4 != null) {
             processVariableState("POWER4", tasmotaState.POWER4);
         }
-
         // DS18B20
         Ds18B20DTO ds18B20DTO = tasmotaState.DS18B20;
         if (null == ds18B20DTO && tasmotaState.StatusSNS != null) {
             ds18B20DTO = tasmotaState.StatusSNS.DS18B20;
+
         }
         if (null != ds18B20DTO) {
             if (ds18B20DTO.Temperature != null) {
@@ -220,8 +221,15 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             if (energyDTO.Power != null) {
                 updateState(CHANNEL_POWER_LOAD, energyDTO.Power);
             }
+
         }
 
+        updateStatus(ThingStatus.ONLINE);
+    }
+
+    public void updateExistingThing(TasmotaStateDTO tasmotaStateDTO) {
+        updatePropertiesFromTasmotaState(tasmotaStateDTO);
+        updateChannelsFromTasmotaState(tasmotaStateDTO);
         updateStatus(ThingStatus.ONLINE);
     }
 
@@ -274,8 +282,8 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
                     }
                     String name = key.replaceAll("\\.", "_");
                     String description = key.replaceAll("\\.", " ");
-                    logger.debug("update Channel(Thing: {}, Channel: {}, Description: {}, Value: {})", thingUID, name,
-                            description, String.valueOf(value));
+                    logger.debug("update Channel(Thing: {}, Channel: {}, Description: {}, Value({}): {})", thingUID,
+                            name, description, value.getClass().getSimpleName(), String.valueOf(value));
 
                     ChannelUID channelUID = new ChannelUID(thing.getUID(), name);
                     addChannelIfMissing(thing, name, description);
@@ -371,5 +379,18 @@ public class TasmotaHandler extends BaseThingHandler implements TasmotaListener 
             logger.debug("            Channel: UID {}, ChanneltypeUID: {}", channel.getUID(),
                     channel.getChannelTypeUID());
         });
+    }
+
+    /**
+     * @param topic A topic like "tele/office/STATE"
+     * @param payload
+     * @return Returns the "office" part of the example
+     */
+    public static @Nullable String extractDeviceID(String topic, byte[] payload) {
+        String[] strings = topic.split("/");
+        if (strings.length > 2) {
+            return strings[1];
+        }
+        return null;
     }
 }

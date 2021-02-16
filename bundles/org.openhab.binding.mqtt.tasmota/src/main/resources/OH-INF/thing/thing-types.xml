@@ -737,24 +737,20 @@
 		<label>Sensor ENERGY Voltage</label>
 	</channel-type>
 
-
 	<channel-type id="Sensor_ENERGY_ReactivePower">
 		<item-type>String</item-type>
 		<label>Sensor ENERGY ReactivePower</label>
 	</channel-type>
-
 
 	<channel-type id="Sensor_ENERGY_Current">
 		<item-type>String</item-type>
 		<label>Sensor ENERGY Current</label>
 	</channel-type>
 
-
 	<channel-type id="Sensor_ENERGY_Factor">
 		<item-type>String</item-type>
 		<label>Sensor ENERGY Factor</label>
 	</channel-type>
-
 
 	<channel-type id="Sensor_ENERGY_Today">
 		<item-type>String</item-type>
@@ -766,11 +762,6 @@
 		<item-type>String</item-type>
 		<label>Sensor ENERGY Yesterday</label>
 	</channel-type>
-	<channel-type id="Sensor_DHT11_Humidity">
-		<item-type>String</item-type>
-		<label>Sensor DHT11 Humidity</label>
-	</channel-type>
-
 
 	<channel-type id="Sensor_DHT11_DewPoint">
 		<item-type>String</item-type>
@@ -783,17 +774,14 @@
 		<label>Sensor DHT11 Temperature</label>
 	</channel-type>
 
-
 	<channel-type id="Sensor_DHT11_Humidity">
 		<item-type>String</item-type>
 		<label>Sensor DHT11 Humidity</label>
 	</channel-type>
 
-
 	<channel-type id="Sensor_Dimmer">
 		<item-type>String</item-type>
 		<label>Sensor Dimmer</label>
 	</channel-type>
-
 
 </thing:thing-descriptions>

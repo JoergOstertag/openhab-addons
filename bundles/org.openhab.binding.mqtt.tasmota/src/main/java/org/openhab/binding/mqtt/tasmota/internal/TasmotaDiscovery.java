@@ -49,18 +49,21 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     protected final MQTTTopicDiscoveryService discoveryService;
 
-    static final String discoverySubscribeTopic = "tele/+/STATE";
-    static final String discoveryPublishCommand = "cmnd/tasmotas/Teleperiod";
+    static final String discoverySubscribeTopic1 = "tele/+/STATE";
+    static final String discoverySubscribeTopic2 = "stat/#";
+    static final String discoverySubscribeTopic3 = "tasmota/discovery/+/config";
     private ThingRegistry thingRegistry;
 
     @Activate
     public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService, //
             @Reference ThingRegistry thingRegistry) {
-        super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_THING), 3, true, discoverySubscribeTopic);
+        super(Collections.singleton(TasmotaBindingConstants.TASMOTA_MQTT_THING), 3, true, discoverySubscribeTopic1);
         this.thingRegistry = thingRegistry;
-        logger.debug("Started Tasmota Discovery with topic '" + discoverySubscribeTopic + "'");
+        logger.debug("Started Tasmota Discovery with topic '" + discoverySubscribeTopic1 + "'");
         this.discoveryService = discoveryService;
-        discoveryService.subscribe(this, "stat/#");
+
+        discoveryService.subscribe(this, discoverySubscribeTopic2);
+        discoveryService.subscribe(this, discoverySubscribeTopic3);
         triggerMqttDiscoverAnswers();
     }
 
@@ -73,18 +76,6 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
     @Override
     protected MQTTTopicDiscoveryService getDiscoveryService() {
         return discoveryService;
-    }
-
-    /**
-     * @param topic A topic like "tele/office/STATE"
-     * @return Returns the "office" part of the example
-     */
-    public static @Nullable String extractDeviceID(String topic) {
-        String[] strings = topic.split("/");
-        if (strings.length > 2) {
-            return strings[1];
-        }
-        return null;
     }
 
     @Override
@@ -104,9 +95,14 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         // new String(payload));
         resetTimeout();
 
-        String deviceID = extractDeviceID(topic);
+        String deviceID = TasmotaHandler.extractDeviceID(topic, payload);
         if (deviceID == null) {
             logger.warn("Found tasmota device, but could not extract device ID from {}.", topic);
+            return;
+        }
+
+        if (topic.startsWith("tasmota/discovery/")) {
+            logger.warn("Tasmota discovery topic not supported yet: Topic: {}", topic);
             return;
         }
 
@@ -128,13 +124,14 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             Thing existingThing = thingRegistry.get(thingUID);
             if (null != existingThing) {
                 logger.debug("Discovery: Thing {} already exists: Updating", thingUID);
-                logger.debug("Discovery: Thing {} already exists: Updating", thingUID);
                 @Nullable
                 ThingHandler existingThingHandler = existingThing.getHandler();
                 if (existingThingHandler != null && existingThingHandler.getClass().isInstance(TasmotaHandler.class)) {
                     TasmotaHandler existingTasmotaHandler = (TasmotaHandler) existingThingHandler;
-                    existingTasmotaHandler.updatePropertiesFromTasmotaState(tasmotaStateDTO);
-                    existingTasmotaHandler.updateChannelsFromTasmotaState(tasmotaStateDTO);
+                    existingTasmotaHandler.updateExistingThing(tasmotaStateDTO);
+                } else {
+                    logger.warn("Discovery: Thing {} missing Thing Handler", thingUID);
+
                 }
             } else {
                 if (!parseDeviceTypeKnown(tasmotaStateDTO, deviceStateMap)) {
@@ -160,13 +157,13 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     @Override
     public void topicVanished(ThingUID connectionBridge, MqttBrokerConnection connection, String topic) {
-        String deviceID = extractDeviceID(topic);
+        String deviceID = TasmotaHandler.extractDeviceID(topic, new byte[0]);
         if (deviceID == null) {
             return;
         }
 
         ThingUID thingUID = new ThingUID(TasmotaBindingConstants.TASMOTA_MQTT_THING, connectionBridge, deviceID);
-
+        logger.info("Topic Vanished Remove Thing: {}", thingUID);
         thingRemoved(thingUID);
     }
 
