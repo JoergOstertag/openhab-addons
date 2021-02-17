@@ -25,10 +25,10 @@ public class TasmotaDiscoveryDTO extends AbstractJsonDTO {
     public String ip; // "192.168.10.103"
 
     @SerializedName(value = "dn")
-    public String dName; // "x3"
+    public String deviceName; // "x3"
 
     @SerializedName(value = "fn")
-    public List<String> fName; // ["Basic-3 x3",null,null,null,null,null,null,null]
+    public List<String> friendlyName; // ["Basic-3 x3",null,null,null,null,null,null,null]
 
     @SerializedName(value = "hn")
     public String hName; // "ESP-Basic-3"
@@ -45,9 +45,15 @@ public class TasmotaDiscoveryDTO extends AbstractJsonDTO {
 
     public String ofln; // "Offline"
     public String onln; // "Online"
+
+    @SerializedName(value = "state")
     public String state; // ["OFF","ON","TOGGLE","HOLD"]
+
+    @SerializedName(value = "sw")
     public String sw; // "9.2.0"
-    public String t; // "Basic-3"
+
+    @SerializedName(value = "t")
+    public String topic; // "Basic-3"
 
     @SerializedName(value = "ft")
     public String fullTopic; // "%prefix%/%topic%/"

@@ -95,7 +95,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         // new String(payload));
         resetTimeout();
 
-        String deviceID = TasmotaHandler.extractDeviceID(topic, payload);
+        String deviceID = TasmotaHandlerImpl.extractDeviceID(topic, payload);
         if (deviceID == null) {
             logger.warn("Found tasmota device, but could not extract device ID from {}.", topic);
             return;
@@ -126,12 +126,16 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
                 logger.debug("Discovery: Thing {} already exists: Updating", thingUID);
                 @Nullable
                 ThingHandler existingThingHandler = existingThing.getHandler();
-                if (existingThingHandler != null && existingThingHandler.getClass().isInstance(TasmotaHandler.class)) {
-                    TasmotaHandler existingTasmotaHandler = (TasmotaHandler) existingThingHandler;
-                    existingTasmotaHandler.updateExistingThing(tasmotaStateDTO);
+                if (existingThingHandler != null) {
+                    if (existingThingHandler instanceof TasmotaHandler) {
+                        TasmotaHandler existingTasmotaHandler = (TasmotaHandlerImpl) existingThingHandler;
+                        existingTasmotaHandler.updateExistingThing(tasmotaStateDTO);
+                    } else {
+                        logger.warn("Discovery: Thing {} wrong type ({}) of Thing Handler", thingUID,
+                                existingThingHandler.getClass().getSimpleName());
+                    }
                 } else {
                     logger.warn("Discovery: Thing {} missing Thing Handler", thingUID);
-
                 }
             } else {
                 if (!parseDeviceTypeKnown(tasmotaStateDTO, deviceStateMap)) {
@@ -157,7 +161,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     @Override
     public void topicVanished(ThingUID connectionBridge, MqttBrokerConnection connection, String topic) {
-        String deviceID = TasmotaHandler.extractDeviceID(topic, new byte[0]);
+        String deviceID = TasmotaHandlerImpl.extractDeviceID(topic, new byte[0]);
         if (deviceID == null) {
             return;
         }
