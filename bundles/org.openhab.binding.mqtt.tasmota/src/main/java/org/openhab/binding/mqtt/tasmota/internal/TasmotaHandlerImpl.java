@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
 import org.jetbrains.annotations.NotNull;
@@ -383,7 +384,8 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     }
 
     @Override
-    public void processMessage(String topic, byte[] payload) {
+    public void processMessage(@NonNull String topic, @NonNull String payload) {
+        logger.debug("processMessage(topic: {}, payload: {}", topic, payload);
 
         String[] parts = topic.split("/");
         if (parts.length != 3) {
@@ -395,21 +397,19 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         String deviceId = parts[1];
         String name = parts[2];
 
-        String strPayload = new String(payload);
-
         if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            processState(DeviceStateParser.parseState(strPayload));
+            processState(DeviceStateParser.parseState(payload));
         } else {
             switch (base) {
                 case "tele":
-                    processTelemetryMessage(name, strPayload);
+                    processTelemetryMessage(name, payload);
                     break;
 
                 case "stat":
                     if ("RESULT".equals(name)) {
                         // Ignore Rule Results (At least for now)
                     } else {
-                        processVariableState(name, strPayload);
+                        processVariableState(name, payload);
                     }
                     break;
             }

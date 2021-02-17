@@ -13,7 +13,6 @@
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import org.eclipse.jdt.annotation.NonNull;
-import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
 
 /**
@@ -30,5 +29,5 @@ public interface TasmotaHandler {
 
     void updateExistingThing(@NonNull TasmotaStateDTO tasmotaStateDTO);
 
-    void processMessage(@NonNull String topic, @Nullable byte[] payload);
+    void processMessage(@NonNull String topic, @NonNull String payload);
 }

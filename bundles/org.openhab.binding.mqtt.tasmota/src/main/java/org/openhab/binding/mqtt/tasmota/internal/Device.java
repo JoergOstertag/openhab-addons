@@ -84,8 +84,7 @@ public class Device implements MqttMessageSubscriber {
 
     @Override
     public void processMessage(String topic, byte[] payload) {
-        logger.debug("processMessage(topic: {}, payload: {}", topic, new String(payload));
-        tasmotaHandler.processMessage(topic, payload);
+        tasmotaHandler.processMessage(topic, new String(payload));
     }
 
     public void triggerUpdate() {

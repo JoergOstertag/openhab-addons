@@ -316,6 +316,41 @@ public class DeviceStateParser {
             deviceStateMap.put("Sensor.DS1820.Id", ds18B20DTO.Id);
 
         }
+
+        if (null != tasmotaState.POWER) {
+            deviceStateMap.put("Sensor.POWER", tasmotaState.POWER);
+        }
+        if (null != tasmotaState.POWER1) {
+            deviceStateMap.put("Sensor.POWER1", tasmotaState.POWER1);
+        }
+        if (null != tasmotaState.POWER2) {
+            deviceStateMap.put("Sensor.POWER2", tasmotaState.POWER2);
+        }
+        if (null != tasmotaState.POWER3) {
+            deviceStateMap.put("Sensor.POWER3", tasmotaState.POWER3);
+        }
+        if (null != tasmotaState.POWER4) {
+            deviceStateMap.put("Sensor.POWER4", tasmotaState.POWER4);
+        }
+
+        if (null != tasmotaState.StatusSTS) {
+            if (null != tasmotaState.StatusSTS.POWER) {
+                deviceStateMap.put("Sensor.POWER", tasmotaState.StatusSTS.POWER);
+            }
+            if (null != tasmotaState.StatusSTS.POWER1) {
+                deviceStateMap.put("Sensor.POWER1", tasmotaState.StatusSTS.POWER1);
+            }
+            if (null != tasmotaState.StatusSTS.POWER2) {
+                deviceStateMap.put("Sensor.POWER2", tasmotaState.StatusSTS.POWER2);
+            }
+            if (null != tasmotaState.StatusSTS.POWER3) {
+                deviceStateMap.put("Sensor.POWER3", tasmotaState.StatusSTS.POWER3);
+            }
+            if (null != tasmotaState.StatusSTS.POWER4) {
+                deviceStateMap.put("Sensor.POWER4", tasmotaState.StatusSTS.POWER4);
+            }
+        }
+
         return deviceStateMap;
     }
 
