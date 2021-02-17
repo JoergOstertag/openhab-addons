@@ -32,12 +32,12 @@ public class Device implements MqttMessageSubscriber {
 
     private MqttBrokerConnection connection;
 
-    private TasmotaListener listener;
+    private TasmotaHandler tasmotaHandler;
 
-    public Device(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaListener listener) {
+    public Device(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaHandler tasmotaHandler) {
         this.deviceID = deviceID;
         this.connection = connection;
-        this.listener = listener;
+        this.tasmotaHandler = tasmotaHandler;
 
         connection.subscribe(getTelemetryTopic("STATE"), this);
         connection.subscribe(getTelemetryTopic("SENSOR"), this);
@@ -85,37 +85,7 @@ public class Device implements MqttMessageSubscriber {
     @Override
     public void processMessage(String topic, byte[] payload) {
         logger.debug("processMessage(topic: {}, payload: {}", topic, new String(payload));
-
-        String[] parts = topic.split("/");
-        if (parts.length != 3) {
-            logger.warn("Unknown topic format: {}", topic);
-            return;
-        }
-
-        String base = parts[0];
-        String deviceId = parts[1];
-        String name = parts[2];
-
-        String strPayload = new String(payload);
-
-        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            listener.processState(DeviceStateParser.parseState(strPayload));
-        } else {
-            switch (base) {
-                case "tele":
-                    listener.processTelemetryMessage(name, strPayload);
-                    break;
-
-                case "stat":
-                    if ("RESULT".equals(name)) {
-                        // Ignore Rule Results (At least for now)
-                    } else {
-                        listener.processVariableState(name, strPayload);
-
-                    }
-                    break;
-            }
-        }
+        tasmotaHandler.processMessage(topic, payload);
     }
 
     public void triggerUpdate() {
