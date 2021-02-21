@@ -98,23 +98,13 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         // new String(payload));
         resetTimeout();
 
-        String deviceID = TasmotaHandlerImpl.extractDeviceID(topic, payload);
+        String deviceID = MqttMessageParser.extractDeviceID(topic, payload);
         if (deviceID == null) {
             logger.warn("Found tasmota device, but could not extract device ID from {}.", topic);
             return;
         }
         ThingTypeUID thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_THING;
         ThingUID thingUID = new ThingUID(thingTypeUid, connectionBridge, deviceID);
-
-        if (topic.startsWith("tasmota/discovery/")) {
-            logger.warn("Tasmota discovery topic not supported yet: Topic: {}", topic);
-            return;
-        }
-
-        if (debugLimitDiscovery && !topic.contains("Basic-3")) {
-            logger.warn("DEVELOP MODE: Tasmota discovery topic ignored: Topic: {}", topic);
-            return;
-        }
 
         @Nullable
         Thing existingThing = thingRegistry.get(thingUID);
@@ -134,13 +124,20 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             deviceStateMap = new HashMap<>();
             discoveryPropertyCache.put(thingUID, deviceStateMap);
         }
-
-        // XXX: we have to distinguish between Json payload an simple payload
-        // Probably move this to the TasmotaHandlerImpl
-        TasmotaStateDTO tasmotaStateDTO = DeviceStateParser.parseState(topic, payload);
-
         deviceStateMap.put("deviceid", deviceID);
-        deviceStateMap.putAll(DeviceStateParser.getPropertiesStringMap(tasmotaStateDTO));
+
+        if (!topic.startsWith("tasmota/discovery/")) {
+            // XXX: we have to distinguish between Json payload an simple payload
+            // Probably move this to the TasmotaHandlerImpl
+            TasmotaStateDTO tasmotaStateDTO = MqttMessageParser.parseMessage(topic, payload);
+
+            deviceStateMap.putAll(MqttMessageParser.getPropertiesStringMap(tasmotaStateDTO));
+        }
+
+        if (debugLimitDiscovery && !deviceID.contains("Basic-3")) {
+            logger.warn("DEVELOP MODE: Tasmota discovery topic ignored: Topic: {}", topic);
+            return;
+        }
 
         try {
             // publishDevice(thingTypeUid, connectionBridge, deviceStateMap, deviceID, tasmotaState);
@@ -162,7 +159,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     @Override
     public void topicVanished(ThingUID connectionBridge, MqttBrokerConnection connection, String topic) {
-        String deviceID = TasmotaHandlerImpl.extractDeviceID(topic, new byte[0]);
+        String deviceID = MqttMessageParser.extractDeviceID(topic, new byte[0]);
         if (deviceID == null) {
             return;
         }
