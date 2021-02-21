@@ -43,6 +43,8 @@ public class TasmotaBindingConstants {
 
     public static boolean addChannelsForConfigValues = false;
 
-    public static boolean debugSkipPropertyUpdate = "TRUE".equals(System.getenv("OH_DEBUUG_MODE"));
-    public static boolean debugLimitDiscovery = "TRUE".equals(System.getenv("OH_DEBUUG_MODE"));
+    public static boolean debugSkipPropertyUpdate = false;
+    public static boolean debugLimitDiscovery = false;
+//    public static boolean debugSkipPropertyUpdate = true;
+//    public static boolean debugLimitDiscovery = true;
 }
