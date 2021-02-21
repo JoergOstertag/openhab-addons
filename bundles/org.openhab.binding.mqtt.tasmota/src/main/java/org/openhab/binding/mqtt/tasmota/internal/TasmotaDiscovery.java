@@ -16,6 +16,7 @@ import static org.openhab.binding.mqtt.tasmota.internal.DeviceStateParser.parseD
 import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugLimitDiscovery;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
@@ -56,6 +57,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
     static final String discoverySubscribeTopic2 = "stat/#";
     static final String discoverySubscribeTopic3 = "tasmota/discovery/+/config";
     private ThingRegistry thingRegistry;
+    private static Map<ThingUID, Map<String, Object>> discoveryPropertyCache = new HashMap<>();
 
     @Activate
     public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService, //
@@ -103,6 +105,8 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             logger.warn("Found tasmota device, but could not extract device ID from {}.", topic);
             return;
         }
+        ThingTypeUID thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_THING;
+        ThingUID thingUID = new ThingUID(thingTypeUid, connectionBridge, deviceID);
 
         if (topic.startsWith("tasmota/discovery/")) {
             logger.warn("Tasmota discovery topic not supported yet: Topic: {}", topic);
@@ -114,16 +118,19 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
+        Map<String, Object> deviceStateMap = discoveryPropertyCache.get(thingUID);
+        if (null != deviceStateMap) {
+            logger.debug("Updating discovered Thing: {}", thingUID);
+        } else {
+            deviceStateMap = new HashMap<>();
+            discoveryPropertyCache.put(thingUID, deviceStateMap);
+        }
         // XXX: we have to distinguish between Json payload an simple payload
         // Probably move this to the TasmotaHandlerImpl
         TasmotaStateDTO tasmotaStateDTO = DeviceStateParser.parseState(payload);
 
-        Map<String, Object> deviceStateMap = DeviceStateParser.stateToHashMap(tasmotaStateDTO);
-
         deviceStateMap.put("deviceid", deviceID);
-
-        ThingTypeUID thingTypeUid = TasmotaBindingConstants.TASMOTA_MQTT_THING;
-        ThingUID thingUID = new ThingUID(thingTypeUid, connectionBridge, deviceID);
+        deviceStateMap.putAll(DeviceStateParser.stateToHashMap(tasmotaStateDTO));
 
         try {
             // publishDevice(thingTypeUid, connectionBridge, deviceStateMap, deviceID, tasmotaState);
@@ -154,6 +161,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
                             new String(payload));
                     // return;
                 }
+
                 logger.debug("New Thing Discovered: ThingUID: {}", thingUID);
                 DiscoveryResult discoveryResult = DiscoveryResultBuilder.create(thingUID) //
                         .withBridge(connectionBridge) //

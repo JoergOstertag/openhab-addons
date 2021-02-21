@@ -24,17 +24,17 @@ import org.slf4j.LoggerFactory;
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
  */
-public class Device implements MqttMessageSubscriber {
+public class TasmotaSubscriber implements MqttMessageSubscriber {
 
     public final String deviceID;
 
-    private static final Logger logger = LoggerFactory.getLogger(Device.class);
+    private static final Logger logger = LoggerFactory.getLogger(TasmotaSubscriber.class);
 
     private MqttBrokerConnection connection;
 
     private TasmotaHandler tasmotaHandler;
 
-    public Device(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaHandler tasmotaHandler) {
+    public TasmotaSubscriber(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaHandler tasmotaHandler) {
         this.deviceID = deviceID;
         this.connection = connection;
         this.tasmotaHandler = tasmotaHandler;

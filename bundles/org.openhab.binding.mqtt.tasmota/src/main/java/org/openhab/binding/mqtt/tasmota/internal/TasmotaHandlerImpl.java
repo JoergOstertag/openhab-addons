@@ -58,7 +58,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
     private @Nullable TasmotaConfiguration config;
 
-    protected @Nullable Device device;
+    protected @Nullable TasmotaSubscriber tasmotaSubscriber;
 
     private final ChannelTypeRegistry channelTypeRegistry;
 
@@ -89,11 +89,11 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
         logger.debug("Have broker connection: {}", toConnectionString(connection));
 
-        device = new Device(connection, config.deviceid, this);
+        tasmotaSubscriber = new TasmotaSubscriber(connection, config.deviceid, this);
 
         updateStatus(ThingStatus.UNKNOWN);
 
-        device.triggerUpdate();
+        tasmotaSubscriber.triggerUpdate();
 
         if (this.getCallback() == null) {
             logger.error("Missing Callback in freshly created Thing {}\n" + //
@@ -108,7 +108,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     public void handleCommand(ChannelUID channelUID, Command command) {
         logger.debug("handleCommand({}, {})", channelUID, command);
 
-        if (null == device) {
+        if (null == tasmotaSubscriber) {
             logger.warn("Handling command without being initialized");
             return;
         }
@@ -118,7 +118,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                 // TODO: handle data refresh
             } else {
                 OnOffType wantedValue = (OnOffType) command;
-                device.publishCommand("POWER", wantedValue.equals(OnOffType.ON) ? "ON" : "OFF");
+                tasmotaSubscriber.publishCommand("POWER", wantedValue.equals(OnOffType.ON) ? "ON" : "OFF");
             }
 
         } else if (CHANNEL_DIMMER.equals(channelUID.getId())) {
@@ -126,7 +126,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                 // TODO: handle data refresh
             } else {
                 PercentType wantedValue = (PercentType) command;
-                device.publishCommand("DIMMER", "" + wantedValue.intValue());
+                tasmotaSubscriber.publishCommand("DIMMER", "" + wantedValue.intValue());
             }
         }
     }
@@ -427,22 +427,22 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
     @Override
     protected void updateState(String channelID, State state) {
-        super.updateState(channelID, state);
         if (this.getCallback() == null) {
             logger.error("Missing Callback in Thing {}\n" + //
                     "Stacktrace: \n" + //
                     "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
         }
+        super.updateState(channelID, state);
     }
 
     @Override
     protected void updateStatus(ThingStatus status) {
-        super.updateStatus(status);
         if (this.getCallback() == null) {
             logger.error("Missing Callback in Thing {}\n" + //
                     "Stacktrace: \n" + //
                     "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
         }
+        super.updateStatus(status);
     }
 
     @Override
