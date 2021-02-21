@@ -13,6 +13,7 @@
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import static org.openhab.binding.mqtt.tasmota.internal.DeviceStateParser.parseDeviceTypeKnown;
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugLimitDiscovery;
 
 import java.util.Collections;
 import java.util.Map;
@@ -45,7 +46,9 @@ import org.slf4j.LoggerFactory;
 @Component(immediate = true, service = DiscoveryService.class, configurationPid = "discovery.tasmota")
 @NonNullByDefault
 public class TasmotaDiscovery extends AbstractMQTTDiscovery {
-    private final Logger logger = LoggerFactory.getLogger(TasmotaDiscovery.class);
+
+    private final Logger logger = LoggerFactory.getLogger(new Object() {
+    }.getClass().getEnclosingClass());
 
     protected final MQTTTopicDiscoveryService discoveryService;
 
@@ -106,6 +109,13 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
+        if (debugLimitDiscovery && !topic.contains("Basic-3")) {
+            logger.warn("DEVELOP MODE: Tasmota discovery topic ignored: Topic: {}", topic);
+            return;
+        }
+
+        // XXX: we have to distinguish between Json payload an simple payload
+        // Probably move this to the TasmotaHandlerImpl
         TasmotaStateDTO tasmotaStateDTO = DeviceStateParser.parseState(payload);
 
         Map<String, Object> deviceStateMap = DeviceStateParser.stateToHashMap(tasmotaStateDTO);
@@ -127,6 +137,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
                 @Nullable
                 ThingHandler existingThingHandler = existingThing.getHandler();
                 if (existingThingHandler != null) {
+
                     if (existingThingHandler instanceof TasmotaHandler) {
                         TasmotaHandler existingTasmotaHandler = (TasmotaHandlerImpl) existingThingHandler;
                         existingTasmotaHandler.updateExistingThing(tasmotaStateDTO);

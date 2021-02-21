@@ -27,10 +27,12 @@ import org.openhab.binding.mqtt.handler.BrokerHandler;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.Dht11DTO;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.EnergyDTO;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
+import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.library.types.*;
 import org.openhab.core.thing.*;
 import org.openhab.core.thing.binding.BaseThingHandler;
+import org.openhab.core.thing.binding.ThingHandlerCallback;
 import org.openhab.core.thing.binding.builder.ChannelBuilder;
 import org.openhab.core.thing.binding.builder.ThingBuilder;
 import org.openhab.core.thing.type.ChannelType;
@@ -38,6 +40,7 @@ import org.openhab.core.thing.type.ChannelTypeRegistry;
 import org.openhab.core.thing.type.ChannelTypeUID;
 import org.openhab.core.types.Command;
 import org.openhab.core.types.RefreshType;
+import org.openhab.core.types.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +65,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     public TasmotaHandlerImpl(Thing thing, ChannelTypeRegistry channelTypeRegistry) {
         super(thing);
         this.channelTypeRegistry = channelTypeRegistry;
-        logger.debug("Init TasmotaHandler({})", thing);
+        logger.debug("Init TasmotaHandler(Thing: {})", thing.getUID());
     }
 
     @Override
@@ -91,6 +94,12 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         updateStatus(ThingStatus.UNKNOWN);
 
         device.triggerUpdate();
+
+        if (this.getCallback() == null) {
+            logger.error("Missing Callback in freshly created Thing {}\n" + //
+                    "Stacktrace: \n" + //
+                    "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+        }
 
         logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
     }
@@ -227,7 +236,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     }
 
     public void updatePropertiesFromTasmotaState(TasmotaStateDTO tasmotaState) {
-        if (TasmotaBindingConstants.skipPropertyUpdateForDebugging) {
+        if (TasmotaBindingConstants.debugSkipPropertyUpdate) {
             logger.warn("skip PropertyUpdate For Easier Debugging");
         } else {
             Map<String, String> propertiesString = getPropertiesStringMap(tasmotaState);
@@ -414,5 +423,34 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                     break;
             }
         }
+    }
+
+    @Override
+    protected void updateState(String channelID, State state) {
+        super.updateState(channelID, state);
+        if (this.getCallback() == null) {
+            logger.error("Missing Callback in Thing {}\n" + //
+                    "Stacktrace: \n" + //
+                    "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+        }
+    }
+
+    @Override
+    protected void updateStatus(ThingStatus status) {
+        super.updateStatus(status);
+        if (this.getCallback() == null) {
+            logger.error("Missing Callback in Thing {}\n" + //
+                    "Stacktrace: \n" + //
+                    "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+        }
+    }
+
+    @Override
+    public void setCallback(@Nullable ThingHandlerCallback thingHandlerCallback) {
+        if (null == thingHandlerCallback) {
+            logger.warn("Setting Callback to null in Thing {}\n" + "Stacktrace:\n" + "{}", thing.getUID(),
+                    ExceptionHelper.compactStackTrace());
+        }
+        super.setCallback(thingHandlerCallback);
     }
 }

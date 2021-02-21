@@ -18,6 +18,7 @@ import java.util.Map;
 import org.eclipse.jdt.annotation.NonNull;
 import org.jetbrains.annotations.Nullable;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.*;
+import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +38,7 @@ public class DeviceStateParser {
 
     private static final Logger logger = LoggerFactory.getLogger(DeviceStateParser.class);
 
-    private static boolean onlyLimitedParsingForDebugging = false;
+    private static final boolean onlyLimitedParsingForDebugging = false;
 
     public static @NonNull TasmotaStateDTO parseState(String stateAsJson) {
         TasmotaStateDTO tasmotaStateDTOFromJson = null;
@@ -55,7 +56,7 @@ public class DeviceStateParser {
                 }
             }
         } catch (Exception ex) {
-            logger.error("Error parsing json: {}", ex.getMessage());
+            logger.error("Error parsing json: {}", ExceptionHelper.compactStackTrace());
         }
         if (null == tasmotaStateDTOFromJson) {
             tasmotaStateDTOFromJson = new TasmotaStateDTO();
