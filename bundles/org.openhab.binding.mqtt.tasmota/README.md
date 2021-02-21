@@ -34,6 +34,8 @@ The Idea was to get those working as a start. And when those 4 are working I can
     Wemos-D1-Mini with OLED Display-Shield
     Wemos-D1-Mini with Relay-Shield
     Wemos-D1-Mini with SHT-Shield
+    Wemos-D1-Mini with RGB-Shield
+    Wemos-D1-Mini with RFID-Reader
     RGB-Strips
     Water-Relay
 
