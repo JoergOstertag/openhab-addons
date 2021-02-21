@@ -1,47 +1,94 @@
 # TasmotaMQTTBinding Binding
 
-_Give some details about what this binding is meant for - a protocol, system, specific device._
-
-_If possible, provide some resources like pictures, a YouTube video, etc. to give an impression of what can be done with this binding. You can place such resources into a `doc` folder next to this README.md._
+This binding is for discovering and handling devices Flased with [Tasmota Firmware](https://tasmota.github.io/docs/)
 
 ## Supported Things
 
-_Please describe the different supported things / devices within this section._
-_Which different types are supported, which models were tested etc.?_
-_Note that it is planned to generate some part of this based on the XML files within ```src/main/resources/ESH-INF/thing``` of your binding._
+So after discovery you can (most likely) see all your tasmota devices. But The only thing you would see is the device
+itself and a lot of properties in this device. The only Devices which have working channels currently are Sonoff-Basic,
+Sonoff-Pow, Wemos-DHT11
+
+I opened up a completely separated testing environment here. And as already said I would currently really recommend to
+do the same if someone wants to have a look at the current state.
+
+My current setup for the start contains:
+
+    Sonoff-Pow
+    Sonoff-Basic
+    Wemos-D1Minit with DHT11
+    Wemos-D1Minit with DS1820
+
+The Idea was to get those working as a start. And when those 4 are working I can add my other devices:
+
+    Sonoff-4CH
+    Sonoff S20
+    Sonoff S55
+    Sonoff Touch with 1 Switch
+    Sonoff Touch with 2 Switches
+    Sonoff Touch with 3 Switches
+    Sonoff RF-Shield (with RF-switches, RF-Movement, RF-Door Sensor, RF-DoorBell)
+    Wemos-D1-Mini with Button-Shield
+    Wemos-D1-Mini with Buzzer-Shield
+    Wemos-D1-Mini with IR-Shield
+    Wemos-D1-Mini with LED-Matrix-Shield
+    Wemos-D1-Mini with OLED Display-Shield
+    Wemos-D1-Mini with Relay-Shield
+    Wemos-D1-Mini with SHT-Shield
+    RGB-Strips
+    Water-Relay
+
+Already well known open points with top Priority:
+
+- Get the Code cleaned up so that someone else can do things in the code too -Find Co-coders :slight_smile:
+
+- I think the binding triggers an additional Homematic subscribe. So I have to find where this is triggered and get rid
+  of it.
+
+- Find where I put a date value instead of a Double (Temperature/Humidity/DewPoint sometimes gets a date instead of a
+  Double)
+
+- I have a lot of ,messages with “although the handler was already disposed.” This probably leads to not updating the
+  values when this message triggers.
+
+- Add more config options to tell the binding how to handle what it discovered
+
+- I have a lot of channels, but some channels are only for device management (RSSI,uptime, …) and others carry the real
+  productive Values. So I want to introduce channel-groups to separate between config, sensors, actors.
+
+- Find a good naming scheme for all the channels (about 70 Channels per Device)
+
+- Adapt my widgets to the new channel names.
+
+_Note that it is planned to generate some part of this based on the XML files
+within ```src/main/resources/ESH-INF/thing``` of your binding._
 
 ## Discovery
 
-_Describe the available auto-discovery features here. Mention for what it works and what needs to be kept in mind when using it._
+Discovery is done by subscribing to the following topics:
+
+At the current development state I am discovering tasmota devices by their mqtt messages:
+
+    tele/+/STATE<x>
+    tele/+/STATUS
+    tasmota/discovery/#
+
+This might change in a later release. I am currently thinking about only listening to the tasmota/discovery/# in the
+initial Discovery and later dynamically adding channels to them by listening to the other topics.
 
 ## Binding Configuration
 
-_If your binding requires or supports general configuration settings, please create a folder ```cfg``` and place the configuration file ```<bindingId>.cfg``` inside it. In this section, you should link to this file and provide some information about the options. The file could e.g. look like:_
-
-```
-# Configuration for the Philips Hue Binding
-#
-# Default secret key for the pairing of the Philips Hue Bridge.
-# It has to be between 10-40 (alphanumeric) characters
-# This may be changed by the user for security reasons.
-secret=openHABSecret
-```
-
-_Note that it is planned to generate some part of this based on the information that is available within ```src/main/resources/ESH-INF/binding``` of your binding._
-
-_If your binding does not offer any generic configurations, you can remove this section completely._
+This is planed for later.
 
 ## Thing Configuration
 
-_Describe what is needed to manually configure a thing, either through the (Paper) UI or via a thing-file. This should be mainly about its mandatory and optional configuration parameters. A short example entry for a thing file can help!_
-
-_Note that it is planned to generate some part of this based on the XML files within ```src/main/resources/ESH-INF/thing``` of your binding._
+Currently you can not configure a Tasmota Thing manually.
 
 ## Channels
 
 _Here you should provide information about available channel types, what their meaning is and how they can be used._
 
-_Note that it is planned to generate some part of this based on the XML files within ```src/main/resources/ESH-INF/thing``` of your binding._
+_Note that it is planned to generate some part of this based on the XML files
+within ```src/main/resources/ESH-INF/thing``` of your binding._
 
 | channel  | type   | description                  |
 |----------|--------|------------------------------|
@@ -50,7 +97,3 @@ _Note that it is planned to generate some part of this based on the XML files wi
 ## Full Example
 
 _Provide a full usage example based on textual configuration files (*.things, *.items, *.sitemap)._
-
-## Any custom content here!
-
-_Feel free to add additional sections for whatever you think should also be mentioned about your binding!_
