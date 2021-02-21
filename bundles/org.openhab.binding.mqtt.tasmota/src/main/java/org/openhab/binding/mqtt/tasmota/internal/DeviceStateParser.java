@@ -12,10 +12,13 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugSkipPropertyUpdate;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.jdt.annotation.NonNull;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.*;
 import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
@@ -71,6 +74,27 @@ public class DeviceStateParser {
         deviceStateMap.putAll(parseConfigItems(tasmotaState));
 
         return deviceStateMap;
+    }
+
+    @NotNull
+    public static Map<String, String> getPropertiesStringMap(TasmotaStateDTO tasmotaState) {
+        Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
+        Map<String, String> propertiesString = new HashMap<>();
+        for (Map.Entry<String, Object> property : properties.entrySet()) {
+            String propertyName = property.getKey();
+            Object propertyValue = property.getValue();
+
+            if (debugSkipPropertyUpdate //
+                    && !propertyName.matches("Sensor|IPAddress")) {
+                continue;
+            }
+
+            if (null != propertyValue) {
+                propertiesString.put(propertyName, String.valueOf(propertyValue));
+                logger.trace("updateProperty({},{})", propertyName, String.valueOf(propertyValue));
+            }
+        }
+        return propertiesString;
     }
 
     @Nullable
@@ -355,7 +379,21 @@ public class DeviceStateParser {
         return deviceStateMap;
     }
 
-    public static TasmotaStateDTO parseState(byte[] payload) {
-        return parseState(new String(payload));
+    public static TasmotaStateDTO parseState(String topic, byte[] payload) {
+
+        String[] parts = topic.split("/");
+        if (parts.length != 3) {
+            logger.warn("Unknown topic format: {}", topic);
+            return new TasmotaStateDTO();
+        }
+
+        String base = parts[0];
+        String deviceId = parts[1];
+        String name = parts[2];
+
+        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
+            return parseState(new String(payload));
+        }
+        return new TasmotaStateDTO();
     }
 }

@@ -784,4 +784,9 @@
 		<label>Sensor Dimmer</label>
 	</channel-type>
 
+	<channel-type id="Sensor_POWER">
+		<item-type>String</item-type>
+		<label>Sensor POWER</label>
+	</channel-type>
+
 </thing:thing-descriptions>

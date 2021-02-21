@@ -15,14 +15,12 @@ package org.openhab.binding.mqtt.tasmota.internal;
 import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.*;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
-import org.jetbrains.annotations.NotNull;
 import org.openhab.binding.mqtt.handler.BrokerHandler;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.Dht11DTO;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.EnergyDTO;
@@ -239,28 +237,13 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         if (TasmotaBindingConstants.debugSkipPropertyUpdate) {
             logger.warn("skip PropertyUpdate For Easier Debugging");
         } else {
-            Map<String, String> propertiesString = getPropertiesStringMap(tasmotaState);
+            Map<String, String> propertiesString = DeviceStateParser.getPropertiesStringMap(tasmotaState);
             try {
                 updateProperties(propertiesString);
             } catch (Exception ex) {
                 logger.error("Error while updating Propperties: {}", ex.getMessage());
             }
         }
-    }
-
-    @NotNull
-    private Map<String, String> getPropertiesStringMap(TasmotaStateDTO tasmotaState) {
-        Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
-        Map<String, String> propertiesString = new HashMap<>();
-        for (Entry<String, Object> property : properties.entrySet()) {
-            String propertyName = property.getKey();
-            Object propertyValue = property.getValue();
-            if (null != propertyValue) {
-                propertiesString.put(propertyName, String.valueOf(propertyValue));
-                logger.trace("updateProperty({},{})", propertyName, String.valueOf(propertyValue));
-            }
-        }
-        return propertiesString;
     }
 
     public void updateChannelsFromTasmotaState(TasmotaStateDTO tasmotaState) {
@@ -427,28 +410,41 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
     @Override
     protected void updateState(String channelID, State state) {
-        if (this.getCallback() == null) {
-            logger.error("Missing Callback in Thing {}\n" + //
+        @Nullable
+        ThingHandlerCallback callback = this.getCallback();
+        if (callback == null) {
+            logger.error("Missing Callback in Thing {} {}\n" + //
                     "Stacktrace: \n" + //
-                    "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+                    "{}", this.getThing(), this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+        } else {
+            logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
+                    "Stacktrace: \n" + //
+                    "{}", callback.getClass().getName(), this.getThing(), this.getThing().getUID(),
+                    ExceptionHelper.compactStackTrace());
+
+            super.updateState(channelID, state);
         }
-        super.updateState(channelID, state);
     }
 
     @Override
     protected void updateStatus(ThingStatus status) {
         if (this.getCallback() == null) {
-            logger.error("Missing Callback in Thing {}\n" + //
+            logger.error("Missing Callback in Thing {} {}\n" + //
                     "Stacktrace: \n" + //
-                    "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+                    "{}", this.getThing(), this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+        } else {
+            super.updateStatus(status);
         }
-        super.updateStatus(status);
     }
 
     @Override
     public void setCallback(@Nullable ThingHandlerCallback thingHandlerCallback) {
         if (null == thingHandlerCallback) {
             logger.warn("Setting Callback to null in Thing {}\n" + "Stacktrace:\n" + "{}", thing.getUID(),
+                    ExceptionHelper.compactStackTrace());
+        } else {
+            logger.debug("Setting Callback to {} in Thing {}\n" + "Stacktrace:\n" + "{}",
+                    thingHandlerCallback.getClass().getSimpleName(), thing.getUID(),
                     ExceptionHelper.compactStackTrace());
         }
         super.setCallback(thingHandlerCallback);
