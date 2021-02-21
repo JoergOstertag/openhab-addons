@@ -1,6 +1,6 @@
 # TasmotaMQTTBinding Binding
 
-This binding is for discovering and handling devices Flased with [Tasmota Firmware](https://tasmota.github.io/docs/)
+This binding is for discovering and handling devices flashed with [Tasmota Firmware](https://tasmota.github.io/docs/)
 
 ## Supported Things
 
