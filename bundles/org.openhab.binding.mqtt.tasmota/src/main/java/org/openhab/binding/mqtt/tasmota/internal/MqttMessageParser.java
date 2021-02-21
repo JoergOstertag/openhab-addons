@@ -12,11 +12,9 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugSkipPropertyUpdate;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.LongSerializationPolicy;
 import org.eclipse.jdt.annotation.NonNull;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -25,9 +23,10 @@ import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.LongSerializationPolicy;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugSkipPropertyUpdate;
 
 /**
  * @author Jörg Ostertag - Parse more of the Json responses from Tasmota
@@ -43,7 +42,7 @@ public class DeviceStateParser {
 
     private static final boolean onlyLimitedParsingForDebugging = false;
 
-    public static @NonNull TasmotaStateDTO parseState(String stateAsJson) {
+    public static @NonNull TasmotaStateDTO parseMessage(String stateAsJson) {
         TasmotaStateDTO tasmotaStateDTOFromJson = null;
         try {
             tasmotaStateDTOFromJson = gson.fromJson(stateAsJson, TasmotaStateDTO.class);
@@ -379,7 +378,7 @@ public class DeviceStateParser {
         return deviceStateMap;
     }
 
-    public static TasmotaStateDTO parseState(String topic, byte[] payload) {
+    public static TasmotaStateDTO parseMessage(String topic, byte[] payload) {
 
         String[] parts = topic.split("/");
         if (parts.length != 3) {
@@ -392,8 +391,23 @@ public class DeviceStateParser {
         String name = parts[2];
 
         if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            return parseState(new String(payload));
+            return parseMessage(new String(payload));
+        } else if (topic.startsWith("tasmota/discovery/")) {
+            logger.warn("Tasmota discovery topic not supported yet: Topic: {}", topic);
         }
         return new TasmotaStateDTO();
+    }
+
+    /**
+     * @param topic   A topic like "tele/office/STATE"
+     * @param payload
+     * @return Returns the "office" part of the example
+     */
+    public static @org.eclipse.jdt.annotation.Nullable String extractDeviceID(String topic, byte[] payload) {
+        String[] strings = topic.split("/");
+        if (strings.length > 2) {
+            return strings[1];
+        }
+        return null;
     }
 }
