@@ -43,7 +43,8 @@ import org.slf4j.LoggerFactory;
 @Component(configurationPid = "binding.tasmota", service = ThingHandlerFactory.class)
 public class TasmotaHandlerFactory extends BaseThingHandlerFactory {
 
-    private final Logger logger = LoggerFactory.getLogger(TasmotaHandlerFactory.class);
+    private final Logger logger = LoggerFactory.getLogger(new Object() {
+    }.getClass().getEnclosingClass());
 
     private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Stream.of(TASMOTA_MQTT_THING)
             .collect(Collectors.toSet());
