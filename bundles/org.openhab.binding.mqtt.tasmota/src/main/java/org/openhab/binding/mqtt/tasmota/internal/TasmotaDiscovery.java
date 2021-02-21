@@ -12,7 +12,6 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import static org.openhab.binding.mqtt.tasmota.internal.DeviceStateParser.parseDeviceTypeKnown;
 import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugLimitDiscovery;
 
 import java.util.Collections;
@@ -32,7 +31,6 @@ import org.openhab.core.thing.Thing;
 import org.openhab.core.thing.ThingRegistry;
 import org.openhab.core.thing.ThingTypeUID;
 import org.openhab.core.thing.ThingUID;
-import org.openhab.core.thing.binding.ThingHandler;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -118,60 +116,44 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
+        @Nullable
+        Thing existingThing = thingRegistry.get(thingUID);
+        if (null != existingThing) {
+            boolean discoveryIgnoreExistingThing = true;
+            if (discoveryIgnoreExistingThing) {
+                logger.debug("Discovery: Thing {} already exists in thingsRegistry: Ignoring", thingUID);
+                return;
+            }
+        }
+
         Map<String, Object> deviceStateMap = discoveryPropertyCache.get(thingUID);
         if (null != deviceStateMap) {
-            logger.debug("Updating discovered Thing: {}", thingUID);
+            logger.debug("Updating discovered ThingUID: {}", thingUID);
         } else {
+            logger.debug("New Thing Discovered: ThingUID: {}", thingUID);
             deviceStateMap = new HashMap<>();
             discoveryPropertyCache.put(thingUID, deviceStateMap);
         }
+
         // XXX: we have to distinguish between Json payload an simple payload
         // Probably move this to the TasmotaHandlerImpl
-        TasmotaStateDTO tasmotaStateDTO = DeviceStateParser.parseState(payload);
+        TasmotaStateDTO tasmotaStateDTO = DeviceStateParser.parseState(topic, payload);
 
         deviceStateMap.put("deviceid", deviceID);
-        deviceStateMap.putAll(DeviceStateParser.stateToHashMap(tasmotaStateDTO));
+        deviceStateMap.putAll(DeviceStateParser.getPropertiesStringMap(tasmotaStateDTO));
 
         try {
             // publishDevice(thingTypeUid, connectionBridge, deviceStateMap, deviceID, tasmotaState);
             logger.debug("received Message for Device( thing: {}, properties: {}, deviceID: {}", thingUID,
                     deviceStateMap, deviceID);
 
-            @Nullable
-            Thing existingThing = thingRegistry.get(thingUID);
-            if (null != existingThing) {
-                logger.debug("Discovery: Thing {} already exists: Updating", thingUID);
-                @Nullable
-                ThingHandler existingThingHandler = existingThing.getHandler();
-                if (existingThingHandler != null) {
-
-                    if (existingThingHandler instanceof TasmotaHandler) {
-                        TasmotaHandler existingTasmotaHandler = (TasmotaHandlerImpl) existingThingHandler;
-                        existingTasmotaHandler.updateExistingThing(tasmotaStateDTO);
-                    } else {
-                        logger.warn("Discovery: Thing {} wrong type ({}) of Thing Handler", thingUID,
-                                existingThingHandler.getClass().getSimpleName());
-                    }
-                } else {
-                    logger.warn("Discovery: Thing {} missing Thing Handler", thingUID);
-                }
-            } else {
-                if (!parseDeviceTypeKnown(tasmotaStateDTO, deviceStateMap)) {
-                    logger.info("Cannot fully recognize Tasmota Device from MQTT-Message. Topic: {} PayLoad: {}", topic,
-                            new String(payload));
-                    // return;
-                }
-
-                logger.debug("New Thing Discovered: ThingUID: {}", thingUID);
-                DiscoveryResult discoveryResult = DiscoveryResultBuilder.create(thingUID) //
-                        .withBridge(connectionBridge) //
-                        // .withThingType(type) //
-                        .withProperties(deviceStateMap) //
-                        .withRepresentationProperty("deviceid")//
-                        .withLabel(deviceID).build();
-                thingDiscovered(discoveryResult);
-            }
-
+            DiscoveryResult discoveryResult = DiscoveryResultBuilder.create(thingUID) //
+                    .withBridge(connectionBridge) //
+                    // .withThingType(type) //
+                    .withProperties(deviceStateMap) //
+                    .withRepresentationProperty("deviceid")//
+                    .withLabel(deviceID).build();
+            thingDiscovered(discoveryResult);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("Cannot publishDevice({}): {}, {}", thingUID, e.getMessage(), e.getCause());
