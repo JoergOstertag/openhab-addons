@@ -237,7 +237,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         if (TasmotaBindingConstants.debugSkipPropertyUpdate) {
             logger.warn("skip PropertyUpdate For Easier Debugging");
         } else {
-            Map<String, String> propertiesString = DeviceStateParser.getPropertiesStringMap(tasmotaState);
+            Map<String, String> propertiesString = MqttMessageParser.getPropertiesStringMap(tasmotaState);
             try {
                 updateProperties(propertiesString);
             } catch (Exception ex) {
@@ -248,7 +248,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
     public void updateChannelsFromTasmotaState(TasmotaStateDTO tasmotaState) {
         logger.trace("updateChannelsFromTasmotaState ...");
-        Map<String, Object> properties = DeviceStateParser.stateToHashMap(tasmotaState);
+        Map<String, Object> properties = MqttMessageParser.stateToHashMap(tasmotaState);
         for (Entry<String, Object> property : properties.entrySet()) {
             String key = property.getKey();
             Object value = property.getValue();
@@ -362,19 +362,6 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         });
     }
 
-    /**
-     * @param topic A topic like "tele/office/STATE"
-     * @param payload
-     * @return Returns the "office" part of the example
-     */
-    public static @Nullable String extractDeviceID(String topic, byte[] payload) {
-        String[] strings = topic.split("/");
-        if (strings.length > 2) {
-            return strings[1];
-        }
-        return null;
-    }
-
     @Override
     public void processMessage(@NonNull String topic, @NonNull String payload) {
         logger.debug("processMessage(topic: {}, payload: {}", topic, payload);
@@ -390,7 +377,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         String name = parts[2];
 
         if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            processState(DeviceStateParser.parseState(payload));
+            processState(MqttMessageParser.parseMessage(payload));
         } else {
             switch (base) {
                 case "tele":
@@ -417,10 +404,10 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                     "Stacktrace: \n" + //
                     "{}", this.getThing(), this.getThing().getUID(), ExceptionHelper.compactStackTrace());
         } else {
-            logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
-                    "Stacktrace: \n" + //
-                    "{}", callback.getClass().getName(), this.getThing(), this.getThing().getUID(),
-                    ExceptionHelper.compactStackTrace());
+            // logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
+            // "Stacktrace: \n" + //
+            // "{}", callback.getClass().getName(), this.getThing(), this.getThing().getUID(),
+            // ExceptionHelper.compactStackTrace());
 
             super.updateState(channelID, state);
         }
@@ -440,12 +427,12 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     @Override
     public void setCallback(@Nullable ThingHandlerCallback thingHandlerCallback) {
         if (null == thingHandlerCallback) {
-            logger.warn("Setting Callback to null in Thing {}\n" + "Stacktrace:\n" + "{}", thing.getUID(),
-                    ExceptionHelper.compactStackTrace());
+            // logger.warn("Setting Callback to null in Thing {}\n" + "Stacktrace:\n" + "{}", thing.getUID(),
+            // ExceptionHelper.compactStackTrace());
         } else {
-            logger.debug("Setting Callback to {} in Thing {}\n" + "Stacktrace:\n" + "{}",
-                    thingHandlerCallback.getClass().getSimpleName(), thing.getUID(),
-                    ExceptionHelper.compactStackTrace());
+            // logger.debug("Setting Callback to {} in Thing {}\n" + "Stacktrace:\n" + "{}",
+            // thingHandlerCallback.getClass().getSimpleName(), thing.getUID(),
+            // ExceptionHelper.compactStackTrace());
         }
         super.setCallback(thingHandlerCallback);
     }

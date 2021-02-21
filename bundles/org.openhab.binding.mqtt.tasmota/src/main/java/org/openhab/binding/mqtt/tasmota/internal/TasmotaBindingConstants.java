@@ -47,4 +47,6 @@ public class TasmotaBindingConstants {
     public static boolean debugLimitDiscovery = false;
     // public static boolean debugSkipPropertyUpdate = true;
     // public static boolean debugLimitDiscovery = true;
+
+    public static final boolean onlyLimitedParsingForDebugging = false;
 }
