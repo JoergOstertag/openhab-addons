@@ -12,9 +12,9 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal.deviceState;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * @author Daan Meijer - Initial contribution
