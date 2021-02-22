@@ -175,15 +175,12 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
         String topic = "";
 
-        // TODO: Deactivated until we also listen for the STATUS Answers
-        if (true) {
-            // Status 10, 11
-            topic = "cmnd/tasmotas/Status";
-            for (Integer i = 10; i <= 11; i++) {
-                byte[] payload = String.valueOf(11).getBytes();
-                logger.debug("publish topic: {}, {}", topic, i);
-                getDiscoveryService().publish(topic, payload, qos, retain);
-            }
+        // Status 10, 11
+        topic = "cmnd/tasmotas/Status";
+        for (Integer i = 10; i <= 11; i++) {
+            byte[] payload = String.valueOf(11).getBytes();
+            logger.debug("publish topic: {}, {}", topic, i);
+            getDiscoveryService().publish(topic, payload, qos, retain);
         }
 
         // Teleperiod triggers tele/+/STATUS Answers

@@ -18,6 +18,10 @@ My current setup for the start contains:
     Wemos-D1Minit with DHT11
     Wemos-D1Minit with DS1820
 
+![Example Thing](doc/images/Example-Thing-DHT-8.png)
+
+![Example Model](doc/images/Example-Model-DHT-8.png)
+
 The Idea was to get those working as a start. And when those 4 are working I can add my other devices:
 
     Sonoff-4CH
