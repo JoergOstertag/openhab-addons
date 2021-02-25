@@ -12,16 +12,19 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
+import org.eclipse.jdt.annotation.NonNullByDefault;
+
 /**
  * The {@link TasmotaConfiguration} class contains fields mapping thing configuration parameters.
  *
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
  */
+@NonNullByDefault
 public class TasmotaConfiguration {
 
     /**
      * Sample configuration parameter. Replace with your own.
      */
-    public String deviceid;
+    public String deviceid = "UNKNOWN";
 }

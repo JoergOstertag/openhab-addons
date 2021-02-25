@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- * <p>
+ *
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- * <p>
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- * <p>
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -17,10 +17,11 @@ import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.jdt.annotation.NonNull;
-import org.jetbrains.annotations.NotNull;
+import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.*;
 import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
+import org.openhab.binding.mqtt.tasmota.utils.JsonHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +30,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.LongSerializationPolicy;
 
 /**
+ * @author Jörg Ostertag - Initial Contribution
  * @author Jörg Ostertag - Parse more of the Json responses from Tasmota
  */
+@NonNullByDefault
 public class MqttMessageParser {
 
     private static final Logger logger = LoggerFactory.getLogger(new Object() {
@@ -41,7 +44,8 @@ public class MqttMessageParser {
             .setLongSerializationPolicy(LongSerializationPolicy.DEFAULT) //
             .create();
 
-    public static @NonNull TasmotaStateDTO parseMessage(String stateAsJson) {
+    public static TasmotaStateDTO parseStateMessage(String stateAsJson) {
+
         TasmotaStateDTO tasmotaStateDTOFromJson = null;
         try {
             tasmotaStateDTOFromJson = gson.fromJson(stateAsJson, TasmotaStateDTO.class);
@@ -65,7 +69,7 @@ public class MqttMessageParser {
         return tasmotaStateDTOFromJson;
     }
 
-    public static Map<@NonNull String, @NonNull Object> stateToHashMap(TasmotaStateDTO tasmotaState) {
+    public static Map<String, Object> stateToHashMap(TasmotaStateDTO tasmotaState) {
 
         Map<String, Object> stateMap = new HashMap<>();
         stateMap.putAll(StateMapTransformer.parseSensors(tasmotaState));
@@ -74,7 +78,6 @@ public class MqttMessageParser {
         return stateMap;
     }
 
-    @NotNull
     public static Map<String, String> getPropertiesStringMap(TasmotaStateDTO tasmotaState) {
         Map<String, Object> properties = MqttMessageParser.stateToHashMap(tasmotaState);
         Map<String, String> propertiesString = new HashMap<>();
@@ -144,15 +147,18 @@ public class MqttMessageParser {
             return new TasmotaStateDTO();
         }
 
-        String base = parts[0];
-        String deviceId = parts[1];
+        // String base = parts[0];
+        // String deviceId = parts[1];
         String name = parts[2];
 
-        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            return parseMessage(new String(payload));
-        } else if (topic.startsWith("tasmota/discovery/")) {
+        if (topic.startsWith("tasmota/discovery/")) {
+            Map<String, Object> stringObjectMap = JsonHelper.jsonStringToMap("discovery", payload);
             TasmotaDiscoveryDTO tasmotaDiscoveryDTO = gson.fromJson(new String(payload), TasmotaDiscoveryDTO.class);
             logger.warn("Tasmota discovery topic not supported yet: Topic: {}", topic);
+        } else if (name.matches("(STATE|SENSOR|STATUS.*)")) {
+            Map<String, Object> stringObjectMap = JsonHelper.jsonStringToMap("state", payload);
+
+            return parseStateMessage(new String(payload));
         }
         return new TasmotaStateDTO();
     }
@@ -162,7 +168,7 @@ public class MqttMessageParser {
      * @param payload
      * @return Returns the "office" part of the example
      */
-    public static @org.eclipse.jdt.annotation.Nullable String extractDeviceID(String topic, byte[] payload) {
+    public static @Nullable String extractDeviceID(String topic, byte[] payload) {
         if (topic.matches("tasmota/discovery/.*/config")) {
             try {
                 TasmotaDiscoveryDTO tasmotaDiscoveryDTO = gson.fromJson(new String(payload), TasmotaDiscoveryDTO.class);

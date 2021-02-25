@@ -1,16 +1,37 @@
+/**
+ * Copyright (c) 2010-2021 Contributors to the openHAB project
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.openhab.binding.mqtt.tasmota.utils;
 
+import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
+
+/**
+ * @author Jörg Ostertag - Initial contribution
+ */
+@NonNullByDefault
 public class ExceptionHelper {
 
     static final String allowedClassNames = "org.openhab.binding.mqtt.*";
 
     /**
+     * return a compact Stacktrace only containing references to my subproject.
+     * <p>
      * If throwable is null no message is added to output
      *
      * @param throwable
      * @return
      */
-    public static String compactStackTrace(Throwable throwable) {
+    public static String compactStackTrace(@Nullable Throwable throwable) {
 
         String logMessage = "";
         if (null == throwable) {
@@ -66,6 +87,9 @@ public class ExceptionHelper {
         return logMessage;
     }
 
+    /**
+     * return a compact Stacktrace only containing references to my subproject.
+     */
     public static String compactStackTrace() {
         return compactStackTrace(null);
     }
