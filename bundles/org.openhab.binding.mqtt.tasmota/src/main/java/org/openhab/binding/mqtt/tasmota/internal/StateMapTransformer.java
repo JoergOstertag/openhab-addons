@@ -1,3 +1,15 @@
+/**
+ * Copyright (c) 2010-2021 Contributors to the openHAB project
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import java.util.HashMap;
@@ -8,6 +20,9 @@ import org.openhab.binding.mqtt.tasmota.internal.deviceState.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author Jörg Ostertag - Initial contribution
+ */
 public class StateMapTransformer {
 
     private static final Logger logger = LoggerFactory.getLogger(new Object() {
@@ -94,7 +109,7 @@ public class StateMapTransformer {
 
         StatusPRMDTO statusPRMDTO = tasmotaState.StatusPRM;
         if (null != statusPRMDTO) {
-            stateMap.put("Config.StatusPRM.OtaUrl", statusPRMDTO.Baudrate);
+            stateMap.put("Config.StatusPRM.Baudrate", statusPRMDTO.Baudrate);
             stateMap.put("Config.StatusPRM.BCResetTime", statusPRMDTO.BCResetTime);
             stateMap.put("Config.StatusPRM.BootCount", statusPRMDTO.BootCount);
             stateMap.put("Config.StatusPRM.CfgHolder", statusPRMDTO.CfgHolder);
@@ -104,7 +119,7 @@ public class StateMapTransformer {
             stateMap.put("Config.StatusPRM.SaveAddress", statusPRMDTO.SaveAddress);
             stateMap.put("Config.StatusPRM.SaveCount", statusPRMDTO.SaveCount);
             stateMap.put("Config.StatusPRM.SerialConfig", statusPRMDTO.SerialConfig);
-            stateMap.put("Config.StatusPRM.SerialConfig", statusPRMDTO.Sleep);
+            stateMap.put("Config.StatusPRM.Sleep", statusPRMDTO.Sleep);
             stateMap.put("Config.StatusPRM.StartupUTC", statusPRMDTO.StartupUTC);
             stateMap.put("Config.StatusPRM.Uptime", statusPRMDTO.Uptime);
         }

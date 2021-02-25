@@ -1,20 +1,20 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- * <p>
+ *
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- * <p>
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- * <p>
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import java.util.concurrent.CompletableFuture;
 
-import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.io.transport.mqtt.MqttMessageSubscriber;
 import org.slf4j.Logger;
@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
  */
+@NonNullByDefault
 public class TasmotaSubscriber implements MqttMessageSubscriber {
 
     public final String deviceID;
@@ -34,7 +35,7 @@ public class TasmotaSubscriber implements MqttMessageSubscriber {
 
     private TasmotaHandler tasmotaHandler;
 
-    public TasmotaSubscriber(@NonNull MqttBrokerConnection connection, String deviceID, TasmotaHandler tasmotaHandler) {
+    public TasmotaSubscriber(MqttBrokerConnection connection, String deviceID, TasmotaHandler tasmotaHandler) {
         this.deviceID = deviceID;
         this.connection = connection;
         this.tasmotaHandler = tasmotaHandler;

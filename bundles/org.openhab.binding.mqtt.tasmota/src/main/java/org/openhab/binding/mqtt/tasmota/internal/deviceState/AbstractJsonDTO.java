@@ -14,11 +14,13 @@ package org.openhab.binding.mqtt.tasmota.internal.deviceState;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.eclipse.jdt.annotation.NonNullByDefault;
 
 /**
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
  */
+@NonNullByDefault
 public abstract class AbstractJsonDTO {
 
     @Override

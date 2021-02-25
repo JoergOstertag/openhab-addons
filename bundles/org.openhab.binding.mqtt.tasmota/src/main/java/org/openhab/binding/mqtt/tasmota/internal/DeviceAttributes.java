@@ -12,21 +12,22 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.generic.mapping.AbstractMqttAttributeClass;
 
 /**
- *
  * @author Daan Meijer - Initial contribution
  * @author Jörg Ostertag - Adaptions to compile with openhab-3.1.0-SNAPSHOT
- *
  */
+@NonNullByDefault
 public class DeviceAttributes extends AbstractMqttAttributeClass {
 
+    @Nullable
     public String name;
 
     @Override
-    public @NonNull Object getFieldsOf() {
+    public Object getFieldsOf() {
         return this;
     }
 }

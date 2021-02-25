@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- * <p>
+ *
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- * <p>
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- * <p>
+ *
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -23,6 +23,7 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.discovery.AbstractMQTTDiscovery;
 import org.openhab.binding.mqtt.discovery.MQTTTopicDiscoveryService;
 import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
+import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
 import org.openhab.core.config.discovery.DiscoveryResult;
 import org.openhab.core.config.discovery.DiscoveryResultBuilder;
 import org.openhab.core.config.discovery.DiscoveryService;
@@ -41,6 +42,7 @@ import org.slf4j.LoggerFactory;
  * The {@link TasmotaDiscovery} is responsible for discovering Tasmota MQTT device nodes.
  *
  * @author Daan Meijer - Initial contribution
+ * @author Jörg Ostertag - Adaptions
  */
 @Component(immediate = true, service = DiscoveryService.class, configurationPid = "discovery.tasmota")
 @NonNullByDefault
@@ -152,8 +154,9 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
                     .withLabel(deviceID).build();
             thingDiscovered(discoveryResult);
         } catch (Exception e) {
-            e.printStackTrace();
-            logger.error("Cannot publishDevice({}): {}, {}", thingUID, e.getMessage(), e.getCause());
+            logger.error("Cannot publishDevice({})\n" + //
+                    "Exception:\n" + //
+                    "{}", thingUID, ExceptionHelper.compactStackTrace(e));
         }
     }
 
@@ -164,6 +167,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
             return;
         }
 
+        // XXX: Shall we really remove the thing if we see a topic with empty message?
         ThingUID thingUID = new ThingUID(TasmotaBindingConstants.TASMOTA_MQTT_THING, connectionBridge, deviceID);
         logger.info("Topic Vanished Remove Thing: {}", thingUID);
         thingRemoved(thingUID);
