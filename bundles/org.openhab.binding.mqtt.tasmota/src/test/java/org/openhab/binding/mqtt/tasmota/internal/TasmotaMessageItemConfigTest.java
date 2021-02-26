@@ -17,19 +17,20 @@ import java.util.Map;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openhab.binding.mqtt.tasmota.utils.AbstractTest;
 import org.openhab.binding.mqtt.tasmota.utils.JsonHelper;
 import org.openhab.binding.mqtt.tasmota.utils.MockExampleMessages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The {@link MessageMapTransformer} is responsible for transforming the incoming Map from the json conversion to
+ * The {@link TasmotaMessageItemConfig} is responsible for transforming the incoming Map from the json conversion to
  * Single Entries
  *
  * @author Jörg Ostertag - Initial contribution
  */
 @NonNullByDefault
-class MessageMapTransformerTest {
+class TasmotaMessageItemConfigTest extends AbstractTest {
 
     private final Logger logger = LoggerFactory.getLogger(new Object() {
     }.getClass().getEnclosingClass());
@@ -46,11 +47,12 @@ class MessageMapTransformerTest {
             String topic = exampleMessage.getKey();
             String message = exampleMessage.getValue();
             logger.info("stringObjectMap: {}", message);
-            Map<String, Object> stringObjectMap = JsonHelper.jsonStringToMap("$", message);
-            Map<String, Object> stateMap = MessageMapTransformer.transformToStateMap(stringObjectMap);
-            logger.debug("stateMap: {}", stateMap);
-            for (Map.Entry<String, Object> element : stateMap.entrySet()) {
-                logger.info("\t{}:\t{}", element.getKey(), element.getValue());
+            Map<String, Object> stateMap = JsonHelper.jsonStringToMap("", message);
+            for (Map.Entry<String, Object> entry : stateMap.entrySet()) {
+                MessageConfigItem configItem = TasmotaMessageItemConfig.getConfigItem(topic, entry.getKey(),
+                        entry.getValue());
+                logger.debug("key: {}, value: {}", entry.getKey(), entry.getValue());
+                logger.debug("configItem: {}", configItem);
             }
         }
     }

@@ -1,0 +1,49 @@
+/**
+ * Copyright (c) 2010-2021 Contributors to the openHAB project
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ */
+package org.openhab.binding.mqtt.tasmota.discovery;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
+import org.openhab.core.thing.ThingUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * The {@link DiscoveryCache} caches already seen Discoveries and their properties
+ *
+ * @author Jörg Ostertag - Initial contribution
+ */
+@NonNullByDefault
+public class DiscoveryCache {
+
+    private static final Logger logger = LoggerFactory.getLogger(new Object() {
+    }.getClass().getEnclosingClass());
+
+    private static Map<ThingUID, Map<String, Object>> discoveryPropertyCache = new HashMap<>();
+
+    public static Map<String, Object> getCachedProperties(ThingUID thingUID) {
+        synchronized (discoveryPropertyCache) {
+            @Nullable
+            Map<String, Object> deviceStateMap = discoveryPropertyCache.get(thingUID);
+            if (null == deviceStateMap) {
+                deviceStateMap = new TreeMap<>();
+                discoveryPropertyCache.put(thingUID, deviceStateMap);
+            }
+            return deviceStateMap;
+        }
+    }
+}

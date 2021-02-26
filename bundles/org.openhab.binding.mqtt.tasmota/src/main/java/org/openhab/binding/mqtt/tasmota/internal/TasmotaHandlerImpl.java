@@ -12,20 +12,19 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.*;
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.BINDING_ID;
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.CHANNEL_DIMMER;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
 import org.openhab.binding.mqtt.handler.BrokerHandler;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.Dht11DTO;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.EnergyDTO;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
 import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
+import org.openhab.binding.mqtt.tasmota.utils.FileUtils;
 import org.openhab.core.io.transport.mqtt.MqttBrokerConnection;
 import org.openhab.core.library.types.*;
 import org.openhab.core.thing.*;
@@ -59,6 +58,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     protected @Nullable TasmotaSubscriber tasmotaSubscriber;
 
     private final ChannelTypeRegistry channelTypeRegistry;
+    private Map<ChannelUID, MessageConfigItem> channelInternalConfig = new HashMap();
 
     public TasmotaHandlerImpl(Thing thing, ChannelTypeRegistry channelTypeRegistry) {
         super(thing);
@@ -68,7 +68,8 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
     @Override
     public void initialize() {
-        logger.debug("Start initializing Tsmota Handler -- Bridge: {}, Thing: {}", getBridge(), getThing());
+        logger.debug("Start initializing Tasmota Handler -- Bridge: {}, Thing: {}", getBridge().getUID(),
+                getThing().getUID());
         config = getConfigAs(TasmotaConfiguration.class);
 
         Bridge bridge = getBridge();
@@ -85,7 +86,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
             }
         }
 
-        logger.debug("Have broker connection: {}", toConnectionString(connection));
+        logger.debug("initialize(): broker connection: {}", toConnectionString(connection));
 
         tasmotaSubscriber = new TasmotaSubscriber(connection, config.deviceid, this);
 
@@ -105,21 +106,26 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
         logger.debug("handleCommand({}, {})", channelUID, command);
-
         if (null == tasmotaSubscriber) {
             logger.warn("Handling command without being initialized");
             return;
         }
 
-        if (CHANNEL_SWITCH.equals(channelUID.getId())) {
-            if (command instanceof RefreshType) {
-                // TODO: handle data refresh
-            } else {
-                OnOffType wantedValue = (OnOffType) command;
-                tasmotaSubscriber.publishCommand("POWER", wantedValue.equals(OnOffType.ON) ? "ON" : "OFF");
+        {
+            MessageConfigItem messageConfigItem = channelInternalConfig.get(channelUID);
+            logger.debug("Thing: {}, Channel: {}, messageConfigItem: {}", thing, channelUID, messageConfigItem);
+            if (null != messageConfigItem) {
+                String actionCommandTopic = messageConfigItem.getActionCommandTopic();
+                if (command instanceof RefreshType) {
+                    // TODO: handle data refresh
+                } else {
+                    OnOffType wantedValue = (OnOffType) command;
+                    String value = wantedValue.equals(OnOffType.ON) ? "ON" : "OFF";
+                    tasmotaSubscriber.publishCommand(actionCommandTopic, value);
+                }
             }
-
-        } else if (CHANNEL_DIMMER.equals(channelUID.getId())) {
+        }
+        if (CHANNEL_DIMMER.equals(channelUID.getId())) {
             if (command instanceof RefreshType) {
                 // TODO: handle data refresh
             } else {
@@ -135,96 +141,8 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     }
 
     @Override
-    public void processVariableState(String name, String payload) {
-
-        switch (name) {
-            case "POWER":
-                addChannelIfMissing(thing, "switch", "switch");
-                updateState(CHANNEL_SWITCH, payload.equals("ON") ? OnOffType.ON : OnOffType.OFF);
-                break;
-
-            case "DIMMER":
-                addChannelIfMissing(thing, "dimmer", "Dimmer");
-                updateState(CHANNEL_DIMMER, PercentType.valueOf(payload));
-                break;
-
-            default: {
-                logger.error("processVariableState(): Unknown topic name {}", name);
-            }
-                break;
-        }
-
-        updateStatus(ThingStatus.ONLINE);
-    }
-
-    @Override
     public void processTelemetryMessage(String name, String payload) {
         logger.debug("UNHANDLED processTelemetryMessage(name: {}, payload: {})", name, new String(payload));
-        updateStatus(ThingStatus.ONLINE);
-    }
-
-    @Override
-    public void processState(TasmotaStateDTO tasmotaState) {
-        updateStatus(ThingStatus.ONLINE);
-        updatePropertiesFromTasmotaState(tasmotaState);
-        updateChannelsFromTasmotaState(tasmotaState);
-
-        if (tasmotaState.Dimmer != null) {
-            processVariableState("DIMMER", "" + tasmotaState.Dimmer);
-        }
-
-        // Power
-        if (tasmotaState.POWER != null) {
-            processVariableState("POWER", tasmotaState.POWER);
-        }
-        if (tasmotaState.POWER1 != null) {
-            processVariableState("POWER1", tasmotaState.POWER1);
-        }
-        if (tasmotaState.POWER2 != null) {
-            processVariableState("POWER2", tasmotaState.POWER2);
-        }
-        if (tasmotaState.POWER3 != null) {
-            processVariableState("POWER3", tasmotaState.POWER3);
-        }
-        if (tasmotaState.POWER4 != null) {
-            processVariableState("POWER4", tasmotaState.POWER4);
-        }
-
-        // DHT11
-        Dht11DTO dht11DTO = tasmotaState.Dht11;
-        if (null == dht11DTO && tasmotaState.StatusSNS != null) {
-            dht11DTO = tasmotaState.StatusSNS.DHT11;
-        }
-        if (dht11DTO != null) {
-            if (dht11DTO.Temperature != null) {
-                updateState(CHANNEL_TEMPERATURE, DecimalType.valueOf("" + dht11DTO.Temperature));
-            }
-            if (dht11DTO.Humidity != null) {
-                updateState(CHANNEL_HUMIDITY, DecimalType.valueOf("" + dht11DTO.Humidity));
-            }
-            if (dht11DTO.DewPoint != null) {
-                updateState(CHANNEL_DEWPOINT, DecimalType.valueOf("" + dht11DTO.DewPoint));
-            }
-        }
-
-        // ENERGY
-        EnergyDTO energyDTO = tasmotaState.ENERGY;
-        if (energyDTO != null) {
-            if (energyDTO.Voltage != null) {
-                updateState(CHANNEL_VOLTAGE, energyDTO.Voltage);
-            }
-            if (energyDTO.Power != null) {
-                updateState(CHANNEL_POWER_LOAD, energyDTO.Power);
-            }
-        }
-
-        updateStatus(ThingStatus.ONLINE);
-    }
-
-    @Override
-    public void updateExistingThing(TasmotaStateDTO tasmotaStateDTO) {
-        updatePropertiesFromTasmotaState(tasmotaStateDTO);
-        updateChannelsFromTasmotaState(tasmotaStateDTO);
         updateStatus(ThingStatus.ONLINE);
     }
 
@@ -233,63 +151,74 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         updateState(channelID, DecimalType.valueOf("" + value));
     }
 
-    public void updatePropertiesFromTasmotaState(TasmotaStateDTO tasmotaState) {
-        if (TasmotaBindingConstants.debugSkipPropertyUpdate) {
-            logger.warn("skip PropertyUpdate For Easier Debugging");
-        } else {
-            Map<String, String> propertiesString = MqttMessageParser.getPropertiesStringMap(tasmotaState);
+    public boolean updateTasmotaChannel(String topic, String key, Object value) {
+        ThingUID thingUID = this.getThing().getUID();
+
+        MessageConfigItem configItem = TasmotaMessageItemConfig.getConfigItem(topic, key, value);
+
+        @Nullable
+        String channelName = configItem.getChannelName();
+        if (null != channelName) {
+            String channelDescription = configItem.getChannelDescription();
+            logger.debug("update Channel(Thing: {}, Channel: {}, Description: {}, Value({}): {})", thingUID,
+                    channelName, channelDescription, value.getClass().getSimpleName(), String.valueOf(value));
+
+            ChannelUID channelUID = new ChannelUID(thing.getUID(), channelName);
+            addChannelIfMissing(thing, channelName, channelDescription, configItem);
             try {
-                updateProperties(propertiesString);
+                State newChannelState = toOpenhabStateValue(value);
+
+                updateState(channelUID, newChannelState);
             } catch (Exception ex) {
-                logger.error("Error while updating Propperties: {}", ex.getMessage());
+                logger.error("Error updating Channel(Thing: {}, Channel: {}, Value: {}): ex.Message: {}", thingUID,
+                        channelName, String.valueOf(value), ex.getMessage());
             }
+        } else {
+            return false;
         }
+        return true;
     }
 
-    public void updateChannelsFromTasmotaState(TasmotaStateDTO tasmotaState) {
-        logger.trace("updateChannelsFromTasmotaState ...");
-        Map<String, Object> properties = MqttMessageParser.stateToHashMap(tasmotaState);
-        for (Entry<String, Object> property : properties.entrySet()) {
-            String key = property.getKey();
-            Object value = property.getValue();
-            ThingUID thingUID = this.getThing().getUID();
+    public boolean updateTasmotaProperty(String topic, String key, Object value) {
+        ThingUID thingUID = this.getThing().getUID();
 
-            if (key.startsWith("deviceTypeKnown")) {
-                continue;
-            }
+        MessageConfigItem configItem = TasmotaMessageItemConfig.getConfigItem(topic, key, value);
 
-            if (null != value) {
-                if ((!TasmotaBindingConstants.addChannelsForConfigValues) && (key.startsWith("Config."))) {
-                    logger.trace("Thing: {}\tupdateChannel: Ignore Config Value( {}, {})", thingUID, key, value);
-                } else {
-                    String name = key.replaceAll("\\.", "_");
-                    String description = key.replaceAll("\\.", " ");
-                    logger.debug("update Channel(Thing: {}, Channel: {}, Description: {}, Value({}): {})", thingUID,
-                            name, description, value.getClass().getSimpleName(), String.valueOf(value));
+        @Nullable
+        String propertyName = configItem.getPropertyName();
 
-                    ChannelUID channelUID = new ChannelUID(thing.getUID(), name);
-                    addChannelIfMissing(thing, name, description);
-                    try {
-                        if (value.getClass().isInstance(Date.class)) {
-                            updateState(channelUID, DateTimeType.valueOf(("" + value)));
-                        } else if (value.getClass().isInstance(Double.class)) {
-                            updateState(channelUID, DecimalType.valueOf(("" + value)));
-                        } else if (value.getClass().isInstance(Number.class)) {
-                            updateState(channelUID, DecimalType.valueOf(("" + value)));
-                        } else {
-                            updateState(channelUID, StringType.valueOf("" + value));
-                        }
-                    } catch (Exception ex) {
-                        logger.error("Error updating Channel(Thing: {}, Channel: {}, Value: {}): ex.Message: {}",
-                                thingUID, name, String.valueOf(value), ex.getMessage());
-                    }
-
-                }
-            }
+        if (null != propertyName) {
+            logger.trace("Update Property {} to {}", propertyName, value);
+            thing.setProperty(propertyName, String.valueOf(value));
+        } else {
+            return false;
         }
+        return true;
     }
 
-    private void addChannelIfMissing(Thing thing, String name, String description) {
+    @NotNull
+    private State toOpenhabStateValue(Object value) {
+        State newChannelState = StringType.valueOf("" + value);
+        if (value.getClass().isInstance(Date.class)) {
+            newChannelState = DateTimeType.valueOf("" + value);
+        } else if (value.getClass().isInstance(Double.class)) {
+            newChannelState = DecimalType.valueOf("" + value);
+        } else if (value.getClass().isInstance(Integer.class)) {
+            newChannelState = DecimalType.valueOf("" + value);
+        } else if (value.getClass().isInstance(Number.class)) {
+            newChannelState = DecimalType.valueOf("" + value);
+        } else if (value.getClass().isInstance(String.class) //
+                && (((String) value).equals("ON") || ((String) value).equals("OFF"))//
+        ) {
+            newChannelState = value.equals("ON") ? OnOffType.ON : OnOffType.OFF;
+        } else {
+            newChannelState = StringType.valueOf("" + value);
+        }
+        return newChannelState;
+    }
+
+    private void addChannelIfMissing(Thing thing, String name, String description,
+            MessageConfigItem messageConfigItem) {
         logger.trace("addChannelIfMissing(Thing {},name: {}, description: {}) ", thing.getUID(), name, description);
 
         ChannelTypeUID channelTypeUID = new ChannelTypeUID(BINDING_ID, name);
@@ -297,9 +226,14 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         @Nullable
         Channel existingChannel = thing.getChannel(channelUID);
 
+        if (null != messageConfigItem) {
+            channelInternalConfig.put(channelUID, messageConfigItem);
+        }
+
         if (null != existingChannel) {
             logger.trace("Channel {} already exists", channelTypeUID);
         } else {
+
             // debugShowChannels("this.getThing()", this.getThing());
             try {
                 String itemType = "String";
@@ -310,13 +244,13 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                     ChannelType channelType = channelTypeRegistry.getChannelType(channelTypeUID);
                     if (null == channelType) {
                         logger.debug("Missing channel-type({}): Suggestion to add to thing-type.xml", channelTypeUID);
-                        System.out.println("" //
-                                + " <channel-type id=\"" + name + "\">\n" //
-                                + " \t<item-type>" + itemType + "</item-type>\n" //
-                                + " \t<label>" + description + "</label>\n" //
+                        String suggestion = "" //
+                                + " <channel-type id=\"" + name + "\">" //
+                                + " \t<item-type>" + itemType + "</item-type>" //
+                                + " \t<label>" + description + "</label>" //
                                 + " </channel-type>\n" //
-                                + "");
-                        System.out.println();
+                                + "";
+                        FileUtils.fileAppend("/tmp/openhab/thing-types.xml-suggestion", suggestion);
                     } else {
                         @Nullable
                         String channelItemType = channelType.getItemType();
@@ -348,7 +282,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                 // debugShowChannels("new Thing", newThing);
 
             } catch (Exception ex) {
-                logger.error("Error adding channel:{}, {}, {} {}", name, ex.getMessage(), ex.getCause(), "");
+                logger.error("Error adding channel:{}, Message: {}, Cause: {}", name, ex.getMessage(), ex.getCause());
             }
         }
     }
@@ -363,36 +297,21 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     }
 
     @Override
-    public void processMessage(String topic, String payload) {
-        logger.debug("processMessage(topic: {}, payload: {}", topic, payload);
+    public void processMessage(String topic, byte[] payload) {
+        logger.debug("processMessage(topic: {}, payload: {}", topic, new String(payload));
 
-        String[] parts = topic.split("/");
-        if (parts.length != 3) {
-            logger.warn("Unknown topic format: {}", topic);
-            return;
-        }
+        Map<String, Object> stateMap = MqttMessageTransformer.transformMessage(topic, payload);
 
-        String base = parts[0];
-        String deviceId = parts[1];
-        String name = parts[2];
-
-        if (name.matches("(STATE|SENSOR|STATUS.*)")) {
-            processState(MqttMessageParser.parseMessage(topic, payload.getBytes(StandardCharsets.UTF_8)));
-        } else {
-            switch (base) {
-                case "tele":
-                    processTelemetryMessage(name, payload);
-                    break;
-
-                case "stat":
-                    if ("RESULT".equals(name)) {
-                        // Ignore Rule Results (At least for now)
-                    } else {
-                        processVariableState(name, payload);
-                    }
-                    break;
+        for (Map.Entry<String, Object> entry : stateMap.entrySet()) {
+            boolean done = false;
+            done |= updateTasmotaProperty(topic, entry.getKey(), entry.getValue());
+            done |= updateTasmotaChannel(topic, entry.getKey(), entry.getValue());
+            if (!done) {
+                logger.warn("No action for Entry {},{}", entry.getKey(), entry.getValue());
             }
         }
+
+        updateStatus(ThingStatus.ONLINE);
     }
 
     @Override
@@ -400,9 +319,10 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         @Nullable
         ThingHandlerCallback callback = this.getCallback();
         if (callback == null) {
-            logger.error("Missing Callback in Thing {} {}\n" + //
+            logger.error("updateState({},{}): Missing Callback in Thing {} {}\n" + //
                     "Stacktrace: \n" + //
-                    "{}", this.getThing(), this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+                    "{}", channelID, state, this.getThing(), this.getThing().getUID(),
+                    ExceptionHelper.compactStackTrace());
         } else {
             // logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
             // "Stacktrace: \n" + //
@@ -416,9 +336,9 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     @Override
     protected void updateStatus(ThingStatus status) {
         if (this.getCallback() == null) {
-            logger.error("Missing Callback in Thing {} {}\n" + //
+            logger.error("updateStatus({}): Missing Callback in Thing {} {}\n" + //
                     "Stacktrace: \n" + //
-                    "{}", this.getThing(), this.getThing().getUID(), ExceptionHelper.compactStackTrace());
+                    "{}", status, this.getThing(), this.getThing().getUID(), ExceptionHelper.compactStackTrace());
         } else {
             super.updateStatus(status);
         }

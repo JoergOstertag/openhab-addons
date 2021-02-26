@@ -10,14 +10,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package org.openhab.binding.mqtt.tasmota.internal.deviceState;
+package org.openhab.binding.mqtt.tasmota.utils;
 
-/**
- * @author Daan Meijer - Initial contribution
- * @author Jörg Ostertag - Modifications to compile with openhab-3.1.0
- */
-public class Ds18B20DTO extends AbstractJsonDTO {
-
-    public String Id;
-    public Double Temperature;
+public class AbstractTest {
 }

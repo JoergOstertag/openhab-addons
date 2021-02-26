@@ -12,6 +12,8 @@
  */
 package org.openhab.binding.mqtt.tasmota.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -31,6 +33,8 @@ public class JsonHelper {
 
     private static final Logger logger = LoggerFactory.getLogger(new Object() {
     }.getClass().getEnclosingClass());
+
+    static SimpleDateFormat dateFormatTasmota = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
     public static Map<String, Object> jsonStringToMap(String baseKey, byte[] payload) {
         return jsonStringToMap(baseKey, new String(payload));
@@ -52,15 +56,17 @@ public class JsonHelper {
 
         Map<String, Object> result = new TreeMap<>();
 
-        if (!(jsonString.contains("{") || jsonString.contains("["))) {
+        if (!isJsonString(jsonString)) {
             result.put(baseKey, jsonString);
             return result;
         }
 
         ObjectMapper mapper = new ObjectMapper();
+        // mapper.setDateFormat(dateFormatTasmota);
+
         try {
             // convert JSON string to Map
-            logger.debug("jsonToMapFasterXml({})", jsonString);
+            // logger.debug("jsonStringToMap({})", jsonString);
 
             JsonNode jsonNode = mapper.readTree(jsonString);
             result = jsonNodeToMap(baseKey, jsonNode);
@@ -75,16 +81,61 @@ public class JsonHelper {
         return result;
     }
 
+    /**
+     * Check if we see { or [ to determine if it is possibly a json string
+     *
+     * @param jsonString
+     * @return
+     */
+    private static boolean isJsonString(String jsonString) {
+        return jsonString.contains("{") || jsonString.contains("[");
+    }
+
     private static Map<String, Object> jsonNodeToMap(String baseKey, JsonNode jsonNode) {
         if (jsonNode.isArray()) {
             return jsonNodeArrayToMap(baseKey, jsonNode);
         } else if (jsonNode.isValueNode()) {
             Map<String, Object> resultTreeMap = new TreeMap<>();
-            resultTreeMap.put(baseKey, jsonNode);
+            Object resultObject = toTypedObject(jsonNode);
+            resultTreeMap.put(baseKey, resultObject);
             return resultTreeMap;
         } else {
             return jsonNodeMapToMap(baseKey, jsonNode);
         }
+    }
+
+    private static Object toTypedObject(JsonNode jsonNode) {
+        Object result = jsonNode.asText();
+
+        if (jsonNode.isLong()) {
+            result = jsonNode.asLong();
+        } else if (jsonNode.isBigInteger()) {
+            result = jsonNode.asLong();
+        } else if (jsonNode.isInt()) {
+            result = jsonNode.asLong();
+        } else if (jsonNode.isBigDecimal()) {
+            result = jsonNode.asDouble();
+        } else if (jsonNode.isDouble()) {
+            result = jsonNode.asDouble();
+        } else if (jsonNode.isBoolean()) {
+            result = jsonNode.asBoolean();
+        } else if (jsonNode.isFloatingPointNumber()) {
+            result = jsonNode.asDouble();
+        } else if (jsonNode.isNumber()) {
+            result = jsonNode.asDouble();
+        } else if (jsonNode.isTextual()) {
+            String string = jsonNode.asText();
+            result = string;
+            if (string.matches("\\d\\d\\d\\d-\\d\\d-\\dT.*")) {
+                try {
+                    result = dateFormatTasmota.parse(string);
+                } catch (ParseException | NumberFormatException e) {
+                }
+            }
+        } else {
+            result = jsonNode.toString();
+        }
+        return result;
     }
 
     private static Map<String, Object> jsonNodeMapToMap(String baseKey, JsonNode jsonNode) {
@@ -107,7 +158,8 @@ public class JsonHelper {
         Map<String, Object> result = new TreeMap<String, Object>();
         int count = 0;
         for (JsonNode elment : array) {
-            result.putAll(jsonNodeToMap(baseKey + "." + count++, elment));
+            result.putAll(jsonNodeToMap(baseKey + "." + count, elment));
+            count++;
         }
         return result;
     }

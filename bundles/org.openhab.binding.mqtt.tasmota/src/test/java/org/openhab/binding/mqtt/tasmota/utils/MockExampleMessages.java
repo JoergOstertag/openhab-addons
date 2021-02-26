@@ -108,6 +108,13 @@ public class MockExampleMessages {
                 "{\"Time\":\"2021-02-24T10:40:13\",\"Uptime\":\"2T05:58:20\",\"UptimeSec\":194300,\"Heap\":22,\"SleepMode\":\"Dynamic\",\"Sleep\":100,\"LoadAvg\":13,\"MqttCount\":5,\"Wifi\":{\"AP\":1,\"SSId\":\"my-SSID\",\"BSSId\":\"20:0D:B0:65:43:21\",\"Channel\":6,\"RSSI\":100,\"Signal\":-17,\"LinkCount\":1,\"Downtime\":\"0T00:00:07\"}}");
         messages.put("tele/DHT-8/SENSOR",
                 "{\"Time\":\"2021-02-24T10:40:13\",\"DHT11\":{\"Temperature\":19.0,\"Humidity\":16.0,\"DewPoint\":-7.5},\"TempUnit\":\"C\"}");
+
+        // Taken from Discord: Shelly 2.5 Example
+        messages.put("tele/shelly-test/STATE",
+                "{\"Time\":\"2021-02-26T14:11:34\",\"Uptime\":\"0T02:21:31\",\"UptimeSec\":8491,\"Heap\":26,\"SleepMode\":\"Dynamic\",\"Sleep\":50,\"LoadAvg\":26,\"MqttCount\":1,\"POWER1\":\"ON\",\"POWER2\":\"ON\",\"Wifi\":{\"AP\":1,\"SSId\":\"MaJa\",\"BSSId\":\"3C:A6:2F:4E:FE:17\",\"Channel\":6,\"RSSI\":46,\"Signal\":-77,\"LinkCount\":1,\"Downtime\":\"0T00:00:03\"}}");
+        messages.put("tele/shelly-test/SENSOR",
+                "{\"Time\":\"2021-02-26T14:11:34\",\"ANALOG\":{\"Temperature\":58.6},\"ENERGY\":{\"TotalStartTime\":\"2021-02-26T10:26:15\",\"Total\":0.417,\"Yesterday\":0.000,\"Today\":0.417,\"Period\":5,\"Power\":[120,167],\"ApparentPower\":[191,210],\"ReactivePower\":[11,84],\"Factor\":[0.63,0.80],\"Frequency\":50,\"Voltage\":220,\"Current\":[0.816,0.897]},\"TempUnit\":\"C\"}");
+
         return messages;
     }
 }
