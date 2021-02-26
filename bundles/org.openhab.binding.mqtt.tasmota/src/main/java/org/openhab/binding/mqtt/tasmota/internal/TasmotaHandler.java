@@ -13,7 +13,6 @@
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
 
 /**
  * @author Daan Meijer - Initial contribution
@@ -22,13 +21,7 @@ import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
 @NonNullByDefault
 public interface TasmotaHandler {
 
-    void processVariableState(String name, String payload);
-
     void processTelemetryMessage(String name, String payload);
 
-    void processState(TasmotaStateDTO state);
-
-    void updateExistingThing(TasmotaStateDTO tasmotaStateDTO);
-
-    void processMessage(String topic, String payload);
+    void processMessage(String topic, byte[] payload);
 }

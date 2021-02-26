@@ -54,7 +54,7 @@ public class TasmotaSubscriber implements MqttMessageSubscriber {
         connection.subscribe(getStateTopic("STATUS8"), this);
         connection.subscribe(getStateTopic("STATUS9"), this);
         connection.subscribe(getStateTopic("STATUS10"), this);
-        logger.debug("Device created: {}", deviceID);
+        logger.debug("Device initialized and Topics subscribed: {}", deviceID);
     }
 
     public String getTopic(String type, String name) {
@@ -85,7 +85,7 @@ public class TasmotaSubscriber implements MqttMessageSubscriber {
 
     @Override
     public void processMessage(String topic, byte[] payload) {
-        tasmotaHandler.processMessage(topic, new String(payload));
+        tasmotaHandler.processMessage(topic, payload);
     }
 
     public void triggerUpdate() {

@@ -10,19 +10,19 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package org.openhab.binding.mqtt.tasmota.internal;
+package org.openhab.binding.mqtt.tasmota.discovery;
 
 import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.debugLimitDiscovery;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.mqtt.discovery.AbstractMQTTDiscovery;
 import org.openhab.binding.mqtt.discovery.MQTTTopicDiscoveryService;
-import org.openhab.binding.mqtt.tasmota.internal.deviceState.TasmotaStateDTO;
+import org.openhab.binding.mqtt.tasmota.internal.MqttMessageTransformer;
+import org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants;
 import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
 import org.openhab.core.config.discovery.DiscoveryResult;
 import org.openhab.core.config.discovery.DiscoveryResultBuilder;
@@ -57,7 +57,6 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
     static final String discoverySubscribeTopic2 = "stat/#";
     static final String discoverySubscribeTopic3 = "tasmota/discovery/+/config";
     private ThingRegistry thingRegistry;
-    private static Map<ThingUID, Map<String, Object>> discoveryPropertyCache = new HashMap<>();
 
     @Activate
     public TasmotaDiscovery(@Reference MQTTTopicDiscoveryService discoveryService, //
@@ -96,11 +95,12 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
     @Override
     public void receivedMessage(ThingUID connectionBridge, MqttBrokerConnection connection, String topic,
             byte[] payload) {
-        // logger.trace("receivedMessage({}, {}, {}, {})", connectionBridge.getAsString(), connection.getHost(), topic,
-        // new String(payload));
+        // logger.debug("Discovery receivedMessage({}, {}, {}, {})", connectionBridge.getAsString(),
+        // connection.getHost(),
+        // topic, new String(payload));
         resetTimeout();
 
-        String deviceID = MqttMessageParser.extractDeviceID(topic, payload);
+        String deviceID = MqttMessageTransformer.extractDeviceID(topic, payload);
         if (deviceID == null) {
             logger.warn("Found tasmota device, but could not extract device ID from {}.", topic);
             return;
@@ -111,29 +111,17 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
         @Nullable
         Thing existingThing = thingRegistry.get(thingUID);
         if (null != existingThing) {
-            boolean discoveryIgnoreExistingThing = true;
-            if (discoveryIgnoreExistingThing) {
-                logger.debug("Discovery: Thing {} already exists in thingsRegistry: Ignoring", thingUID);
-                return;
-            }
+            logger.trace("Discovery: Thing {} already exists in thingsRegistry: Ignoring", thingUID);
+            return;
         }
 
-        Map<String, Object> deviceStateMap = discoveryPropertyCache.get(thingUID);
-        if (null != deviceStateMap) {
-            logger.debug("Updating discovered ThingUID: {}", thingUID);
-        } else {
-            logger.debug("New Thing Discovered: ThingUID: {}", thingUID);
-            deviceStateMap = new HashMap<>();
-            discoveryPropertyCache.put(thingUID, deviceStateMap);
-        }
+        Map<String, Object> deviceStateMap = deviceStateMap = DiscoveryCache.getCachedProperties(thingUID);
+
         deviceStateMap.put("deviceid", deviceID);
 
         if (!topic.startsWith("tasmota/discovery/")) {
-            // XXX: we have to distinguish between Json payload an simple payload
-            // Probably move this to the TasmotaHandlerImpl
-            TasmotaStateDTO tasmotaStateDTO = MqttMessageParser.parseMessage(topic, payload);
 
-            deviceStateMap.putAll(MqttMessageParser.getPropertiesStringMap(tasmotaStateDTO));
+            deviceStateMap.putAll(MqttMessageTransformer.toPropertiesFromMessage(topic, payload));
         }
 
         if (debugLimitDiscovery && !deviceID.contains("Basic-3")) {
@@ -143,8 +131,8 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
         try {
             // publishDevice(thingTypeUid, connectionBridge, deviceStateMap, deviceID, tasmotaState);
-            logger.debug("received Message for Device( thing: {}, properties: {}, deviceID: {}", thingUID,
-                    deviceStateMap, deviceID);
+            // logger.debug("received Message for Device( thing: {}, properties: {}, deviceID: {}", thingUID,
+            // deviceStateMap, deviceID);
 
             DiscoveryResult discoveryResult = DiscoveryResultBuilder.create(thingUID) //
                     .withBridge(connectionBridge) //
@@ -162,7 +150,7 @@ public class TasmotaDiscovery extends AbstractMQTTDiscovery {
 
     @Override
     public void topicVanished(ThingUID connectionBridge, MqttBrokerConnection connection, String topic) {
-        String deviceID = MqttMessageParser.extractDeviceID(topic, new byte[0]);
+        String deviceID = MqttMessageTransformer.extractDeviceID(topic, new byte[0]);
         if (deviceID == null) {
             return;
         }

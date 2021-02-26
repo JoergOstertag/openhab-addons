@@ -80,713 +80,359 @@
 		<item-type>Color</item-type>
 		<label>Color Value (Hue,Saturation,Brightness)</label>
 		<description></description>
-		<config-description-ref uri="thing-type:mqtt:color_channel"></config-description-ref>
 	</channel-type>
 
 	<channel-type id="datetime">
 		<item-type>DateTime</item-type>
 		<label>Date/Time Value</label>
 		<description>Current date and/or time</description>
-		<config-description-ref uri="thing-type:mqtt:string_channel"/>
 	</channel-type>
-
-
-	<channel-type id="uptimeSec">
-		<item-type>Number</item-type>
-		<label>Uptime in seconds</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="wifiChannel">
-		<item-type>Number</item-type>
-		<label>Wifi Channel</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="wifiRssid">
-		<item-type>Number</item-type>
-		<label>Wifi Rssid</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="wifiSsid">
-		<item-type>Number</item-type>
-		<label>Wifi Ssid</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="ipAddress">
-		<item-type>Number</item-type>
-		<label>Ip Address</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="friendlyName">
-		<item-type>Number</item-type>
-		<label>Friendly Name</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="deviceName">
-		<item-type>Number</item-type>
-		<label>Device Name</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="temperature">
-		<item-type>Number</item-type>
-		<label>Temperature</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="humidity">
-		<item-type>Number</item-type>
-		<label>Humidity</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="dewPoint">
-		<item-type>Number</item-type>
-		<label>Dew Point</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="tempUnit">
-		<item-type>Number</item-type>
-		<label>Temperature Unit</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="powerLoad">
-		<item-type>Number</item-type>
-		<label>Power Load in Watt</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="powerReactive">
-		<item-type>Number</item-type>
-		<label>Power Reactive</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="voltage">
-		<item-type>Number</item-type>
-		<label>Voltage</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="current">
-		<item-type>Number</item-type>
-		<label>Current</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="energyTotal">
-		<item-type>Number</item-type>
-		<label>Energy Total</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="energyTotalStartTime">
-		<item-type>Number</item-type>
-		<label>Start Time for Energy Total</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="energyToday">
-		<item-type>Number</item-type>
-		<label>Energy Today</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="energyYest">
-		<item-type>Number</item-type>
-		<label>Energy Yesterday</label>
-		<state readOnly="true" pattern="%d"/>
-	</channel-type>
-
-	<channel-type id="Config_StatusPRM_OtaUrl">
+	<channel-type id="Config_Status_DeviceName">
 		<item-type>String</item-type>
-		<label>Over The Air Update Url</label>
-		<state readOnly="true" pattern="%s"/>
+		<label>Config_Status_DeviceName</label>
 	</channel-type>
-
-	<channel-type id="Config_StatusLOG_Resolution">
+	<channel-type id="Config_Status_FriendlyName_0">
 		<item-type>String</item-type>
-		<label>MQTT Status LOG Resolution</label>
+		<label>Config_Status_FriendlyName_0</label>
 	</channel-type>
 
+	<channel-type id="Actor_POWER">
+		<item-type>Switch</item-type>
+		<label>Actor_POWER</label>
+	</channel-type>
+	<channel-type id="Actor_POWER1">
+		<item-type>Switch</item-type>
+		<label>Actor_POWER1</label>
+	</channel-type>
+	<channel-type id="Actor_POWER2">
+		<item-type>Switch</item-type>
+		<label>Actor_POWER2</label>
+	</channel-type>
+	<channel-type id="Actor_POWER3">
+		<item-type>Switch</item-type>
+		<label>Actor_POWER3</label>
+	</channel-type>
+	<channel-type id="Actor_POWER4">
+		<item-type>Switch</item-type>
+		<label>Actor_POWER4</label>
+	</channel-type>
 
-	<channel-type id="Config_StatusFWR_BuildDateTime">
+	<channel-type id="Config_Status_PowerOnState">
 		<item-type>String</item-type>
-		<label>Config StatusFWR Build Date and Time</label>
+		<label>Config_Status_PowerOnState</label>
 	</channel-type>
-
-	<channel-type id="Config_StatusFWR_Version">
+	<channel-type id="Config_Status_PowerRetain">
 		<item-type>String</item-type>
-		<label>Config StatusFWR Version</label>
+		<label>Config_Status_PowerRetain</label>
 	</channel-type>
-
-	<channel-type id="Config_StatusFWR_Version">
+	<channel-type id="Config_Status_SaveData">
 		<item-type>String</item-type>
-		<label>Config StatusFWR Version</label>
+		<label>Config_Status_SaveData</label>
 	</channel-type>
-
+	<channel-type id="Config_Status_SaveState">
+		<item-type>String</item-type>
+		<label>Config_Status_SaveState</label>
+	</channel-type>
+	<channel-type id="Config_Status_SensorRetain">
+		<item-type>String</item-type>
+		<label>Config_Status_SensorRetain</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_0">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_0</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_1">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_1</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_2">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_2</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_3">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_3</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_4">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_4</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_5">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_5</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_6">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_6</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchMode_7">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchMode_7</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchRetain">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchRetain</label>
+	</channel-type>
+	<channel-type id="Config_Status_SwitchTopic">
+		<item-type>String</item-type>
+		<label>Config_Status_SwitchTopic</label>
+	</channel-type>
+	<channel-type id="Actor_POWER">
+		<item-type>String</item-type>
+		<label>Actor_POWER</label>
+	</channel-type>
 	<channel-type id="Config_Sleep">
 		<item-type>String</item-type>
-		<label>Config Sleep</label>
+		<label>Config_Sleep</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_SSId">
+	<channel-type id="Config_Status_DeviceName">
 		<item-type>String</item-type>
-		<label>Config Wifi SSId</label>
+		<label>Config_Status_DeviceName</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_Channel">
+	<channel-type id="Config_Status_FriendlyName_0">
 		<item-type>String</item-type>
-		<label>Config Wifi Channel</label>
+		<label>Config_Status_FriendlyName_0</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_LinkCount">
+	<channel-type id="Config_Status_PowerOnState">
 		<item-type>String</item-type>
-		<label>Config Wifi LinkCount</label>
+		<label>Config_Status_PowerOnState</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_wifi_RSSI">
+	<channel-type id="Config_Sleep">
 		<item-type>String</item-type>
-		<label>Config Wifi wifi RSSI</label>
+		<label>Config_Sleep</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_AP">
+	<channel-type id="Config_Status_PowerRetain">
 		<item-type>String</item-type>
-		<label>Config Wifi AP</label>
+		<label>Config_Status_PowerRetain</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_Downtime">
+	<channel-type id="Config_Status_SaveData">
 		<item-type>String</item-type>
-		<label>Config Wifi Downtime</label>
+		<label>Config_Status_SaveData</label>
 	</channel-type>
-
-
-	<channel-type id="deviceTypeKnown">
+	<channel-type id="Config_Status_SaveState">
 		<item-type>String</item-type>
-		<label>deviceTypeKnown</label>
+		<label>Config_Status_SaveState</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_BSSId">
+	<channel-type id="Config_Status_SensorRetain">
 		<item-type>String</item-type>
-		<label>Config Wifi BSSId</label>
+		<label>Config_Status_SensorRetain</label>
 	</channel-type>
-
-
-	<channel-type id="Config_SleepMode">
+	<channel-type id="Config_Status_SwitchMode_0">
 		<item-type>String</item-type>
-		<label>Config SleepMode</label>
+		<label>Config_Status_SwitchMode_0</label>
 	</channel-type>
-
-
-	<channel-type id="hasFeature_Power">
+	<channel-type id="Config_Status_SwitchMode_1">
 		<item-type>String</item-type>
-		<label>hasFeature Power</label>
+		<label>Config_Status_SwitchMode_1</label>
 	</channel-type>
-
-
-	<channel-type id="Config_Wifi_Signal">
+	<channel-type id="Config_Status_SwitchMode_2">
 		<item-type>String</item-type>
-		<label>Config Wifi Signal</label>
+		<label>Config_Status_SwitchMode_2</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SerialLog">
+	<channel-type id="Config_Status_SwitchMode_3">
 		<item-type>String</item-type>
-		<label>Config StatusLOG SerialLog</label>
+		<label>Config_Status_SwitchMode_3</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SSId">
+	<channel-type id="Config_Status_SwitchMode_4">
 		<item-type>String</item-type>
-		<label>Config StatusLOG SSId</label>
+		<label>Config_Status_SwitchMode_4</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_TelePeriod">
+	<channel-type id="Config_Status_SwitchMode_5">
 		<item-type>String</item-type>
-		<label>Config StatusLOG TelePeriod</label>
+		<label>Config_Status_SwitchMode_5</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunset">
+	<channel-type id="Config_Status_SwitchMode_6">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunset</label>
+		<label>Config_Status_SwitchMode_6</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_MqttLog">
+	<channel-type id="Config_Status_SwitchMode_7">
 		<item-type>String</item-type>
-		<label>Config StatusLOG MqttLog</label>
+		<label>Config_Status_SwitchMode_7</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_UTC">
+	<channel-type id="Config_Status_DeviceName">
 		<item-type>String</item-type>
-		<label>Config StatusTIM UTC</label>
+		<label>Config_Status_DeviceName</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_WebLog">
+	<channel-type id="Config_Status_SwitchRetain">
 		<item-type>String</item-type>
-		<label>Config StatusLOG WebLog</label>
+		<label>Config_Status_SwitchRetain</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SSId">
+	<channel-type id="Config_Status_FriendlyName_0">
 		<item-type>String</item-type>
-		<label>Config StatusLOG SSId</label>
+		<label>Config_Status_FriendlyName_0</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_LogPort">
+	<channel-type id="Config_Status_SwitchTopic">
 		<item-type>String</item-type>
-		<label>Config StatusLOG LogPort</label>
+		<label>Config_Status_SwitchTopic</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_TelePeriod">
+	<channel-type id="Actor_POWER">
 		<item-type>String</item-type>
-		<label>Config StatusLOG TelePeriod</label>
+		<label>Actor_POWER</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunset">
+	<channel-type id="Config_Status_PowerOnState">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunset</label>
+		<label>Config_Status_PowerOnState</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_MqttLog">
+	<channel-type id="Config_Status_PowerRetain">
 		<item-type>String</item-type>
-		<label>Config StatusLOG MqttLog</label>
+		<label>Config_Status_PowerRetain</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunrise">
+	<channel-type id="Config_Status_SaveData">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunrise</label>
+		<label>Config_Status_SaveData</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunset">
+	<channel-type id="Config_Status_SaveState">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunset</label>
+		<label>Config_Status_SaveState</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_StartDST">
+	<channel-type id="Config_Status_SensorRetain">
 		<item-type>String</item-type>
-		<label>Config StatusTIM StartDST</label>
+		<label>Config_Status_SensorRetain</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunrise">
+	<channel-type id="Config_Status_SwitchMode_0">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunrise</label>
+		<label>Config_Status_SwitchMode_0</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Local">
+	<channel-type id="Config_Status_SwitchMode_1">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Local</label>
+		<label>Config_Status_SwitchMode_1</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Timezone">
+	<channel-type id="Config_Status_SwitchMode_2">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Timezone</label>
+		<label>Config_Status_SwitchMode_2</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_LogHost">
+	<channel-type id="Config_Status_SwitchMode_3">
 		<item-type>String</item-type>
-		<label>Config StatusLOG LogHost</label>
+		<label>Config_Status_SwitchMode_3</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunset">
+	<channel-type id="Config_Status_SwitchMode_4">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunset</label>
+		<label>Config_Status_SwitchMode_4</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SerialLog">
+	<channel-type id="Config_Status_SwitchMode_5">
 		<item-type>String</item-type>
-		<label>Config StatusLOG SerialLog</label>
+		<label>Config_Status_SwitchMode_5</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_UTC">
+	<channel-type id="Config_Status_SwitchMode_6">
 		<item-type>String</item-type>
-		<label>Config StatusTIM UTC</label>
+		<label>Config_Status_SwitchMode_6</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SSId">
+	<channel-type id="Config_Status_SwitchMode_7">
 		<item-type>String</item-type>
-		<label>Config StatusLOG SSId</label>
+		<label>Config_Status_SwitchMode_7</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Sunrise">
+	<channel-type id="Config_Status_SwitchRetain">
 		<item-type>String</item-type>
-		<label>Config StatusTIM Sunrise</label>
+		<label>Config_Status_SwitchRetain</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_LogPort">
+	<channel-type id="Config_Status_SwitchTopic">
 		<item-type>String</item-type>
-		<label>Config StatusLOG LogPort</label>
+		<label>Config_Status_SwitchTopic</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_Resolution">
+	<channel-type id="Sensor_DS18B20_Temperature">
 		<item-type>String</item-type>
-		<label>Config StatusLOG Resolution</label>
+		<label>Sensor_DS18B20_Temperature</label>
 	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_TelePeriod">
-		<item-type>String</item-type>
-		<label>Config StatusLOG TelePeriod</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_MqttLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG MqttLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_WebLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG WebLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SetOption">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SetOption</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_EndDST">
-		<item-type>String</item-type>
-		<label>Config StatusTIM EndDST</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_StartDST">
-		<item-type>String</item-type>
-		<label>Config StatusTIM StartDST</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusTIM_Local">
-		<item-type>String</item-type>
-		<label>Config StatusTIM Local</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SerialLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SerialLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SSId">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SSId</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_TelePeriod">
-		<item-type>String</item-type>
-		<label>Config StatusLOG TelePeriod</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_MqttLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG MqttLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_WebLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG WebLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_LogHost">
-		<item-type>String</item-type>
-		<label>Config StatusLOG LogHost</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SerialLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SerialLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SSId">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SSId</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_LogPort">
-		<item-type>String</item-type>
-		<label>Config StatusLOG LogPort</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SSId">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SSId</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_TelePeriod">
-		<item-type>String</item-type>
-		<label>Config StatusLOG TelePeriod</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_LogPort">
-		<item-type>String</item-type>
-		<label>Config StatusLOG LogPort</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_MqttLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG MqttLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_Resolution">
-		<item-type>String</item-type>
-		<label>Config StatusLOG Resolution</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_TelePeriod">
-		<item-type>String</item-type>
-		<label>Config StatusLOG TelePeriod</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_MqttLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG MqttLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_WebLog">
-		<item-type>String</item-type>
-		<label>Config StatusLOG WebLog</label>
-	</channel-type>
-
-
-	<channel-type id="Config_StatusLOG_SetOption">
-		<item-type>String</item-type>
-		<label>Config StatusLOG SetOption</label>
-	</channel-type>
-
-	<channel-type id="Sensor_DS1820_Temperature">
-		<item-type>String</item-type>
-		<label>Sensor DS1820 Temperature</label>
-	</channel-type>
-
-	<channel-type id="Sensor_DS1820_Id">
-		<item-type>String</item-type>
-		<label>Sensor DS1820 Id</label>
-	</channel-type>
-
-	<channel-type id="Sensor_Power">
-		<item-type>String</item-type>
-		<label>Sensor Power</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Total">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Total</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_TotalStartTime">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY TotalStartTime</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Period">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Period</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Power">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Power</label>
-	</channel-type>
-
-
 	<channel-type id="Sensor_ENERGY_ApparentPower">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY ApparentPower</label>
+		<label>Sensor_ENERGY_ApparentPower</label>
 	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Voltage">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Voltage</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_ReactivePower">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY ReactivePower</label>
-	</channel-type>
-
-
 	<channel-type id="Sensor_ENERGY_Current">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY Current</label>
+		<label>Sensor_ENERGY_Current</label>
 	</channel-type>
-
-
+	<channel-type id="Config_Sleep">
+		<item-type>String</item-type>
+		<label>Config_Sleep</label>
+	</channel-type>
 	<channel-type id="Sensor_ENERGY_Factor">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY Factor</label>
+		<label>Sensor_ENERGY_Factor</label>
 	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Today">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Today</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Yesterday">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Yesterday</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_Power">
-		<item-type>String</item-type>
-		<label>Sensor Power</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_Power">
-		<item-type>String</item-type>
-		<label>Sensor Power</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_Total">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Total</label>
-	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_TotalStartTime">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY TotalStartTime</label>
-	</channel-type>
-
-
 	<channel-type id="Sensor_ENERGY_Period">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY Period</label>
+		<label>Sensor_ENERGY_Period</label>
 	</channel-type>
-
-
 	<channel-type id="Sensor_ENERGY_Power">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY Power</label>
+		<label>Sensor_ENERGY_Power</label>
 	</channel-type>
-
-
-	<channel-type id="Sensor_ENERGY_ApparentPower">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY ApparentPower</label>
-	</channel-type>
-
-	<channel-type id="Sensor_ENERGY_Voltage">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Voltage</label>
-	</channel-type>
-
 	<channel-type id="Sensor_ENERGY_ReactivePower">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY ReactivePower</label>
+		<label>Sensor_ENERGY_ReactivePower</label>
 	</channel-type>
-
-	<channel-type id="Sensor_ENERGY_Current">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Current</label>
-	</channel-type>
-
-	<channel-type id="Sensor_ENERGY_Factor">
-		<item-type>String</item-type>
-		<label>Sensor ENERGY Factor</label>
-	</channel-type>
-
 	<channel-type id="Sensor_ENERGY_Today">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY Today</label>
+		<label>Sensor_ENERGY_Today</label>
 	</channel-type>
-
-
+	<channel-type id="Sensor_ENERGY_Total">
+		<item-type>String</item-type>
+		<label>Sensor_ENERGY_Total</label>
+	</channel-type>
+	<channel-type id="Sensor_ENERGY_TotalStartTime">
+		<item-type>String</item-type>
+		<label>Sensor_ENERGY_TotalStartTime</label>
+	</channel-type>
+	<channel-type id="Sensor_ENERGY_Voltage">
+		<item-type>String</item-type>
+		<label>Sensor_ENERGY_Voltage</label>
+	</channel-type>
 	<channel-type id="Sensor_ENERGY_Yesterday">
 		<item-type>String</item-type>
-		<label>Sensor ENERGY Yesterday</label>
+		<label>Sensor_ENERGY_Yesterday</label>
 	</channel-type>
-
-	<channel-type id="Sensor_DHT11_DewPoint">
+	<channel-type id="Sensor_ENERGY_Current">
 		<item-type>String</item-type>
-		<label>Sensor DHT11 DewPoint</label>
+		<label>Sensor_ENERGY_Current</label>
 	</channel-type>
-
-
+	<channel-type id="Config_DeviceName">
+		<item-type>String</item-type>
+		<label>Config_DeviceName</label>
+	</channel-type>
+	<channel-type id="Config_FriendlyName_0">
+		<item-type>String</item-type>
+		<label>Config_FriendlyName_0</label>
+	</channel-type>
+	<channel-type id="Config_Module">
+		<item-type>String</item-type>
+		<label>Config_Module</label>
+	</channel-type>
+	<channel-type id="Config_TempUnit">
+		<item-type>String</item-type>
+		<label>Config_TempUnit</label>
+	</channel-type>
+	<channel-type id="Config_Topic">
+		<item-type>String</item-type>
+		<label>Config_Topic</label>
+	</channel-type>
 	<channel-type id="Sensor_DHT11_Temperature">
 		<item-type>String</item-type>
-		<label>Sensor DHT11 Temperature</label>
+		<label>Sensor_DHT11_Temperature</label>
 	</channel-type>
-
 	<channel-type id="Sensor_DHT11_Humidity">
 		<item-type>String</item-type>
-		<label>Sensor DHT11 Humidity</label>
+		<label>Sensor_DHT11_Humidity</label>
+	</channel-type>
+	<channel-type id="Sensor_DHT11_DewPoint">
+		<item-type>String</item-type>
+		<label>Sensor_DHT11_DewPoint</label>
+	</channel-type>
+	<channel-type id="Actor_Dimmer">
+		<item-type>String</item-type>
+		<label>Actor_Dimmer</label>
 	</channel-type>
 
-	<channel-type id="Sensor_Dimmer">
+	<channel-type id="Sensor_SHT3X-0x45_DewPoint">
 		<item-type>String</item-type>
-		<label>Sensor Dimmer</label>
+		<label>Sensor_SHT3X-0x45_DewPoint</label>
 	</channel-type>
-
-	<channel-type id="Sensor_POWER">
+	<channel-type id="Sensor_SHT3X-0x45_Humidity">
 		<item-type>String</item-type>
-		<label>Sensor POWER</label>
+		<label>Sensor_SHT3X-0x45_Humidity</label>
+	</channel-type>
+	<channel-type id="Sensor_SHT3X-0x45_Temperature">
+		<item-type>String</item-type>
+		<label>Sensor_SHT3X-0x45_Temperature</label>
 	</channel-type>
 
 </thing:thing-descriptions>
