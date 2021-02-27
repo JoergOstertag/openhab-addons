@@ -1,19 +1,20 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.openhab.core.thing.ThingTypeUID;
+import org.openhab.core.thing.type.ChannelGroupTypeUID;
 
 /**
  * The {@link TasmotaBindingConstants} class defines common constants, which are
@@ -49,4 +50,9 @@ public class TasmotaBindingConstants {
     public static boolean debugLimitDiscovery = ohDebugMode;
     // public static boolean debugSkipPropertyUpdate = true;
     // public static boolean debugLimitDiscovery = true;
+
+    public static ChannelGroupTypeUID channelGroupTypeUID_ACTION = new ChannelGroupTypeUID(BINDING_ID, "action");
+    public static ChannelGroupTypeUID channelGroupTypeUID_CONFIG = new ChannelGroupTypeUID(BINDING_ID, "config");
+    public static ChannelGroupTypeUID channelGroupTypeUID_SENSOR = new ChannelGroupTypeUID(BINDING_ID, "sensor");
+    public static ChannelGroupTypeUID channelGroupTypeUID_STATUS = new ChannelGroupTypeUID(BINDING_ID, "status");
 }
