@@ -13,43 +13,14 @@
 		<label>Tasmota Binding Switch</label>
 		<description>Generic Tasmota Binding thing</description>
 
-		<!--
-			<channels>
 
-			<channel id="dimmer" typeId="dimmer"/>
-			<channel id="state" typeId="state"/>
-			<channel id="switch" typeId="switch"/>
+		<channel-groups>
+			<channel-group id="actor" typeId="actor"/>
+			<channel-group id="setting" typeId="setting"/>
+			<channel-group id="config" typeId="configrm"/>
+			<channel-group id="status" typeId="status"/>
+		</channel-groups>
 
-			<channel id="temperature" typeId="temperature"/>
-			<channel id="humidity" typeId="humidity"/>
-			<channel id="dewPoint" typeId="dewPoint"/>
-
-			<channel id="powerLoad" typeId="powerLoad"/>
-			<channel id="voltage" typeId="voltage"/>
-
-
-
-			<channel id="powerReactive" typeId="powerReactive"/>
-			<channel id="current" typeId="current"/>
-			<channel id="energyTotal" typeId="energyTotal"/>
-			<channel id="energyTotalStartTime" typeId="energyTotalStartTime"/>
-			<channel id="energyToday" typeId="energyToday"/>
-			<channel id="energyYest" typeId="energyYest"/>
-			</channels>
-		-->
-		<!--
-			<properties>
-			<property name="Config.StatusPRM.OtaUrl"></property>
-			<property name="Config.tempUnit"/>
-			<property name="Config.uptimeSec"/>
-			<property name="Config.wifi.Channel"/>
-			<property name="Config.wifi.Rssid"/>
-			<property name="Config.wifi.Ssid"/>
-			<property name="Config.ipAddress"/>
-			<property name="Config.friendlyName"/>
-			<property name="Config.deviceName"/>
-			</properties>
-		-->
 
 		<config-description>
 			<parameter name="deviceid" type="text" required="true">
@@ -59,6 +30,55 @@
 		</config-description>
 
 	</thing-type>
+
+	<channel-group-type id="actor">
+		<label>Device Actors</label>
+		<description>
+			Device Actors to manipulate Device
+		</description>
+		<channels>
+			<channel id="CH1_actor" typeId="state"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="setting">
+		<label>Device Setting</label>
+		<description>
+			The Device Settings
+		</description>
+		<channels>
+			<channel id="CH1_setting" typeId="state"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="config">
+		<label>Input</label>
+		<description>
+			The Device Configuration
+		</description>
+		<channels>
+			<channel id="CH1" typeId="state"/>
+			<channel id="CH2" typeId="state"/>
+			<channel id="CH3" typeId="state"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="status">
+		<label>Input</label>
+		<description>
+			This is a generic module with 8 input channels.
+		</description>
+		<channels>
+			<channel id="CH1" typeId="state"/>
+			<channel id="CH2" typeId="state"/>
+			<channel id="CH3" typeId="state"/>
+		</channels>
+	</channel-group-type>
+
+
+
+
+
 
 	<channel-type id="state">
 		<item-type>Switch</item-type>
