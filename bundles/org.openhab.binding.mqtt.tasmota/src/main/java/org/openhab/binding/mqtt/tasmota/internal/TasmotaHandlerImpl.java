@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.internal;
@@ -32,6 +32,7 @@ import org.openhab.core.thing.binding.BaseThingHandler;
 import org.openhab.core.thing.binding.ThingHandlerCallback;
 import org.openhab.core.thing.binding.builder.ChannelBuilder;
 import org.openhab.core.thing.binding.builder.ThingBuilder;
+import org.openhab.core.thing.type.ChannelGroupTypeRegistry;
 import org.openhab.core.thing.type.ChannelType;
 import org.openhab.core.thing.type.ChannelTypeRegistry;
 import org.openhab.core.thing.type.ChannelTypeUID;
@@ -99,6 +100,8 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                     "Stacktrace: \n" + //
                     "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
         }
+
+        channelGroupTypeRegistry = getService(ChannelGroupTypeRegistry.class);
 
         logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
     }
@@ -316,20 +319,22 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
 
     @Override
     protected void updateState(String channelID, State state) {
-        @Nullable
-        ThingHandlerCallback callback = this.getCallback();
-        if (callback == null) {
-            logger.error("updateState({},{}): Missing Callback in Thing {} {}\n" + //
-                    "Stacktrace: \n" + //
-                    "{}", channelID, state, this.getThing(), this.getThing().getUID(),
-                    ExceptionHelper.compactStackTrace());
-        } else {
-            // logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
-            // "Stacktrace: \n" + //
-            // "{}", callback.getClass().getName(), this.getThing(), this.getThing().getUID(),
-            // ExceptionHelper.compactStackTrace());
+        if (isLinked(channelID)) {
+            @Nullable
+            ThingHandlerCallback callback = this.getCallback();
+            if (callback == null) {
+                logger.error("updateState({},{}): Missing Callback in Thing {} {}\n" + //
+                        "Stacktrace: \n" + //
+                        "{}", channelID, state, this.getThing(), this.getThing().getUID(),
+                        ExceptionHelper.compactStackTrace());
+            } else {
+                // logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
+                // "Stacktrace: \n" + //
+                // "{}", callback.getClass().getName(), this.getThing(), this.getThing().getUID(),
+                // ExceptionHelper.compactStackTrace());
 
-            super.updateState(channelID, state);
+                super.updateState(channelID, state);
+            }
         }
     }
 
