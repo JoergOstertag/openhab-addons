@@ -1,0 +1,1237 @@
+tele/Basic-6/LWT Online
+tele/4CH-0/LWT Online
+tele/BUTTON-1/LWT Online
+tele/Basic-0/LWT Online
+tele/Basic-2/LWT Online
+tele/Basic-5/LWT Online
+tele/Basic-4/LWT Online
+tele/Buzzer-1/LWT Online
+tele/Buzzer-0/LWT Online
+tele/DHT-1/LWT Online
+tele/DHT-7/LWT Online
+tele/DHT-6/LWT Online
+tele/DHT-5/LWT Offline
+tele/IR-0/LWT Online
+tele/LED-Matrix-0/LWT Online
+tele/Moisture-0/LWT Online
+tele/RF-Bridge-1/LWT Online
+tele/Pow-2/LWT Online
+tele/Pow-1/LWT Online
+tele/RF-Bridge-0/LWT Online
+tele/RFID-2/LWT Online
+tele/Pow-0/LWT Online
+tele/RGB-1/LWT Online
+tele/RGB-2/LWT Online
+tele/SHT-2/LWT Online
+tele/SHT-1/LWT Online
+tele/S55-0/LWT Offline
+tele/Touch-0/LWT Online
+tele/Touch-1/LWT Online
+tele/SHT-0/LWT Online
+tele/Water-0/LWT Online
+tele/Status-2/LWT Online
+tele/RGB-Strip-2/LWT Offline
+tele/RGB-Strip-3/LWT Offline
+tele/RGB-Strip-0/LWT Offline
+tele/RGB-Strip-1/LWT Offline
+tele/S20-6/LWT Online
+tele/S20-5/LWT Online
+tele/S20-4/LWT Offline
+tele/S20-3/LWT Online
+tele/S20-2/LWT Online
+tele/S20-1/LWT Online
+tele/Relay-0/LWT Online
+tele/Pow-3/LWT Offline
+tele/DHT-9/LWT Online
+tele/DHT-2/LWT Online
+tele/DHT-4/LWT Online
+tele/LED-Matrix-1/LWT Online
+tele/OLED-0/LWT Online
+tele/DHT-3/LWT Offline
+tasmota/discovery/6001949C9C2E/config {"ip":"192.168.10.220","dn":"4CH-Dev-0","fn":["4CH-0 4CH-Dev-0","Sonoff 4CH 0b","Sonoff 4CH 0c","Sonoff 4CH 0d",null,null,null,null],"hn":"ESP-4CH-0","mac":"6001949C9C2E","md":"Sonoff 4CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"4CH-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,1,1,1,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/6001949C9C2E/sensors {"sn":{"Time":"2021-02-27T14:28:42"},"ver":1}
+tasmota/discovery/DC4F221176DE/config {"ip":"192.168.11.11","dn":"x1","fn":["BUTTON-1 x1",null,null,null,null,null,null,null],"hn":"ESP-BUTTON-1","mac":"DC4F221176DE","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"BUTTON-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F221176DE/sensors {"sn":{"Time":"1970-01-01T00:04:07"},"ver":1}
+tasmota/discovery/DC4F222A1E85/config {"ip":"192.168.10.100","dn":"Basic-Dev-0","fn":["Basic-0 Basic-Dev-0",null,null,null,null,null,null,null],"hn":"ESP-Basic-0","mac":"DC4F222A1E85","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222A1E85/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/DC4F222D7052/config {"ip":"192.168.10.102","dn":"Basic-Dev-2 Steckdosenleiste","fn":["Basic-2 Basic-Dev-2 Steckdosenleiste",null,null,null,null,null,null,null],"hn":"ESP-Basic-2","mac":"DC4F222D7052","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222D7052/sensors {"sn":{"Time":"2021-02-27T15:47:34"},"ver":1}
+tasmota/discovery/ECFABC8AD26F/config {"ip":"192.168.10.105","dn":"Regentonne-Balkon","fn":["Basic-5 Regentonne-Balkon",null,null,null,null,null,null,null],"hn":"ESP-Basic-5","mac":"ECFABC8AD26F","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC8AD26F/sensors {"sn":{"Time":"2021-02-27T15:46:43"},"ver":1}
+tasmota/discovery/84F3EB48BA00/config {"ip":"192.168.10.104","dn":"Basic-Dev-4","fn":["Basic-4 Basic-Dev-4",null,null,null,null,null,null,null],"hn":"ESP-Basic-4","mac":"84F3EB48BA00","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-4","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EB48BA00/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/ECFABC9343CF/config {"ip":"192.168.10.106","dn":"Basic-Dev-6","fn":["Basic-6 Basic-Dev-6",null,null,null,null,null,null,null],"hn":"ESP-Basic-6","mac":"ECFABC9343CF","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC9343CF/sensors {"sn":{"Time":"2021-02-27T14:28:43"},"ver":1}
+tasmota/discovery/98F4ABDA6C79/config {"ip":"192.168.11.241","dn":"Buzzer-x1","fn":["Buzzer-1 Buzzer-x1",null,null,null,null,null,null,null],"hn":"ESP-Buzzer-1","mac":"98F4ABDA6C79","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Buzzer-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":1,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6C79/sensors {"sn":{"Time":"1970-01-01T00:02:24"},"ver":1}
+tasmota/discovery/98F4ABDA6DE7/config {"ip":"192.168.11.240","dn":"Buzzer-x0","fn":["Buzzer-0 Buzzer-x0",null,null,null,null,null,null,null],"hn":"ESP-Buzzer-0","mac":"98F4ABDA6DE7","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Buzzer-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":1,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6DE7/sensors {"sn":{"Time":"2021-02-27T14:28:41"},"ver":1}
+tasmota/discovery/68C63AA4CAE1/config {"ip":"192.168.11.171","dn":"Wohnzimmer","fn":["DHT-1 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-DHT-1","mac":"68C63AA4CAE1","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/68C63AA4CAE1/sensors {"sn":{"Time":"2021-02-27T14:30:14","DHT11":{"Temperature":17.0,"Humidity":19.0,"DewPoint":-6.9},"TempUnit":"C"},"ver":1}
+tasmota/discovery/84F3EBB388A4/config {"ip":"192.168.11.176","dn":"Bad","fn":["DHT-6 Bad",null,null,null,null,null,null,null],"hn":"ESP-DHT-6","mac":"84F3EBB388A4","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB388A4/sensors {"sn":{"Time":"2021-02-27T14:29:14","DHT11":{"Temperature":20.0,"Humidity":91.0,"DewPoint":18.5},"TempUnit":"C"},"ver":1}
+tasmota/discovery/84F3EBB38982/config {"ip":"192.168.11.175","dn":"LeseZi","fn":["DHT-5 LeseZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-5","mac":"84F3EBB38982","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB38982/sensors {"sn":{"Time":"2021-02-27T18:07:22","DHT11":{"Temperature":21.0,"Humidity":17.0,"DewPoint":-5.0},"TempUnit":"C"},"ver":1}
+tasmota/discovery/B4E62D15914A/config {"ip":"192.168.11.70","dn":"IR WZ","fn":["IR-0 IR WZ",null,null,null,null,null,null,null],"hn":"ESP-IR-0","mac":"B4E62D15914A","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"IR-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D15914A/sensors {"sn":{"Time":"1970-01-01T00:02:26"},"ver":1}
+tasmota/discovery/B4E62D17DAC0/config {"ip":"192.168.11.50","dn":"x0","fn":["Moisture-0 x0",null,null,null,null,null,null,null],"hn":"ESP-Moisture-0","mac":"B4E62D17DAC0","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Moisture-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17DAC0/sensors {"sn":{"Time":"1970-01-01T00:01:35","ANALOG":{"Range":0}},"ver":1}
+tasmota/discovery/ECFABC501050/config {"ip":"192.168.10.202","dn":"Server Cool Steckdose 3-Fach","fn":["Pow-2 Server Cool Steckdose 3-Fach",null,null,null,null,null,null,null],"hn":"ESP-Pow-2","mac":"ECFABC501050","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC501050/sensors {"sn":{"Time":"1970-01-01T00:00:51","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.262,"Yesterday":0.985,"Today":0.438,"Power":30,"ApparentPower":54,"ReactivePower":44,"Factor":0.56,"Voltage":226,"Current":0.237}},"ver":1}
+tasmota/discovery/BCDDC2452E04/config {"ip":"192.168.10.201","dn":"Kueche","fn":["Pow-1 Kueche",null,null,null,null,null,null,null],"hn":"ESP-Pow-1","mac":"BCDDC2452E04","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/BCDDC2452E04/sensors {"sn":{"Time":"1970-01-01T00:04:01","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":15.446,"Yesterday":1.587,"Today":0.015,"Power":8,"ApparentPower":30,"ReactivePower":29,"Factor":0.28,"Voltage":225,"Current":0.135}},"ver":1}
+tasmota/discovery/600194A36F3A/config {"ip":"192.168.10.160","dn":"Wohnzimmer","fn":["RF-Bridge-0 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-RF-Bridge-0","mac":"600194A36F3A","md":"Sonoff Bridge","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RF-Bridge-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/600194A36F3A/sensors {"sn":{"Time":"2021-02-27T14:28:56"},"ver":1}
+tasmota/discovery/98F4ABDA6C65/config {"ip":"192.168.11.202","dn":"RFID-Dev-2","fn":["RFID-2 RFID-Dev-2",null,null,null,null,null,null,null],"hn":"ESP-RFID-2","mac":"98F4ABDA6C65","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RFID-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6C65/sensors {"sn":{"Time":"1970-01-01T00:01:42","Switch8":"ON"},"ver":1}
+tasmota/discovery/B4E62D14C793/config {"ip":"192.168.10.200","dn":"Waschmaschine","fn":["Pow-0 Waschmaschine",null,null,null,null,null,null,null],"hn":"ESP-Pow-0","mac":"B4E62D14C793","md":"Sonoff Pow","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D14C793/sensors {"sn":{"Time":"2021-02-27T13:09:37","ENERGY":{"TotalStartTime":"2020-01-02T22:50:04","Total":0.756,"Yesterday":0.608,"Today":0.008,"Power":0,"ApparentPower":0,"ReactivePower":0,"Factor":0.00,"Voltage":223,"Current":0.000}},"ver":1}
+tasmota/discovery/DC4F220B8188/config {"ip":"192.168.11.131","dn":"Joerg","fn":["RGB-1 Joerg",null,null,null,null,null,null,null],"hn":"ESP-RGB-1","mac":"DC4F220B8188","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RGB-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F220B8188/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/B4E62D17E77A/config {"ip":"192.168.11.132","dn":"Chris","fn":["RGB-2 Chris",null,null,null,null,null,null,null],"hn":"ESP-RGB-2","mac":"B4E62D17E77A","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RGB-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17E77A/sensors {"sn":{"Time":"2021-02-27T14:28:55"},"ver":1}
+tasmota/discovery/DC4F222BE54C/config {"ip":"192.168.10.11","dn":"Kaffee","fn":["S20-1 Kaffee",null,null,null,null,null,null,null],"hn":"ESP-S20-1","mac":"DC4F222BE54C","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222BE54C/sensors {"sn":{"Time":"2021-02-27T14:28:56"},"ver":1}
+tasmota/discovery/5CCF7F7A2E30/config {"ip":"192.168.10.13","dn":"Pflanzen Licht Kueche","fn":["S20-3 Pflanzen Licht Kueche",null,null,null,null,null,null,null],"hn":"ESP-S20-3","mac":"5CCF7F7A2E30","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-3","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F7A2E30/sensors {"sn":{"Time":"1970-01-01T00:03:33"},"ver":1}
+tasmota/discovery/2CF432BFA214/config {"ip":"192.168.10.50","dn":"Brunnen","fn":["S55-0 Brunnen",null,null,null,null,null,null,null],"hn":"ESP-S55-0","mac":"2CF432BFA214","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S55-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/2CF432BFA214/sensors {"sn":{"Time":"2021-02-27T13:43:44"},"ver":1}
+tasmota/discovery/C82B9608E053/config {"ip":"192.168.11.80","dn":"Klingel","fn":["Relay-0 Klingel",null,null,null,null,null,null,null],"hn":"ESP-Relay-0","mac":"C82B9608E053","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Relay-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C82B9608E053/sensors {"sn":{"Time":"2021-02-27T14:28:42"},"ver":1}
+tasmota/discovery/5CCF7F799F72/config {"ip":"192.168.10.12","dn":"Pflanzen Licht AZ","fn":["S20-2 Pflanzen Licht AZ",null,null,null,null,null,null,null],"hn":"ESP-S20-2","mac":"5CCF7F799F72","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F799F72/sensors {"sn":{"Time":"2021-02-27T14:32:32"},"ver":1}
+tasmota/discovery/5CCF7F79BFB5/config {"ip":"192.168.10.16","dn":"Lampe Tisch WZ","fn":["S20-6 Lampe Tisch WZ",null,null,null,null,null,null,null],"hn":"ESP-S20-6","mac":"5CCF7F79BFB5","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F79BFB5/sensors {"sn":{"Time":"2021-02-27T14:30:18"},"ver":1}
+tasmota/discovery/ECFABCC2B8CA/config {"ip":"192.168.12.100","dn":"Kueche","fn":["SHT-0 Kueche",null,null,null,null,null,null,null],"hn":"ESP-SHT-0","mac":"ECFABCC2B8CA","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABCC2B8CA/sensors {"sn":{"Time":"1970-01-01T00:04:02","SHT3X-0x45":{"Temperature":29.7,"Humidity":28.7,"DewPoint":9.6},"TempUnit":"C"},"ver":1}
+tasmota/discovery/ECFABCC2AE43/config {"ip":"192.168.12.102","dn":"Bad","fn":["SHT-2 Bad",null,null,null,null,null,null,null],"hn":"ESP-SHT-2","mac":"ECFABCC2AE43","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABCC2AE43/sensors {"sn":{"Time":"2021-02-27T14:38:41","SHT3X-0x45":{"Temperature":24.2,"Humidity":34.2,"DewPoint":7.4},"TempUnit":"C"},"ver":1}
+tasmota/discovery/98F4ABDA5FDD/config {"ip":"192.168.12.101","dn":"Wohnzimmer","fn":["SHT-1 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-SHT-1","mac":"98F4ABDA5FDD","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA5FDD/sensors {"sn":{"Time":"1970-01-01T00:01:35","SHT3X-0x45":{"Temperature":23.3,"Humidity":23.9,"DewPoint":1.5},"TempUnit":"C"},"ver":1}
+tasmota/discovery/6001949B18CF/config {"ip":"192.168.10.151","dn":"x1","fn":["Touch-1 x1",null,null,null,null,null,null,null],"hn":"ESP-Touch-1","mac":"6001949B18CF","md":"Sonoff T1 1CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Touch-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/6001949B18CF/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/84F3EB584265/config {"ip":"192.168.11.222","dn":"Clock","fn":["Status-2 Clock",null,null,null,null,null,null,null],"hn":"ESP-Status-2","mac":"84F3EB584265","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Status-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EB584265/sensors {"sn":{"Time":"2021-02-27T16:12:27"},"ver":1}
+tasmota/discovery/DC4F2286E4C3/config {"ip":"192.168.10.150","dn":"WZ","fn":["Touch-0 WZ","Sonoff Touch 0b",null,null,null,null,null,null],"hn":"ESP-Touch-0","mac":"DC4F2286E4C3","md":"Sonoff T1 2CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Touch-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,1,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F2286E4C3/sensors {"sn":{"Time":"2021-02-27T14:30:16"},"ver":1}
+tasmota/discovery/C44F33B182BB/config {"ip":"192.168.11.30","dn":"Water-Dev-0","fn":["Water-0 Water-Dev-0",null,null,null,null,null,null,null],"hn":"ESP-Water-0","mac":"C44F33B182BB","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Water-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C44F33B182BB/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/DC4F221D49C1/config {"ip":"192.168.11.179","dn":"Kueche","fn":["DHT-9 Kueche",null,null,null,null,null,null,null],"hn":"ESP-DHT-9","mac":"DC4F221D49C1","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-9","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F221D49C1/sensors {"sn":{"Time":"1970-01-01T00:03:33","DHT11":{"Temperature":23.0,"Humidity":16.0,"DewPoint":-4.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/B4E62D17FB57/config {"ip":"192.168.11.172","dn":"Gang","fn":["DHT-2 Gang",null,null,null,null,null,null,null],"hn":"ESP-DHT-2","mac":"B4E62D17FB57","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17FB57/sensors {"sn":{"Time":"2021-02-27T06:44:47","DHT11":{"Temperature":18.0,"Humidity":95.0,"DewPoint":17.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/C82B964349C4/config {"ip":"192.168.10.161","dn":"Extra","fn":["RF-Bridge-1 Extra",null,null,null,null,null,null,null],"hn":"ESP-RF-Bridge-1","mac":"C82B964349C4","md":"Sonoff Bridge","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RF-Bridge-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C82B964349C4/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/5CCF7F7A1EEE/config {"ip":"192.168.10.15","dn":"S20-5 Pflanzen Licht WZ","fn":["S20-5 Pflanzen Licht WZ",null,null,null,null,null,null,null],"hn":"ESP-S20-5","mac":"5CCF7F7A1EEE","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F7A1EEE/sensors {"sn":{"Time":"2021-02-27T14:28:41"},"ver":1}
+tasmota/discovery/B4E62D1588CC/config {"ip":"192.168.11.173","dn":"ArbeitsZi","fn":["DHT-3 ArbeitsZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-3","mac":"B4E62D1588CC","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-3","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D1588CC/sensors {"sn":{"Time":"2021-02-27T15:45:34","DHT11":{"Temperature":19.0,"Humidity":95.0,"DewPoint":18.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/98F4ABDA6F17/config {"ip":"192.168.1.25","dn":"SchlafZi","fn":["DHT-4 SchlafZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-4","mac":"98F4ABDA6F17","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-4","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6F17/sensors {"sn":{"Time":"2021-02-27T14:29:46"},"ver":1}
+tasmota/discovery/84CCA89BF8D3/config {"ip":"192.168.10.203","dn":"LZ BÃ¼ro JÃ¶rg 3fach-weiss","fn":["Pow-3 LZ BÃ¼ro JÃ¶rg 3fach-weiss",null,null,null,null,null,null,null],"hn":"ESP-Pow-3","mac":"84CCA89BF8D3","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-3","ft":"%prefix%/%topic%/","tp":["cm0, cmnd/OLED-0/DisplayText[l4c1]LZ : 90 W ÿ ÿ0  stat/Pow-3/RESULT{"Var2":"90"}0  stat/Pow-3/RESULT{"Var1":"90"}0, cmnd/OLED-0/DisplayText[l4c1]LZ : 90 W ÿ ÿ0  stat/Pow-3/RESULT{"Var2":"90"}0  stat/Pow-3/RESULT{"Var1":"93"}0, cmnd/OLED-0/DisplayText[l4c1]LZ : 93 W ÿ
+tasmota/discovery/84F3EBB39578/config {"ip":"192.168.11.177","dn":"Cool","fn":["DHT-7 Cool",null,null,null,null,null,null,null],"hn":"ESP-DHT-7","mac":"84F3EBB39578","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-7","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB39578/sensors {"sn":{"Time":"2021-02-27T18:08:18","DHT11":{"Temperature":16.0,"Humidity":95.0,"DewPoint":15.2},"TempUnit":"C"},"ver":1}
+tele/S20-2/STATE {"Time":"2021-02-27T18:52:28","Uptime":"0T04:20:16","UptimeSec":15616,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":3,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":50,"Signal":-75,"LinkCount":1,"Downtime":"0T00:00:08"}}
+tele/Pow-0/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-0/SENSOR {"Time":"2021-02-27T18:52:28","ENERGY":{"TotalStartTime":"2020-01-02T22:50:04","Total":0.760,"Yesterday":0.608,"Today":0.012,"Power":0,"ApparentPower":25,"ReactivePower":25,"Factor":0.00,"Voltage":225,"Current":0.113}}
+tele/Basic-2/STATE {"Time":"2021-02-27T18:52:29","Uptime":"0T03:05:13","UptimeSec":11113,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":76,"Signal":-62,"LinkCount":1,"Downtime":"0T00:00:07"}}
+tele/Pow-1/STATE {"Time":"2021-02-27T18:52:31","Uptime":"0T04:27:23","UptimeSec":16043,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":1,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":100,"Signal":-46,"LinkCount":1,"Downtime":"0T00:02:11"}}
+tele/Pow-1/SENSOR {"Time":"2021-02-27T18:52:31","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":17.014,"Yesterday":1.587,"Today":1.583,"Period":0,"Power":2,"ApparentPower":28,"ReactivePower":28,"Factor":0.09,"Voltage":222,"Current":0.127}}
+tele/Basic-6/LWT Online
+tele/4CH-0/LWT Online
+tele/BUTTON-1/LWT Online
+tele/Basic-0/LWT Online
+tele/Basic-2/LWT Online
+tele/Basic-5/LWT Online
+tele/Basic-4/LWT Online
+tele/Buzzer-1/LWT Online
+tele/Buzzer-0/LWT Online
+tele/DHT-1/LWT Online
+tele/DHT-7/LWT Online
+tele/DHT-6/LWT Online
+tele/DHT-5/LWT Offline
+tele/IR-0/LWT Online
+tele/LED-Matrix-0/LWT Online
+tele/Moisture-0/LWT Online
+tele/RF-Bridge-1/LWT Online
+tele/Pow-2/LWT Online
+tele/Pow-1/LWT Online
+tele/RF-Bridge-0/LWT Online
+tele/RFID-2/LWT Online
+tele/Pow-0/LWT Online
+tele/RGB-1/LWT Online
+tele/RGB-2/LWT Online
+tele/SHT-2/LWT Online
+tele/SHT-1/LWT Online
+tele/S55-0/LWT Offline
+tele/Touch-0/LWT Online
+tele/Touch-1/LWT Online
+tele/SHT-0/LWT Online
+tele/Water-0/LWT Online
+tele/Status-2/LWT Online
+tele/RGB-Strip-2/LWT Offline
+tele/RGB-Strip-3/LWT Offline
+tele/RGB-Strip-0/LWT Offline
+tele/RGB-Strip-1/LWT Offline
+tele/S20-6/LWT Online
+tele/S20-5/LWT Online
+tele/S20-4/LWT Offline
+tele/S20-3/LWT Online
+tele/S20-2/LWT Online
+tele/S20-1/LWT Online
+tele/Relay-0/LWT Online
+tele/Pow-3/LWT Offline
+tele/DHT-9/LWT Online
+tele/DHT-2/LWT Online
+tele/DHT-4/LWT Online
+tele/LED-Matrix-1/LWT Online
+tele/OLED-0/LWT Online
+tele/DHT-3/LWT Offline
+tasmota/discovery/6001949C9C2E/config {"ip":"192.168.10.220","dn":"4CH-Dev-0","fn":["4CH-0 4CH-Dev-0","Sonoff 4CH 0b","Sonoff 4CH 0c","Sonoff 4CH 0d",null,null,null,null],"hn":"ESP-4CH-0","mac":"6001949C9C2E","md":"Sonoff 4CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"4CH-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,1,1,1,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/6001949C9C2E/sensors {"sn":{"Time":"2021-02-27T14:28:42"},"ver":1}
+tasmota/discovery/DC4F221176DE/config {"ip":"192.168.11.11","dn":"x1","fn":["BUTTON-1 x1",null,null,null,null,null,null,null],"hn":"ESP-BUTTON-1","mac":"DC4F221176DE","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"BUTTON-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F221176DE/sensors {"sn":{"Time":"1970-01-01T00:04:07"},"ver":1}
+tasmota/discovery/DC4F222A1E85/config {"ip":"192.168.10.100","dn":"Basic-Dev-0","fn":["Basic-0 Basic-Dev-0",null,null,null,null,null,null,null],"hn":"ESP-Basic-0","mac":"DC4F222A1E85","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222A1E85/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/DC4F222D7052/config {"ip":"192.168.10.102","dn":"Basic-Dev-2 Steckdosenleiste","fn":["Basic-2 Basic-Dev-2 Steckdosenleiste",null,null,null,null,null,null,null],"hn":"ESP-Basic-2","mac":"DC4F222D7052","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222D7052/sensors {"sn":{"Time":"2021-02-27T15:47:34"},"ver":1}
+tasmota/discovery/ECFABC8AD26F/config {"ip":"192.168.10.105","dn":"Regentonne-Balkon","fn":["Basic-5 Regentonne-Balkon",null,null,null,null,null,null,null],"hn":"ESP-Basic-5","mac":"ECFABC8AD26F","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC8AD26F/sensors {"sn":{"Time":"2021-02-27T15:46:43"},"ver":1}
+tasmota/discovery/84F3EB48BA00/config {"ip":"192.168.10.104","dn":"Basic-Dev-4","fn":["Basic-4 Basic-Dev-4",null,null,null,null,null,null,null],"hn":"ESP-Basic-4","mac":"84F3EB48BA00","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-4","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EB48BA00/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/ECFABC9343CF/config {"ip":"192.168.10.106","dn":"Basic-Dev-6","fn":["Basic-6 Basic-Dev-6",null,null,null,null,null,null,null],"hn":"ESP-Basic-6","mac":"ECFABC9343CF","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC9343CF/sensors {"sn":{"Time":"2021-02-27T14:28:43"},"ver":1}
+tasmota/discovery/98F4ABDA6C79/config {"ip":"192.168.11.241","dn":"Buzzer-x1","fn":["Buzzer-1 Buzzer-x1",null,null,null,null,null,null,null],"hn":"ESP-Buzzer-1","mac":"98F4ABDA6C79","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Buzzer-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":1,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6C79/sensors {"sn":{"Time":"1970-01-01T00:02:24"},"ver":1}
+tasmota/discovery/98F4ABDA6DE7/config {"ip":"192.168.11.240","dn":"Buzzer-x0","fn":["Buzzer-0 Buzzer-x0",null,null,null,null,null,null,null],"hn":"ESP-Buzzer-0","mac":"98F4ABDA6DE7","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Buzzer-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":1,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6DE7/sensors {"sn":{"Time":"2021-02-27T14:28:41"},"ver":1}
+tasmota/discovery/68C63AA4CAE1/config {"ip":"192.168.11.171","dn":"Wohnzimmer","fn":["DHT-1 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-DHT-1","mac":"68C63AA4CAE1","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/68C63AA4CAE1/sensors {"sn":{"Time":"2021-02-27T14:30:14","DHT11":{"Temperature":17.0,"Humidity":19.0,"DewPoint":-6.9},"TempUnit":"C"},"ver":1}
+tasmota/discovery/84F3EBB388A4/config {"ip":"192.168.11.176","dn":"Bad","fn":["DHT-6 Bad",null,null,null,null,null,null,null],"hn":"ESP-DHT-6","mac":"84F3EBB388A4","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB388A4/sensors {"sn":{"Time":"2021-02-27T14:29:14","DHT11":{"Temperature":20.0,"Humidity":91.0,"DewPoint":18.5},"TempUnit":"C"},"ver":1}
+tasmota/discovery/84F3EBB38982/config {"ip":"192.168.11.175","dn":"LeseZi","fn":["DHT-5 LeseZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-5","mac":"84F3EBB38982","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB38982/sensors {"sn":{"Time":"2021-02-27T18:07:22","DHT11":{"Temperature":21.0,"Humidity":17.0,"DewPoint":-5.0},"TempUnit":"C"},"ver":1}
+tasmota/discovery/B4E62D15914A/config {"ip":"192.168.11.70","dn":"IR WZ","fn":["IR-0 IR WZ",null,null,null,null,null,null,null],"hn":"ESP-IR-0","mac":"B4E62D15914A","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"IR-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D15914A/sensors {"sn":{"Time":"1970-01-01T00:02:26"},"ver":1}
+tasmota/discovery/B4E62D17DAC0/config {"ip":"192.168.11.50","dn":"x0","fn":["Moisture-0 x0",null,null,null,null,null,null,null],"hn":"ESP-Moisture-0","mac":"B4E62D17DAC0","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Moisture-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17DAC0/sensors {"sn":{"Time":"1970-01-01T00:01:35","ANALOG":{"Range":0}},"ver":1}
+tasmota/discovery/ECFABC501050/config {"ip":"192.168.10.202","dn":"Server Cool Steckdose 3-Fach","fn":["Pow-2 Server Cool Steckdose 3-Fach",null,null,null,null,null,null,null],"hn":"ESP-Pow-2","mac":"ECFABC501050","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC501050/sensors {"sn":{"Time":"1970-01-01T00:00:51","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.262,"Yesterday":0.985,"Today":0.438,"Power":30,"ApparentPower":54,"ReactivePower":44,"Factor":0.56,"Voltage":226,"Current":0.237}},"ver":1}
+tasmota/discovery/BCDDC2452E04/config {"ip":"192.168.10.201","dn":"Kueche","fn":["Pow-1 Kueche",null,null,null,null,null,null,null],"hn":"ESP-Pow-1","mac":"BCDDC2452E04","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/BCDDC2452E04/sensors {"sn":{"Time":"1970-01-01T00:04:01","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":15.446,"Yesterday":1.587,"Today":0.015,"Power":8,"ApparentPower":30,"ReactivePower":29,"Factor":0.28,"Voltage":225,"Current":0.135}},"ver":1}
+tasmota/discovery/600194A36F3A/config {"ip":"192.168.10.160","dn":"Wohnzimmer","fn":["RF-Bridge-0 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-RF-Bridge-0","mac":"600194A36F3A","md":"Sonoff Bridge","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RF-Bridge-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/600194A36F3A/sensors {"sn":{"Time":"2021-02-27T14:28:56"},"ver":1}
+tasmota/discovery/98F4ABDA6C65/config {"ip":"192.168.11.202","dn":"RFID-Dev-2","fn":["RFID-2 RFID-Dev-2",null,null,null,null,null,null,null],"hn":"ESP-RFID-2","mac":"98F4ABDA6C65","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RFID-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6C65/sensors {"sn":{"Time":"1970-01-01T00:01:42","Switch8":"ON"},"ver":1}
+tasmota/discovery/B4E62D14C793/config {"ip":"192.168.10.200","dn":"Waschmaschine","fn":["Pow-0 Waschmaschine",null,null,null,null,null,null,null],"hn":"ESP-Pow-0","mac":"B4E62D14C793","md":"Sonoff Pow","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D14C793/sensors {"sn":{"Time":"2021-02-27T13:09:37","ENERGY":{"TotalStartTime":"2020-01-02T22:50:04","Total":0.756,"Yesterday":0.608,"Today":0.008,"Power":0,"ApparentPower":0,"ReactivePower":0,"Factor":0.00,"Voltage":223,"Current":0.000}},"ver":1}
+tasmota/discovery/DC4F220B8188/config {"ip":"192.168.11.131","dn":"Joerg","fn":["RGB-1 Joerg",null,null,null,null,null,null,null],"hn":"ESP-RGB-1","mac":"DC4F220B8188","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RGB-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F220B8188/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/B4E62D17E77A/config {"ip":"192.168.11.132","dn":"Chris","fn":["RGB-2 Chris",null,null,null,null,null,null,null],"hn":"ESP-RGB-2","mac":"B4E62D17E77A","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RGB-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17E77A/sensors {"sn":{"Time":"2021-02-27T14:28:55"},"ver":1}
+tasmota/discovery/DC4F222BE54C/config {"ip":"192.168.10.11","dn":"Kaffee","fn":["S20-1 Kaffee",null,null,null,null,null,null,null],"hn":"ESP-S20-1","mac":"DC4F222BE54C","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222BE54C/sensors {"sn":{"Time":"2021-02-27T14:28:56"},"ver":1}
+tasmota/discovery/5CCF7F7A2E30/config {"ip":"192.168.10.13","dn":"Pflanzen Licht Kueche","fn":["S20-3 Pflanzen Licht Kueche",null,null,null,null,null,null,null],"hn":"ESP-S20-3","mac":"5CCF7F7A2E30","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-3","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F7A2E30/sensors {"sn":{"Time":"1970-01-01T00:03:33"},"ver":1}
+tasmota/discovery/2CF432BFA214/config {"ip":"192.168.10.50","dn":"Brunnen","fn":["S55-0 Brunnen",null,null,null,null,null,null,null],"hn":"ESP-S55-0","mac":"2CF432BFA214","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S55-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/2CF432BFA214/sensors {"sn":{"Time":"2021-02-27T13:43:44"},"ver":1}
+tasmota/discovery/C82B9608E053/config {"ip":"192.168.11.80","dn":"Klingel","fn":["Relay-0 Klingel",null,null,null,null,null,null,null],"hn":"ESP-Relay-0","mac":"C82B9608E053","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Relay-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C82B9608E053/sensors {"sn":{"Time":"2021-02-27T14:28:42"},"ver":1}
+tasmota/discovery/5CCF7F799F72/config {"ip":"192.168.10.12","dn":"Pflanzen Licht AZ","fn":["S20-2 Pflanzen Licht AZ",null,null,null,null,null,null,null],"hn":"ESP-S20-2","mac":"5CCF7F799F72","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F799F72/sensors {"sn":{"Time":"2021-02-27T14:32:32"},"ver":1}
+tasmota/discovery/5CCF7F79BFB5/config {"ip":"192.168.10.16","dn":"Lampe Tisch WZ","fn":["S20-6 Lampe Tisch WZ",null,null,null,null,null,null,null],"hn":"ESP-S20-6","mac":"5CCF7F79BFB5","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F79BFB5/sensors {"sn":{"Time":"2021-02-27T14:30:18"},"ver":1}
+tasmota/discovery/ECFABCC2B8CA/config {"ip":"192.168.12.100","dn":"Kueche","fn":["SHT-0 Kueche",null,null,null,null,null,null,null],"hn":"ESP-SHT-0","mac":"ECFABCC2B8CA","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABCC2B8CA/sensors {"sn":{"Time":"1970-01-01T00:04:02","SHT3X-0x45":{"Temperature":29.7,"Humidity":28.7,"DewPoint":9.6},"TempUnit":"C"},"ver":1}
+tasmota/discovery/ECFABCC2AE43/config {"ip":"192.168.12.102","dn":"Bad","fn":["SHT-2 Bad",null,null,null,null,null,null,null],"hn":"ESP-SHT-2","mac":"ECFABCC2AE43","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABCC2AE43/sensors {"sn":{"Time":"2021-02-27T14:38:41","SHT3X-0x45":{"Temperature":24.2,"Humidity":34.2,"DewPoint":7.4},"TempUnit":"C"},"ver":1}
+tasmota/discovery/98F4ABDA5FDD/config {"ip":"192.168.12.101","dn":"Wohnzimmer","fn":["SHT-1 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-SHT-1","mac":"98F4ABDA5FDD","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA5FDD/sensors {"sn":{"Time":"1970-01-01T00:01:35","SHT3X-0x45":{"Temperature":23.3,"Humidity":23.9,"DewPoint":1.5},"TempUnit":"C"},"ver":1}
+tasmota/discovery/6001949B18CF/config {"ip":"192.168.10.151","dn":"x1","fn":["Touch-1 x1",null,null,null,null,null,null,null],"hn":"ESP-Touch-1","mac":"6001949B18CF","md":"Sonoff T1 1CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Touch-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/6001949B18CF/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/84F3EB584265/config {"ip":"192.168.11.222","dn":"Clock","fn":["Status-2 Clock",null,null,null,null,null,null,null],"hn":"ESP-Status-2","mac":"84F3EB584265","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Status-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EB584265/sensors {"sn":{"Time":"2021-02-27T16:12:27"},"ver":1}
+tasmota/discovery/DC4F2286E4C3/config {"ip":"192.168.10.150","dn":"WZ","fn":["Touch-0 WZ","Sonoff Touch 0b",null,null,null,null,null,null],"hn":"ESP-Touch-0","mac":"DC4F2286E4C3","md":"Sonoff T1 2CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Touch-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,1,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F2286E4C3/sensors {"sn":{"Time":"2021-02-27T14:30:16"},"ver":1}
+tasmota/discovery/C44F33B182BB/config {"ip":"192.168.11.30","dn":"Water-Dev-0","fn":["Water-0 Water-Dev-0",null,null,null,null,null,null,null],"hn":"ESP-Water-0","mac":"C44F33B182BB","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Water-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C44F33B182BB/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/DC4F221D49C1/config {"ip":"192.168.11.179","dn":"Kueche","fn":["DHT-9 Kueche",null,null,null,null,null,null,null],"hn":"ESP-DHT-9","mac":"DC4F221D49C1","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-9","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F221D49C1/sensors {"sn":{"Time":"1970-01-01T00:03:33","DHT11":{"Temperature":23.0,"Humidity":16.0,"DewPoint":-4.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/B4E62D17FB57/config {"ip":"192.168.11.172","dn":"Gang","fn":["DHT-2 Gang",null,null,null,null,null,null,null],"hn":"ESP-DHT-2","mac":"B4E62D17FB57","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17FB57/sensors {"sn":{"Time":"2021-02-27T06:44:47","DHT11":{"Temperature":18.0,"Humidity":95.0,"DewPoint":17.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/C82B964349C4/config {"ip":"192.168.10.161","dn":"Extra","fn":["RF-Bridge-1 Extra",null,null,null,null,null,null,null],"hn":"ESP-RF-Bridge-1","mac":"C82B964349C4","md":"Sonoff Bridge","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RF-Bridge-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C82B964349C4/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/5CCF7F7A1EEE/config {"ip":"192.168.10.15","dn":"S20-5 Pflanzen Licht WZ","fn":["S20-5 Pflanzen Licht WZ",null,null,null,null,null,null,null],"hn":"ESP-S20-5","mac":"5CCF7F7A1EEE","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F7A1EEE/sensors {"sn":{"Time":"2021-02-27T14:28:41"},"ver":1}
+tasmota/discovery/B4E62D1588CC/config {"ip":"192.168.11.173","dn":"ArbeitsZi","fn":["DHT-3 ArbeitsZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-3","mac":"B4E62D1588CC","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-3","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D1588CC/sensors {"sn":{"Time":"2021-02-27T15:45:34","DHT11":{"Temperature":19.0,"Humidity":95.0,"DewPoint":18.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/98F4ABDA6F17/config {"ip":"192.168.1.25","dn":"SchlafZi","fn":["DHT-4 SchlafZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-4","mac":"98F4ABDA6F17","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-4","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6F17/sensors {"sn":{"Time":"2021-02-27T14:29:46"},"ver":1}
+tasmota/discovery/84CCA89BF8D3/config {"ip":"192.168.10.203","dn":"LZ BÃ¼ro JÃ¶rg 3fach-weiss","fn":["Pow-3 LZ BÃ¼ro JÃ¶rg 3fach-weiss",null,null,null,null,null,null,null],"hn":"ESP-Pow-3","mac":"84CCA89BF8D3","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-3","ft":"%prefix%/%topic%/","tp":["cm0, cmnd/OLED-0/DisplayText[l4c1]LZ : 90 W ÿ ÿ0  stat/Pow-3/RESULT{"Var2":"90"}0  stat/Pow-3/RESULT{"Var1":"90"}0, cmnd/OLED-0/DisplayText[l4c1]LZ : 90 W ÿ ÿ0  stat/Pow-3/RESULT{"Var2":"90"}0  stat/Pow-3/RESULT{"Var1":"93"}0, cmnd/OLED-0/DisplayText[l4c1]LZ : 93 W ÿ
+tasmota/discovery/84F3EBB39578/config {"ip":"192.168.11.177","dn":"Cool","fn":["DHT-7 Cool",null,null,null,null,null,null,null],"hn":"ESP-DHT-7","mac":"84F3EBB39578","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-7","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB39578/sensors {"sn":{"Time":"2021-02-27T18:08:18","DHT11":{"Temperature":16.0,"Humidity":95.0,"DewPoint":15.2},"TempUnit":"C"},"ver":1}
+tele/Pow-2/STATE {"Time":"2021-02-27T18:52:48","Uptime":"0T04:26:31","UptimeSec":15991,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":34,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":84,"Signal":-58,"LinkCount":39,"Downtime":"0T00:02:57"}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:52:48","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.437,"Yesterday":0.985,"Today":0.614,"Period":0,"Power":51,"ApparentPower":72,"ReactivePower":51,"Factor":0.71,"Voltage":222,"Current":0.324}}
+tele/DHT-9/STATE {"Time":"2021-02-27T18:52:59","Uptime":"0T04:28:19","UptimeSec":16099,"Heap":23,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":98,"Signal":-51,"LinkCount":1,"Downtime":"0T00:02:08"}}
+tele/DHT-9/SENSOR {"Time":"2021-02-27T18:52:59","DHT11":{"Temperature":23.0,"Humidity":16.0,"DewPoint":-4.2},"TempUnit":"C"}
+stat/DHT-9/RESULT {"Var1":"23.0"}
+cmnd/Status-0/Led20 #050000
+tele/Pow-1/STATE {"Time":"2021-02-27T18:53:01","Uptime":"0T04:27:53","UptimeSec":16073,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":1,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":100,"Signal":-46,"LinkCount":1,"Downtime":"0T00:02:11"}}
+tele/Pow-1/SENSOR {"Time":"2021-02-27T18:53:01","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":17.014,"Yesterday":1.587,"Today":1.583,"Period":0,"Power":2,"ApparentPower":29,"ReactivePower":29,"Factor":0.08,"Voltage":223,"Current":0.129}}
+tele/S20-3/STATE {"Time":"2021-02-27T18:52:59","Uptime":"0T04:28:17","UptimeSec":16097,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":84,"Signal":-58,"LinkCount":1,"Downtime":"0T00:02:06"}}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":13}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:02","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":63,"ApparentPower":73,"ReactivePower":37,"Factor":0.86,"Voltage":223,"Current":0.329}}
+stat/Pow-2/RESULT {"Var1":"63"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 63 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"63"}
+stat/Pow-2/RESULT {"Add1":"68.000"}
+stat/Pow-2/RESULT {"Sub2":"58.000"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":26}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:03","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":90,"ApparentPower":105,"ReactivePower":53,"Factor":0.86,"Voltage":223,"Current":0.470}}
+stat/Pow-2/RESULT {"Var1":"90"}
+tele/Pow-3/LWT Online
+cmnd/Pow-3/POWER (null)
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 90 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 63 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-2/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Var1":"89"}
+stat/Pow-2/RESULT {"Sub2":"85.000"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 89 W ÿ ÿ
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":11}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:04","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":100,"ApparentPower":105,"ReactivePower":32,"Factor":0.95,"Voltage":224,"Current":0.470}}
+stat/Pow-2/RESULT {"Var1":"100"}
+stat/Pow-3/RESULT {"Var2":"89"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 100 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"100"}
+stat/Pow-2/RESULT {"Add1":"105.000"}
+stat/Pow-2/RESULT {"Sub2":"95.000"}
+stat/Pow-2/RESULT {"Var1":"100"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 100 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"100"}
+stat/Pow-2/RESULT {"Add1":"105.000"}
+stat/Pow-2/RESULT {"Sub2":"95.000"}
+stat/Pow-2/RESULT {"Var1":"101"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 89 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 100 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 101 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 100 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"101"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 101 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Add1":"106.000"}
+stat/Pow-2/RESULT {"Sub2":"96.000"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":6}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:07","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":107,"ApparentPower":126,"ReactivePower":68,"Factor":0.84,"Voltage":224,"Current":0.565}}
+stat/Pow-2/RESULT {"Var1":"107"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 107 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 107 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"107"}
+stat/Pow-3/RESULT {"Var1":"89"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 89 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"89"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-20}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:05","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":70,"ApparentPower":111,"ReactivePower":86,"Factor":0.64,"Voltage":224,"Current":0.495}}
+stat/Pow-3/RESULT {"Var1":"93"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 93 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"93"}
+stat/Pow-3/RESULT {"Var1":"93"}
+stat/Pow-3/RESULT {"Var1":"93"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":3}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:06","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":74,"ApparentPower":111,"ReactivePower":83,"Factor":0.67,"Voltage":223,"Current":0.495}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 93 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"101"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 101 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"101"}
+stat/Pow-3/RESULT {"Var1":"101"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:07","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":77,"ApparentPower":128,"ReactivePower":101,"Factor":0.61,"Voltage":223,"Current":0.571}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 101 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"101"}
+stat/Pow-3/RESULT {"Var2":"91"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+stat/Pow-2/RESULT {"Add1":"112.000"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 89 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 93 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/Pow-2/RESULT {"Sub2":"102.000"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 93 W ÿ ÿ"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":13}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 101 W ÿ ÿ"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:08","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":110,"ApparentPower":126,"ReactivePower":62,"Factor":0.87,"Voltage":223,"Current":0.565}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 101 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"107"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 107 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 107 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"107"}
+stat/Pow-2/RESULT {"Add1":"112.000"}
+stat/Pow-2/RESULT {"Sub2":"102.000"}
+stat/Pow-2/RESULT {"Var1":"107"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 107 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"107"}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:08","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":90,"ApparentPower":128,"ReactivePower":90,"Factor":0.71,"Voltage":224,"Current":0.571}}
+stat/Pow-3/RESULT {"Add1":"96.000"}
+stat/Pow-3/RESULT {"Sub2":"86.000"}
+stat/Pow-3/RESULT {"Var1":"92"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"92"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:09","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":95,"ApparentPower":128,"ReactivePower":86,"Factor":0.74,"Voltage":224,"Current":0.571}}
+stat/Pow-3/RESULT {"Var1":"92"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"92"}
+stat/Pow-3/RESULT {"Add1":"97.000"}
+stat/Pow-2/RESULT {"Add1":"112.000"}
+stat/Pow-3/RESULT {"Var2":"88"}
+stat/Pow-2/RESULT {"Sub2":"102.000"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-5}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:10","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":90,"ApparentPower":127,"ReactivePower":90,"Factor":0.71,"Voltage":222,"Current":0.571}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 88 W ÿ ÿ
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-17}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:10","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":94,"ApparentPower":111,"ReactivePower":59,"Factor":0.85,"Voltage":223,"Current":0.496}}
+stat/Pow-2/RESULT {"Var1":"110"}
+stat/Pow-3/RESULT {"Var1":"88"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 107 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 110 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"110"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 88 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Add1":"115.000"}
+stat/Pow-2/RESULT {"Sub2":"105.000"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-4}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:11","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":90,"ApparentPower":110,"ReactivePower":64,"Factor":0.81,"Voltage":223,"Current":0.496}}
+stat/Pow-2/RESULT {"Var1":"109"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 109 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"109"}
+stat/Pow-2/RESULT {"Add1":"114.000"}
+stat/Pow-3/RESULT {"Var2":"70"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 70 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"70"}
+stat/Pow-3/RESULT {"Var2":"74"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 74 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"74"}
+stat/Pow-3/RESULT {"Var2":"74"}
+stat/Pow-3/RESULT {"Var2":"77"}
+stat/Pow-2/RESULT {"Sub2":"104.000"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":2}}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 110 W ÿ ÿ"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:12","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":86,"ApparentPower":104,"ReactivePower":58,"Factor":0.83,"Voltage":223,"Current":0.467}}
+stat/Pow-2/RESULT {"Var2":"94"}
+tele/Moisture-0/STATE {"Time":"2021-02-27T18:53:12","Uptime":"0T04:26:11","UptimeSec":15971,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":78,"Signal":-61,"LinkCount":2,"Downtime":"0T00:00:35"}}
+tele/Moisture-0/SENSOR {"Time":"2021-02-27T18:53:12","ANALOG":{"Range":0}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 94 W ÿ ÿ
+stat/Pow-2/RESULT {"Var1":"94"}
+stat/Pow-2/RESULT {"Add1":"99.000"}
+stat/Pow-2/RESULT {"Sub2":"89.000"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-14}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:12","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":91,"ApparentPower":126,"ReactivePower":87,"Factor":0.72,"Voltage":222,"Current":0.568}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 77 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"77"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 77 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"77"}
+stat/Pow-3/RESULT {"Var2":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:13","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":73,"ApparentPower":104,"ReactivePower":74,"Factor":0.70,"Voltage":223,"Current":0.467}}
+stat/Pow-2/RESULT {"Var2":"94"}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 94 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 109 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"94"}
+tele/DHT-7/STATE {"Time":"2021-02-27T18:53:13","Uptime":"0T00:47:31","UptimeSec":2851,"Heap":24,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":4,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":72,"Signal":-64,"LinkCount":4,"Downtime":"0T00:01:00"}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+tele/DHT-7/SENSOR {"Time":"2021-02-27T18:53:13","DHT11":{"Temperature":16.0,"Humidity":95.0,"DewPoint":15.2},"TempUnit":"C"}
+stat/DHT-7/RESULT {"Var1":"16.0"}
+cmnd/Status-0/Led18 #000012
+stat/Pow-2/RESULT {"Add1":"99.000"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-2/RESULT {"Sub2":"89.000"}
+stat/Pow-3/RESULT {"Var1":"95"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":2}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:14","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":74,"ApparentPower":93,"ReactivePower":57,"Factor":0.80,"Voltage":223,"Current":0.420}}
+stat/Pow-2/RESULT {"Var2":"94"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 95 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 94 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 70 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 74 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 94 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"95"}
+stat/Pow-2/RESULT {"Var1":"94"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 77 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 77 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Add1":"99.000"}
+stat/Pow-2/RESULT {"Sub2":"89.000"}
+stat/Pow-2/RESULT {"Var2":"90"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 90 W ÿ ÿ
+stat/Pow-2/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Var1":"95"}
+stat/Pow-3/RESULT {"Var1":"95"}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-2/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Sub2":"85.000"}
+stat/Pow-2/RESULT {"Sub2":"85.000"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:16","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":89,"ApparentPower":127,"ReactivePower":90,"Factor":0.70,"Voltage":222,"Current":0.571}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 94 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 95 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 94 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"90"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-4}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:16","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":70,"ApparentPower":94,"ReactivePower":62,"Factor":0.75,"Voltage":223,"Current":0.420}}
+stat/Pow-2/RESULT {"Var2":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-2/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-2/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Sub2":"85.000"}
+stat/Pow-2/RESULT {"Var2":"90"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-6}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:17","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":83,"ApparentPower":127,"ReactivePower":96,"Factor":0.65,"Voltage":223,"Current":0.571}}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-2/RESULT {"Var2":"86"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 86 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"86"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 86 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/Pow-2/RESULT {"Var2":"86"}
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/Pow-2/RESULT {"Var2":"74"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-11}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:18","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":72,"ApparentPower":127,"ReactivePower":105,"Factor":0.57,"Voltage":223,"Current":0.571}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+tele/Pow-2/STATE {"Time":"2021-02-27T18:53:18","Uptime":"0T04:27:01","UptimeSec":16021,"Heap":26,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":34,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":86,"Signal":-57,"LinkCount":39,"Downtime":"0T00:02:57"}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:18","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Period":1,"Power":71,"ApparentPower":91,"ReactivePower":56,"Factor":0.79,"Voltage":224,"Current":0.405}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 74 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+tele/OLED-0/STATE {"Time":"2021-02-27T18:53:18","Uptime":"0T04:26:59","UptimeSec":16019,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":11,"MqttCount":23,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":32,"Signal":-84,"LinkCount":2,"Downtime":"0T00:01:22"}}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 74 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/Pow-2/RESULT {"Var2":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 73 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"91"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 73 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"73"}
+stat/Pow-3/RESULT {"Var1":"92"}
+stat/Pow-2/RESULT {"Var2":"74"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 74 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"92"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 74 W ÿ ÿ"}
+tele/RFID-2/STATE {"Time":"2021-02-27T18:53:19","Uptime":"0T04:26:18","UptimeSec":15978,"Heap":23,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":82,"Signal":-59,"LinkCount":1,"Downtime":"0T00:01:01"}}
+stat/Pow-2/RESULT {"Var1":"74"}
+tele/RFID-2/SENSOR {"Time":"2021-02-27T18:53:19","Switch8":"ON"}
+stat/Pow-3/RESULT {"Var2":"91"}
+stat/Pow-2/RESULT {"Var2":"74"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 74 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 74 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"74"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:20","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":70,"ApparentPower":109,"ReactivePower":83,"Factor":0.65,"Voltage":222,"Current":0.488}}
+stat/Pow-3/RESULT {"Add1":"96.000"}
+stat/Pow-2/RESULT {"Var2":"73"}
+stat/Pow-3/RESULT {"Sub2":"86.000"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 73 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 73 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"73"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"91"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 73 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 73 W ÿ ÿ"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":26}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:21","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":97,"ApparentPower":125,"ReactivePower":79,"Factor":0.77,"Voltage":222,"Current":0.563}}
+stat/Pow-3/RESULT {"Var2":"89"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:21","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":70,"ApparentPower":89,"ReactivePower":56,"Factor":0.78,"Voltage":223,"Current":0.401}}
+stat/Pow-2/RESULT {"Var1":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 89 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 89 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"70"}
+stat/Pow-3/RESULT {"Var1":"89"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Add1":"94.000"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/Pow-3/RESULT {"Sub2":"84.000"}
+stat/Pow-2/RESULT {"Var2":"71"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-5}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/Pow-2/RESULT {"Var2":"71"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/Pow-2/RESULT {"Var2":"71"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:22","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":91,"ApparentPower":125,"ReactivePower":86,"Factor":0.73,"Voltage":222,"Current":0.563}}
+stat/Pow-3/RESULT {"Var2":"83"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 83 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"83"}
+stat/Pow-3/RESULT {"Add1":"88.000"}
+stat/Pow-3/RESULT {"Var2":"71"}
+stat/Pow-3/RESULT {"Var2":"72"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 72 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"72"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 83 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"72"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 72 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"70"}
+stat/Pow-3/RESULT {"Var2":"74"}
+tele/SHT-1/STATE {"Time":"2021-02-27T18:53:24","Uptime":"0T04:26:14","UptimeSec":15974,"Heap":23,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-19,"LinkCount":2,"Downtime":"0T00:00:35"}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:24","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":90,"ApparentPower":128,"ReactivePower":92,"Factor":0.70,"Voltage":222,"Current":0.576}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 74 W ÿ ÿ
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 74 W ÿ ÿ"}
+tele/SHT-1/SENSOR {"Time":"2021-02-27T18:53:24","SHT3X-0x45":{"Temperature":27.1,"Humidity":33.0,"DewPoint":9.4},"TempUnit":"C"}
+stat/Pow-3/RESULT {"Var2":"73"}
+stat/Pow-2/RESULT {"Var2":"70"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"73"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/Pow-3/RESULT {"Var2":"72"}
+stat/Pow-2/RESULT {"Var2":"70"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:25","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":93,"ApparentPower":128,"ReactivePower":88,"Factor":0.73,"Voltage":222,"Current":0.577}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 72 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"72"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/Pow-3/RESULT {"Var2":"70"}
+stat/Pow-2/RESULT {"Var2":"70"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 70 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"97"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 72 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 70 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"70"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/Pow-2/RESULT {"Var2":"70"}
+stat/Pow-2/RESULT {"Var2":"69"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 69 W ÿ ÿ
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:26","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":90,"ApparentPower":128,"ReactivePower":91,"Factor":0.71,"Voltage":222,"Current":0.577}}
+stat/Pow-3/RESULT {"Var1":"97"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 97 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"97"}
+stat/Pow-3/RESULT {"Var1":"97"}
+stat/Pow-3/RESULT {"Var1":"91"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 69 W ÿ ÿ"}
+tele/SHT-0/STATE {"Time":"2021-02-27T18:53:27","Uptime":"0T04:28:18","UptimeSec":16098,"Heap":23,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":88,"Signal":-56,"LinkCount":1,"Downtime":"0T00:02:08"}}
+stat/Pow-3/RESULT {"Var2":"91"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 97 W ÿ ÿ"}
+tele/SHT-0/SENSOR {"Time":"2021-02-27T18:53:27","SHT3X-0x45":{"Temperature":26.3,"Humidity":37.3,"DewPoint":10.5},"TempUnit":"C"}
+stat/Pow-2/RESULT {"Var2":"70"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Add1":"96.000"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Sub2":"86.000"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/Pow-3/RESULT {"Var1":"91"}
+stat/Pow-2/RESULT {"Var2":"69"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 69 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"91"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 69 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"69"}
+stat/Pow-3/RESULT {"Add1":"96.000"}
+stat/Pow-2/RESULT {"Add1":"74.000"}
+stat/Pow-3/RESULT {"Sub2":"86.000"}
+stat/Pow-2/RESULT {"Sub2":"64.000"}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-2/RESULT {"Var2":"69"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":5}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:29","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":96,"ApparentPower":128,"ReactivePower":86,"Factor":0.75,"Voltage":223,"Current":0.576}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":3}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:29","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":74,"ApparentPower":91,"ReactivePower":54,"Factor":0.81,"Voltage":224,"Current":0.407}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 69 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 69 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"69"}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-2/RESULT {"Add1":"74.000"}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:30","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":92,"ApparentPower":126,"ReactivePower":86,"Factor":0.73,"Voltage":223,"Current":0.566}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"71"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"93"}
+stat/Pow-2/RESULT {"Add1":"76.000"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 93 W ÿ ÿ
+stat/Pow-2/RESULT {"Sub2":"66.000"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 93 W ÿ ÿ"}
+tele/Pow-1/STATE {"Time":"2021-02-27T18:53:31","Uptime":"0T04:28:23","UptimeSec":16103,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":1,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":100,"Signal":-46,"LinkCount":1,"Downtime":"0T00:02:11"}}
+tele/Pow-1/SENSOR {"Time":"2021-02-27T18:53:31","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":17.014,"Yesterday":1.587,"Today":1.583,"Period":0,"Power":3,"ApparentPower":29,"ReactivePower":29,"Factor":0.09,"Voltage":223,"Current":0.129}}
+stat/Pow-3/RESULT {"Var2":"93"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/Pow-3/RESULT {"Var1":"93"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-14}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:31","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":78,"ApparentPower":126,"ReactivePower":99,"Factor":0.62,"Voltage":223,"Current":0.566}}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 93 W ÿ ÿ
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:31","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.438,"Yesterday":0.985,"Today":0.615,"Power":71,"ApparentPower":90,"ReactivePower":56,"Factor":0.78,"Voltage":223,"Current":0.405}}
+stat/Pow-2/RESULT {"Var2":"71"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 93 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"93"}
+stat/Pow-2/RESULT {"Add1":"76.000"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-2/RESULT {"Var1":"71"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"71"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-6}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:32","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":72,"ApparentPower":108,"ReactivePower":80,"Factor":0.67,"Voltage":223,"Current":0.485}}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/Pow-3/RESULT {"Sub2":"85.000"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-2/RESULT {"Var2":"71"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+tele/BUTTON-1/STATE {"Time":"2021-02-27T18:53:33","Uptime":"0T04:28:25","UptimeSec":16105,"Heap":27,"SleepMode":"Dynamic","Sleep":0,"LoadAvg":999,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":48,"Signal":-76,"LinkCount":2,"Downtime":"0T00:02:27"}}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"96"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"71"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 96 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 96 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"71"}
+stat/Pow-3/RESULT {"Var2":"96"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Add1":"101.000"}
+stat/Pow-2/RESULT {"Var2":"71"}
+stat/Pow-3/RESULT {"Sub2":"91.000"}
+stat/Pow-2/RESULT {"Var1":"73"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":8}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:34","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":81,"ApparentPower":120,"ReactivePower":88,"Factor":0.68,"Voltage":222,"Current":0.538}}
+stat/Pow-3/RESULT {"Var1":"96"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 73 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 73 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 96 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"73"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 96 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Add1":"78.000"}
+stat/Pow-3/RESULT {"Var2":"96"}
+stat/Pow-3/RESULT {"Add1":"101.000"}
+stat/Pow-2/RESULT {"Sub2":"68.000"}
+stat/Pow-3/RESULT {"Sub2":"91.000"}
+stat/Pow-2/RESULT {"Var2":"70"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":11}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:35","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":92,"ApparentPower":119,"ReactivePower":77,"Factor":0.77,"Voltage":222,"Current":0.538}}
+stat/Pow-3/RESULT {"Var1":"92"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"92"}
+stat/Pow-2/RESULT {"Add1":"75.000"}
+stat/Pow-3/RESULT {"Var1":"92"}
+stat/Pow-2/RESULT {"Sub2":"65.000"}
+stat/Pow-3/RESULT {"Var2":"78"}
+stat/Pow-2/RESULT {"Var2":"70"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:36","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":90,"ApparentPower":126,"ReactivePower":89,"Factor":0.71,"Voltage":222,"Current":0.570}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 78 W ÿ ÿ
+tele/Buzzer-0/STATE {"Time":"2021-02-27T18:53:36","Uptime":"0T04:25:14","UptimeSec":15914,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"OFF","Dimmer":30,"Fade":"OFF","Speed":1,"LedTable":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-25,"LinkCount":2,"Downtime":"0T00:00:08"}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 78 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"78"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+tele/LED-Matrix-1/STATE {"Time":"2021-02-27T18:53:36","Uptime":"0T04:25:14","UptimeSec":15914,"Heap":28,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":96,"Signal":-52,"LinkCount":2,"Downtime":"0T00:00:09"}}
+stat/Pow-2/RESULT {"Var1":"70"}
+tele/SHT-2/STATE {"Time":"2021-02-27T18:53:35","Uptime":"0T04:27:17","UptimeSec":16037,"Heap":23,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":100,"Signal":-47,"LinkCount":1,"Downtime":"0T00:00:58"}}
+tele/SHT-2/SENSOR {"Time":"2021-02-27T18:53:35","SHT3X-0x45":{"Temperature":24.0,"Humidity":41.4,"DewPoint":10.1},"TempUnit":"C"}
+stat/Pow-3/RESULT {"Add1":"83.000"}
+stat/Pow-2/RESULT {"Add1":"75.000"}
+stat/Pow-3/RESULT {"Sub2":"73.000"}
+tele/4CH-0/STATE {"Time":"2021-02-27T18:53:36","Uptime":"0T04:25:14","UptimeSec":15914,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER1":"ON","POWER2":"ON","POWER3":"ON","POWER4":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":98,"Signal":-51,"LinkCount":2,"Downtime":"0T00:00:09"}}
+stat/Pow-2/RESULT {"Sub2":"65.000"}
+stat/Pow-3/RESULT {"Var2":"71"}
+stat/Pow-2/RESULT {"Var2":"70"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:37","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.139,"Power":94,"ApparentPower":127,"ReactivePower":86,"Factor":0.74,"Voltage":223,"Current":0.570}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 71 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 71 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"71"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/Pow-3/RESULT {"Var2":"72"}
+stat/Pow-2/RESULT {"Add1":"75.000"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 72 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 72 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Sub2":"65.000"}
+stat/Pow-3/RESULT {"Var2":"72"}
+stat/Pow-2/RESULT {"Var2":"70"}
+stat/Pow-3/RESULT {"Var2":"73"}
+tele/Basic-6/STATE {"Time":"2021-02-27T18:53:38","Uptime":"0T04:25:16","UptimeSec":15916,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-43,"LinkCount":2,"Downtime":"0T00:00:09"}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 70 W ÿ ÿ
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 70 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var1":"70"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"73"}
+stat/Pow-2/RESULT {"Add1":"75.000"}
+stat/Pow-3/RESULT {"Var2":"81"}
+stat/Pow-2/RESULT {"Sub2":"65.000"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 81 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 81 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Var2":"69"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Touch-1/STATE {"Time":"2021-02-27T18:53:39","Uptime":"0T04:25:15","UptimeSec":15915,"Heap":27,"SleepMode":"Dynamic","Sleep":10,"LoadAvg":99,"MqttCount":2,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-47,"LinkCount":2,"Downtime":"0T00:00:08"}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:39","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.950,"Yesterday":3.612,"Today":1.140,"Power":90,"ApparentPower":127,"ReactivePower":90,"Factor":0.71,"Voltage":223,"Current":0.571}}
+tele/Relay-0/STATE {"Time":"2021-02-27T18:53:37","Uptime":"0T04:25:15","UptimeSec":15915,"Heap":26,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":84,"Signal":-58,"LinkCount":2,"Downtime":"0T00:00:10"}}
+stat/Pow-3/RESULT {"Var2":"81"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":2}}
+tele/RF-Bridge-1/STATE {"Time":"2021-02-27T18:53:39","Uptime":"0T04:25:14","UptimeSec":15914,"Heap":27,"SleepMode":"Dynamic","Sleep":10,"LoadAvg":99,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-46,"LinkCount":2,"Downtime":"0T00:00:08"}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 81 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 81 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"81"}
+stat/Pow-3/RESULT {"Add1":"86.000"}
+stat/Pow-3/RESULT {"Var2":"81"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 81 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 81 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"81"}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:39","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.439,"Yesterday":0.985,"Today":0.615,"Power":71,"ApparentPower":90,"ReactivePower":54,"Factor":0.80,"Voltage":223,"Current":0.402}}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 69 W ÿ ÿ
+stat/Pow-2/RESULT {"Var1":"69"}
+stat/Pow-2/RESULT {"Add1":"74.000"}
+stat/Pow-2/RESULT {"Sub2":"64.000"}
+stat/Pow-2/RESULT {"Var1":"71"}
+cmnd/OLED-0/DisplayText [l3c1]Ser: 71 W ÿ ÿ
+stat/Pow-2/RESULT {"Var2":"71"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 69 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Add1":"76.000"}
+stat/OLED-0/RESULT {"DisplayText":"[l3c1]Ser: 71 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-2/RESULT {"Sub2":"66.000"}
+stat/Pow-3/RESULT {"Var1":"90"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:41","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":94,"ApparentPower":136,"ReactivePower":98,"Factor":0.69,"Voltage":223,"Current":0.611}}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Sub2":"85.000"}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+tele/Water-0/STATE {"Time":"2021-02-27T18:53:41","Uptime":"0T04:25:19","UptimeSec":15919,"Heap":27,"SleepMode":"Dynamic","Sleep":250,"LoadAvg":3,"MqttCount":2,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-35,"LinkCount":2,"Downtime":"0T00:00:08"}}
+tele/Pow-0/MARGINS {"MARGINS":{"PowerDelta":3}}
+tele/Pow-0/SENSOR {"Time":"2021-02-27T18:53:43","ENERGY":{"TotalStartTime":"2020-01-02T22:50:04","Total":0.760,"Yesterday":0.608,"Today":0.012,"Power":0,"ApparentPower":0,"ReactivePower":0,"Factor":0.00,"Voltage":224,"Current":0.000}}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-5}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:42","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":89,"ApparentPower":136,"ReactivePower":102,"Factor":0.66,"Voltage":222,"Current":0.611}}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Var1":"94"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 94 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"94"}
+stat/Pow-3/RESULT {"Var1":"94"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 94 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"94"}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 94 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 94 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Var1":"92"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-14}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:45","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":75,"ApparentPower":113,"ReactivePower":84,"Factor":0.66,"Voltage":223,"Current":0.507}}
+stat/Pow-3/RESULT {"Var1":"92"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"92"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Add1":"97.000"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"94"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:46","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":72,"ApparentPower":113,"ReactivePower":87,"Factor":0.64,"Voltage":222,"Current":0.507}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 94 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"94"}
+stat/Pow-3/RESULT {"Var1":"94"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 94 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"89"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 89 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"89"}
+stat/Pow-3/RESULT {"Add1":"94.000"}
+stat/Pow-3/RESULT {"Sub2":"84.000"}
+stat/Pow-3/RESULT {"Var2":"89"}
+tele/S20-5/STATE {"Time":"2021-02-27T18:53:48","Uptime":"0T04:25:26","UptimeSec":15926,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":11,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-37,"LinkCount":2,"Downtime":"0T00:00:09"}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 94 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 94 W ÿ ÿ"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":2}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:48","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":74,"ApparentPower":108,"ReactivePower":79,"Factor":0.69,"Voltage":222,"Current":0.487}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 89 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 89 W ÿ ÿ"}
+tele/Pow-2/STATE {"Time":"2021-02-27T18:53:48","Uptime":"0T04:27:31","UptimeSec":16051,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":34,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":84,"Signal":-58,"LinkCount":39,"Downtime":"0T00:02:57"}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:48","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.439,"Yesterday":0.985,"Today":0.616,"Period":1,"Power":71,"ApparentPower":90,"ReactivePower":56,"Factor":0.78,"Voltage":223,"Current":0.406}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 89 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"90"}
+tele/Basic-4/STATE {"Time":"2021-02-27T18:53:49","Uptime":"0T04:25:27","UptimeSec":15927,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-46,"LinkCount":2,"Downtime":"0T00:00:09"}}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":21}}
+tele/Basic-0/STATE {"Time":"2021-02-27T18:53:49","Uptime":"0T04:25:27","UptimeSec":15927,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-50,"LinkCount":2,"Downtime":"0T00:00:09"}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:49","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":96,"ApparentPower":108,"ReactivePower":51,"Factor":0.88,"Voltage":222,"Current":0.487}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Var2":"87"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 87 W ÿ ÿ
+tele/RGB-1/STATE {"Time":"2021-02-27T18:53:50","Uptime":"0T04:25:28","UptimeSec":15928,"Heap":26,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"OFF","Dimmer":7,"Color":"12,18,10","HSBColor":"109,43,7","Channel":[5,7,4],"Scheme":0,"Width":1,"Fade":"OFF","Speed":1,"LedTable":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":86,"Signal":-57,"LinkCount":2,"Downtime":"0T00:00:08"}}
+stat/Pow-3/RESULT {"Var1":"87"}
+tele/RF-Bridge-0/STATE {"Time":"2021-02-27T18:53:51","Uptime":"0T04:25:28","UptimeSec":15928,"Heap":26,"SleepMode":"Dynamic","Sleep":10,"LoadAvg":99,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-16,"LinkCount":2,"Downtime":"0T00:00:08"}}
+tele/RGB-2/STATE {"Time":"2021-02-27T18:53:50","Uptime":"0T04:25:27","UptimeSec":15927,"Heap":26,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"OFF","Dimmer":48,"Color":"122,61,60","HSBColor":"1,51,48","Channel":[48,24,24],"Scheme":0,"Width":1,"Fade":"OFF","Speed":1,"LedTable":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":88,"Signal":-56,"LinkCount":2,"Downtime":"0T00:00:08"}}
+tele/S20-1/STATE {"Time":"2021-02-27T18:53:51","Uptime":"0T04:25:26","UptimeSec":15926,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"POWER":"OFF","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":60,"Signal":-70,"LinkCount":1,"Downtime":"0T00:00:08"}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 87 W ÿ ÿ"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:50","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":92,"ApparentPower":132,"ReactivePower":94,"Factor":0.70,"Voltage":222,"Current":0.593}}
+stat/Pow-3/RESULT {"Var2":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"73"}
+stat/Pow-3/RESULT {"Var2":"75"}
+stat/Pow-3/RESULT {"Var2":"72"}
+stat/Pow-3/RESULT {"Var2":"72"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 72 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"72"}
+stat/Pow-3/RESULT {"Add1":"77.000"}
+stat/Pow-3/RESULT {"Var2":"73"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-3}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:52","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":90,"ApparentPower":129,"ReactivePower":92,"Factor":0.70,"Voltage":222,"Current":0.578}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"73"}
+stat/Pow-3/RESULT {"Var2":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"73"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":5}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:53","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":95,"ApparentPower":129,"ReactivePower":87,"Factor":0.74,"Voltage":223,"Current":0.578}}
+stat/Pow-3/RESULT {"Var2":"74"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 74 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"74"}
+stat/Pow-3/RESULT {"Var2":"74"}
+stat/Pow-3/RESULT {"Var2":"74"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:54","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":90,"ApparentPower":129,"ReactivePower":92,"Factor":0.70,"Voltage":223,"Current":0.580}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 74 W ÿ ÿ
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":2}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:54","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.439,"Yesterday":0.985,"Today":0.616,"Power":71,"ApparentPower":89,"ReactivePower":53,"Factor":0.80,"Voltage":223,"Current":0.399}}
+stat/Pow-3/RESULT {"Var1":"96"}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":2}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:53:55","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.439,"Yesterday":0.985,"Today":0.616,"Power":73,"ApparentPower":89,"ReactivePower":50,"Factor":0.83,"Voltage":223,"Current":0.399}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 72 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 74 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 74 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 96 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"96"}
+stat/Pow-3/RESULT {"Var1":"96"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 96 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"96"}
+stat/Pow-3/RESULT {"Var1":"92"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"92"}
+stat/Pow-3/RESULT {"Var1":"92"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 92 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"92"}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:57","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":95,"ApparentPower":129,"ReactivePower":87,"Factor":0.74,"Voltage":223,"Current":0.578}}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Var1":"95"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 96 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 96 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 92 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+tele/Pow-1/STATE {"Time":"2021-02-27T18:54:01","Uptime":"0T04:28:53","UptimeSec":16133,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":1,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":100,"Signal":-46,"LinkCount":1,"Downtime":"0T00:02:11"}}
+tele/Pow-1/SENSOR {"Time":"2021-02-27T18:54:01","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":17.014,"Yesterday":1.587,"Today":1.583,"Period":0,"Power":2,"ApparentPower":29,"ReactivePower":29,"Factor":0.08,"Voltage":224,"Current":0.128}}
+tele/Buzzer-1/STATE {"Time":"2021-02-27T18:54:00","Uptime":"0T04:26:38","UptimeSec":15998,"Heap":27,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"POWER":"OFF","Dimmer":30,"Fade":"OFF","Speed":1,"LedTable":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-22,"LinkCount":2,"Downtime":"0T00:00:30"}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 95 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"95"}
+stat/Pow-3/RESULT {"Var1":"95"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 95 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"95"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-21}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:53:59","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":73,"ApparentPower":110,"ReactivePower":82,"Factor":0.67,"Voltage":223,"Current":0.494}}
+stat/Pow-3/RESULT {"Var1":"90"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"90"}
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Var2":"90"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":23}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:54:00","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":96,"ApparentPower":110,"ReactivePower":53,"Factor":0.87,"Voltage":223,"Current":0.494}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Add1":"95.000"}
+stat/Pow-3/RESULT {"Sub2":"85.000"}
+stat/Pow-3/RESULT {"Var2":"90"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":30}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:54:01","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":127,"ApparentPower":167,"ReactivePower":109,"Factor":0.76,"Voltage":223,"Current":0.750}}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 95 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 95 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 90 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"90"}
+stat/Pow-3/RESULT {"Var2":"91"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 90 W ÿ ÿ"}
+tele/IR-0/STATE {"Time":"2021-02-27T18:54:03","Uptime":"0T04:26:42","UptimeSec":16002,"Vcc":2.984,"Heap":26,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":100,"Signal":-25,"LinkCount":2,"Downtime":"0T00:00:32"}}
+tele/Pow-2/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:54:03","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.439,"Yesterday":0.985,"Today":0.616,"Power":71,"ApparentPower":90,"ReactivePower":56,"Factor":0.78,"Voltage":223,"Current":0.405}}
+tele/Pow-0/MARGINS {"MARGINS":{"PowerDelta":-2}}
+tele/Pow-0/SENSOR {"Time":"2021-02-27T18:54:04","ENERGY":{"TotalStartTime":"2020-01-02T22:50:04","Total":0.760,"Yesterday":0.608,"Today":0.012,"Power":2,"ApparentPower":28,"ReactivePower":28,"Factor":0.07,"Voltage":224,"Current":0.123}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"91"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-11}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:54:02","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":115,"ApparentPower":166,"ReactivePower":120,"Factor":0.69,"Voltage":222,"Current":0.750}}
+stat/Pow-3/RESULT {"Var1":"91"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 91 W ÿ ÿ
+stat/Pow-3/RESULT {"Var2":"91"}
+stat/Pow-3/RESULT {"Var1":"95"}
+stat/Pow-3/RESULT {"Var1":"95"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-4}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:54:03","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":111,"ApparentPower":147,"ReactivePower":96,"Factor":0.76,"Voltage":222,"Current":0.661}}
+stat/Pow-3/RESULT {"Var2":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"73"}
+stat/Pow-3/RESULT {"Add1":"78.000"}
+stat/Pow-3/RESULT {"Sub2":"68.000"}
+stat/Pow-3/RESULT {"Var2":"73"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 73 W ÿ ÿ
+stat/Pow-3/RESULT {"Var1":"73"}
+stat/Pow-3/RESULT {"Add1":"78.000"}
+stat/Pow-3/RESULT {"Var2":"73"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":9}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:54:05","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":120,"ApparentPower":154,"ReactivePower":96,"Factor":0.78,"Voltage":223,"Current":0.689}}
+stat/Pow-3/RESULT {"Var1":"96"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 91 W ÿ ÿ"}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 96 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 73 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var2":"96"}
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 96 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"96"}
+stat/Pow-3/RESULT {"Var1":"96"}
+tele/Pow-3/MARGINS {"MARGINS":{"PowerDelta":-36}}
+tele/Pow-3/SENSOR {"Time":"2021-02-27T18:54:06","ENERGY":{"TotalStartTime":"2021-02-02T19:02:40","Total":24.951,"Yesterday":3.612,"Today":1.140,"Power":85,"ApparentPower":145,"ReactivePower":118,"Factor":0.58,"Voltage":211,"Current":0.689}}
+cmnd/OLED-0/DisplayText [l4c1]LZ : 96 W ÿ ÿ
+stat/OLED-0/RESULT {"DisplayText":"[l4c1]LZ : 96 W ÿ ÿ"}
+stat/Pow-3/RESULT {"Var1":"127"}
+tele/DHT-6/STATE {"Time":"2021-02-27T18:54:09","Uptime":"0T04:27:51","UptimeSec":16071,"Heap":23,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":1,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"F4:28:53:7C:FD:C4","Channel":9,"RSSI":62,"Signal":-69,"LinkCount":1,"Downtime":"0T00:00:59"}}
+tele/DHT-6/SENSOR {"Time":"2021-02-27T18:54:09","DHT11":{"Temperature":20.0,"Humidity":91.0,"DewPoint":18.5},"TempUnit":"C"}
+stat/DHT-6/RESULT {"Var1":"20.0"}
+cmnd/Status-0/Led17 #050000
+tele/Pow-2/STATE {"Time":"2021-02-27T18:54:18","Uptime":"0T04:28:01","UptimeSec":16081,"Heap":27,"SleepMode":"Dynamic","Sleep":1,"LoadAvg":999,"MqttCount":34,"POWER":"ON","Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":84,"Signal":-58,"LinkCount":39,"Downtime":"0T00:02:57"}}
+tele/Pow-2/SENSOR {"Time":"2021-02-27T18:54:18","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.439,"Yesterday":0.985,"Today":0.616,"Period":1,"Power":70,"ApparentPower":90,"ReactivePower":57,"Factor":0.77,"Voltage":223,"Current":0.404}}
+tele/DHT-2/STATE {"Time":"2021-02-27T18:54:22","Uptime":"0T04:28:04","UptimeSec":16084,"Vcc":3.104,"Heap":34,"SleepMode":"Dynamic","Sleep":100,"LoadAvg":9,"MqttCount":2,"Wifi":{"AP":1,"SSId":"IOT","BSSId":"20:0D:B0:57:F7:C4","Channel":10,"RSSI":72,"Signal":-64,"LinkCount":5,"Downtime":"0T00:01:18"}}
+tele/Basic-6/LWT Online
+tele/4CH-0/LWT Online
+tele/BUTTON-1/LWT Online
+tele/Basic-0/LWT Online
+tele/Basic-2/LWT Online
+tele/Basic-5/LWT Online
+tele/Basic-4/LWT Online
+tele/Buzzer-1/LWT Online
+tele/Buzzer-0/LWT Online
+tele/DHT-1/LWT Online
+tele/DHT-7/LWT Online
+tele/DHT-6/LWT Online
+tele/DHT-5/LWT Offline
+tele/IR-0/LWT Online
+tele/LED-Matrix-0/LWT Online
+tele/Moisture-0/LWT Online
+tele/RF-Bridge-1/LWT Online
+tele/Pow-2/LWT Online
+tele/Pow-1/LWT Online
+tele/RF-Bridge-0/LWT Online
+tele/RFID-2/LWT Online
+tele/Pow-0/LWT Online
+tele/RGB-1/LWT Online
+tele/RGB-2/LWT Online
+tele/SHT-2/LWT Online
+tele/SHT-1/LWT Online
+tele/S55-0/LWT Offline
+tele/Touch-0/LWT Online
+tele/Touch-1/LWT Online
+tele/SHT-0/LWT Online
+tele/Water-0/LWT Online
+tele/Status-2/LWT Online
+tele/RGB-Strip-2/LWT Offline
+tele/RGB-Strip-3/LWT Offline
+tele/RGB-Strip-0/LWT Offline
+tele/RGB-Strip-1/LWT Offline
+tele/S20-6/LWT Online
+tele/S20-5/LWT Online
+tele/S20-4/LWT Offline
+tele/S20-3/LWT Online
+tele/S20-2/LWT Online
+tele/S20-1/LWT Online
+tele/Relay-0/LWT Online
+tele/Pow-3/LWT Online
+tele/DHT-9/LWT Online
+tele/DHT-2/LWT Online
+tele/DHT-4/LWT Online
+tele/LED-Matrix-1/LWT Online
+tele/OLED-0/LWT Online
+tele/DHT-3/LWT Offline
+tasmota/discovery/6001949C9C2E/config {"ip":"192.168.10.220","dn":"4CH-Dev-0","fn":["4CH-0 4CH-Dev-0","Sonoff 4CH 0b","Sonoff 4CH 0c","Sonoff 4CH 0d",null,null,null,null],"hn":"ESP-4CH-0","mac":"6001949C9C2E","md":"Sonoff 4CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"4CH-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,1,1,1,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/6001949C9C2E/sensors {"sn":{"Time":"2021-02-27T14:28:42"},"ver":1}
+tasmota/discovery/DC4F221176DE/config {"ip":"192.168.11.11","dn":"x1","fn":["BUTTON-1 x1",null,null,null,null,null,null,null],"hn":"ESP-BUTTON-1","mac":"DC4F221176DE","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"BUTTON-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F221176DE/sensors {"sn":{"Time":"1970-01-01T00:04:07"},"ver":1}
+tasmota/discovery/DC4F222A1E85/config {"ip":"192.168.10.100","dn":"Basic-Dev-0","fn":["Basic-0 Basic-Dev-0",null,null,null,null,null,null,null],"hn":"ESP-Basic-0","mac":"DC4F222A1E85","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222A1E85/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/DC4F222D7052/config {"ip":"192.168.10.102","dn":"Basic-Dev-2 Steckdosenleiste","fn":["Basic-2 Basic-Dev-2 Steckdosenleiste",null,null,null,null,null,null,null],"hn":"ESP-Basic-2","mac":"DC4F222D7052","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222D7052/sensors {"sn":{"Time":"2021-02-27T15:47:34"},"ver":1}
+tasmota/discovery/ECFABC8AD26F/config {"ip":"192.168.10.105","dn":"Regentonne-Balkon","fn":["Basic-5 Regentonne-Balkon",null,null,null,null,null,null,null],"hn":"ESP-Basic-5","mac":"ECFABC8AD26F","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC8AD26F/sensors {"sn":{"Time":"2021-02-27T15:46:43"},"ver":1}
+tasmota/discovery/84F3EB48BA00/config {"ip":"192.168.10.104","dn":"Basic-Dev-4","fn":["Basic-4 Basic-Dev-4",null,null,null,null,null,null,null],"hn":"ESP-Basic-4","mac":"84F3EB48BA00","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-4","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EB48BA00/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/ECFABC9343CF/config {"ip":"192.168.10.106","dn":"Basic-Dev-6","fn":["Basic-6 Basic-Dev-6",null,null,null,null,null,null,null],"hn":"ESP-Basic-6","mac":"ECFABC9343CF","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Basic-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC9343CF/sensors {"sn":{"Time":"2021-02-27T14:28:43"},"ver":1}
+tasmota/discovery/98F4ABDA6C79/config {"ip":"192.168.11.241","dn":"Buzzer-x1","fn":["Buzzer-1 Buzzer-x1",null,null,null,null,null,null,null],"hn":"ESP-Buzzer-1","mac":"98F4ABDA6C79","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Buzzer-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":1,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6C79/sensors {"sn":{"Time":"1970-01-01T00:02:24"},"ver":1}
+tasmota/discovery/98F4ABDA6DE7/config {"ip":"192.168.11.240","dn":"Buzzer-x0","fn":["Buzzer-0 Buzzer-x0",null,null,null,null,null,null,null],"hn":"ESP-Buzzer-0","mac":"98F4ABDA6DE7","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Buzzer-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":1,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6DE7/sensors {"sn":{"Time":"2021-02-27T14:28:41"},"ver":1}
+tasmota/discovery/68C63AA4CAE1/config {"ip":"192.168.11.171","dn":"Wohnzimmer","fn":["DHT-1 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-DHT-1","mac":"68C63AA4CAE1","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/68C63AA4CAE1/sensors {"sn":{"Time":"2021-02-27T14:30:14","DHT11":{"Temperature":17.0,"Humidity":19.0,"DewPoint":-6.9},"TempUnit":"C"},"ver":1}
+tasmota/discovery/84F3EBB388A4/config {"ip":"192.168.11.176","dn":"Bad","fn":["DHT-6 Bad",null,null,null,null,null,null,null],"hn":"ESP-DHT-6","mac":"84F3EBB388A4","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB388A4/sensors {"sn":{"Time":"2021-02-27T14:29:14","DHT11":{"Temperature":20.0,"Humidity":91.0,"DewPoint":18.5},"TempUnit":"C"},"ver":1}
+tasmota/discovery/84F3EBB38982/config {"ip":"192.168.11.175","dn":"LeseZi","fn":["DHT-5 LeseZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-5","mac":"84F3EBB38982","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB38982/sensors {"sn":{"Time":"2021-02-27T18:07:22","DHT11":{"Temperature":21.0,"Humidity":17.0,"DewPoint":-5.0},"TempUnit":"C"},"ver":1}
+tasmota/discovery/B4E62D15914A/config {"ip":"192.168.11.70","dn":"IR WZ","fn":["IR-0 IR WZ",null,null,null,null,null,null,null],"hn":"ESP-IR-0","mac":"B4E62D15914A","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"IR-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D15914A/sensors {"sn":{"Time":"1970-01-01T00:02:26"},"ver":1}
+tasmota/discovery/B4E62D17DAC0/config {"ip":"192.168.11.50","dn":"x0","fn":["Moisture-0 x0",null,null,null,null,null,null,null],"hn":"ESP-Moisture-0","mac":"B4E62D17DAC0","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Moisture-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17DAC0/sensors {"sn":{"Time":"1970-01-01T00:01:35","ANALOG":{"Range":0}},"ver":1}
+tasmota/discovery/ECFABC501050/config {"ip":"192.168.10.202","dn":"Server Cool Steckdose 3-Fach","fn":["Pow-2 Server Cool Steckdose 3-Fach",null,null,null,null,null,null,null],"hn":"ESP-Pow-2","mac":"ECFABC501050","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABC501050/sensors {"sn":{"Time":"1970-01-01T00:00:51","ENERGY":{"TotalStartTime":"2021-01-01T19:30:46","Total":10.262,"Yesterday":0.985,"Today":0.438,"Power":30,"ApparentPower":54,"ReactivePower":44,"Factor":0.56,"Voltage":226,"Current":0.237}},"ver":1}
+tasmota/discovery/BCDDC2452E04/config {"ip":"192.168.10.201","dn":"Kueche","fn":["Pow-1 Kueche",null,null,null,null,null,null,null],"hn":"ESP-Pow-1","mac":"BCDDC2452E04","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/BCDDC2452E04/sensors {"sn":{"Time":"1970-01-01T00:04:01","ENERGY":{"TotalStartTime":"2020-06-26T17:08:24","Total":15.446,"Yesterday":1.587,"Today":0.015,"Power":8,"ApparentPower":30,"ReactivePower":29,"Factor":0.28,"Voltage":225,"Current":0.135}},"ver":1}
+tasmota/discovery/600194A36F3A/config {"ip":"192.168.10.160","dn":"Wohnzimmer","fn":["RF-Bridge-0 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-RF-Bridge-0","mac":"600194A36F3A","md":"Sonoff Bridge","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RF-Bridge-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/600194A36F3A/sensors {"sn":{"Time":"2021-02-27T14:28:56"},"ver":1}
+tasmota/discovery/98F4ABDA6C65/config {"ip":"192.168.11.202","dn":"RFID-Dev-2","fn":["RFID-2 RFID-Dev-2",null,null,null,null,null,null,null],"hn":"ESP-RFID-2","mac":"98F4ABDA6C65","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RFID-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6C65/sensors {"sn":{"Time":"1970-01-01T00:01:42","Switch8":"ON"},"ver":1}
+tasmota/discovery/B4E62D14C793/config {"ip":"192.168.10.200","dn":"Waschmaschine","fn":["Pow-0 Waschmaschine",null,null,null,null,null,null,null],"hn":"ESP-Pow-0","mac":"B4E62D14C793","md":"Sonoff Pow","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D14C793/sensors {"sn":{"Time":"2021-02-27T13:09:37","ENERGY":{"TotalStartTime":"2020-01-02T22:50:04","Total":0.756,"Yesterday":0.608,"Today":0.008,"Power":0,"ApparentPower":0,"ReactivePower":0,"Factor":0.00,"Voltage":223,"Current":0.000}},"ver":1}
+tasmota/discovery/DC4F220B8188/config {"ip":"192.168.11.131","dn":"Joerg","fn":["RGB-1 Joerg",null,null,null,null,null,null,null],"hn":"ESP-RGB-1","mac":"DC4F220B8188","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RGB-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F220B8188/sensors {"sn":{"Time":"2021-02-27T14:28:54"},"ver":1}
+tasmota/discovery/B4E62D17E77A/config {"ip":"192.168.11.132","dn":"Chris","fn":["RGB-2 Chris",null,null,null,null,null,null,null],"hn":"ESP-RGB-2","mac":"B4E62D17E77A","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RGB-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17E77A/sensors {"sn":{"Time":"2021-02-27T14:28:55"},"ver":1}
+tasmota/discovery/DC4F222BE54C/config {"ip":"192.168.10.11","dn":"Kaffee","fn":["S20-1 Kaffee",null,null,null,null,null,null,null],"hn":"ESP-S20-1","mac":"DC4F222BE54C","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F222BE54C/sensors {"sn":{"Time":"2021-02-27T14:28:56"},"ver":1}
+tasmota/discovery/5CCF7F7A2E30/config {"ip":"192.168.10.13","dn":"Pflanzen Licht Kueche","fn":["S20-3 Pflanzen Licht Kueche",null,null,null,null,null,null,null],"hn":"ESP-S20-3","mac":"5CCF7F7A2E30","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-3","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F7A2E30/sensors {"sn":{"Time":"1970-01-01T00:03:33"},"ver":1}
+tasmota/discovery/2CF432BFA214/config {"ip":"192.168.10.50","dn":"Brunnen","fn":["S55-0 Brunnen",null,null,null,null,null,null,null],"hn":"ESP-S55-0","mac":"2CF432BFA214","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S55-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/2CF432BFA214/sensors {"sn":{"Time":"2021-02-27T13:43:44"},"ver":1}
+tasmota/discovery/C82B9608E053/config {"ip":"192.168.11.80","dn":"Klingel","fn":["Relay-0 Klingel",null,null,null,null,null,null,null],"hn":"ESP-Relay-0","mac":"C82B9608E053","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Relay-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C82B9608E053/sensors {"sn":{"Time":"2021-02-27T14:28:42"},"ver":1}
+tasmota/discovery/5CCF7F799F72/config {"ip":"192.168.10.12","dn":"Pflanzen Licht AZ","fn":["S20-2 Pflanzen Licht AZ",null,null,null,null,null,null,null],"hn":"ESP-S20-2","mac":"5CCF7F799F72","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F799F72/sensors {"sn":{"Time":"2021-02-27T14:32:32"},"ver":1}
+tasmota/discovery/5CCF7F79BFB5/config {"ip":"192.168.10.16","dn":"Lampe Tisch WZ","fn":["S20-6 Lampe Tisch WZ",null,null,null,null,null,null,null],"hn":"ESP-S20-6","mac":"5CCF7F79BFB5","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-6","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F79BFB5/sensors {"sn":{"Time":"2021-02-27T14:30:18"},"ver":1}
+tasmota/discovery/ECFABCC2B8CA/config {"ip":"192.168.12.100","dn":"Kueche","fn":["SHT-0 Kueche",null,null,null,null,null,null,null],"hn":"ESP-SHT-0","mac":"ECFABCC2B8CA","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABCC2B8CA/sensors {"sn":{"Time":"1970-01-01T00:04:02","SHT3X-0x45":{"Temperature":29.7,"Humidity":28.7,"DewPoint":9.6},"TempUnit":"C"},"ver":1}
+tasmota/discovery/ECFABCC2AE43/config {"ip":"192.168.12.102","dn":"Bad","fn":["SHT-2 Bad",null,null,null,null,null,null,null],"hn":"ESP-SHT-2","mac":"ECFABCC2AE43","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/ECFABCC2AE43/sensors {"sn":{"Time":"2021-02-27T14:38:41","SHT3X-0x45":{"Temperature":24.2,"Humidity":34.2,"DewPoint":7.4},"TempUnit":"C"},"ver":1}
+tasmota/discovery/98F4ABDA5FDD/config {"ip":"192.168.12.101","dn":"Wohnzimmer","fn":["SHT-1 Wohnzimmer",null,null,null,null,null,null,null],"hn":"ESP-SHT-1","mac":"98F4ABDA5FDD","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"SHT-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA5FDD/sensors {"sn":{"Time":"1970-01-01T00:01:35","SHT3X-0x45":{"Temperature":23.3,"Humidity":23.9,"DewPoint":1.5},"TempUnit":"C"},"ver":1}
+tasmota/discovery/6001949B18CF/config {"ip":"192.168.10.151","dn":"x1","fn":["Touch-1 x1",null,null,null,null,null,null,null],"hn":"ESP-Touch-1","mac":"6001949B18CF","md":"Sonoff T1 1CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Touch-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/6001949B18CF/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/84F3EB584265/config {"ip":"192.168.11.222","dn":"Clock","fn":["Status-2 Clock",null,null,null,null,null,null,null],"hn":"ESP-Status-2","mac":"84F3EB584265","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Status-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[2,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":3,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EB584265/sensors {"sn":{"Time":"2021-02-27T16:12:27"},"ver":1}
+tasmota/discovery/DC4F2286E4C3/config {"ip":"192.168.10.150","dn":"WZ","fn":["Touch-0 WZ","Sonoff Touch 0b",null,null,null,null,null,null],"hn":"ESP-Touch-0","mac":"DC4F2286E4C3","md":"Sonoff T1 2CH","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Touch-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,1,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F2286E4C3/sensors {"sn":{"Time":"2021-02-27T14:30:16"},"ver":1}
+tasmota/discovery/C44F33B182BB/config {"ip":"192.168.11.30","dn":"Water-Dev-0","fn":["Water-0 Water-Dev-0",null,null,null,null,null,null,null],"hn":"ESP-Water-0","mac":"C44F33B182BB","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Water-0","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C44F33B182BB/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/DC4F221D49C1/config {"ip":"192.168.11.179","dn":"Kueche","fn":["DHT-9 Kueche",null,null,null,null,null,null,null],"hn":"ESP-DHT-9","mac":"DC4F221D49C1","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-9","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/DC4F221D49C1/sensors {"sn":{"Time":"1970-01-01T00:03:33","DHT11":{"Temperature":23.0,"Humidity":16.0,"DewPoint":-4.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/B4E62D17FB57/config {"ip":"192.168.11.172","dn":"Gang","fn":["DHT-2 Gang",null,null,null,null,null,null,null],"hn":"ESP-DHT-2","mac":"B4E62D17FB57","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-2","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D17FB57/sensors {"sn":{"Time":"2021-02-27T06:44:47","DHT11":{"Temperature":18.0,"Humidity":95.0,"DewPoint":17.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/C82B964349C4/config {"ip":"192.168.10.161","dn":"Extra","fn":["RF-Bridge-1 Extra",null,null,null,null,null,null,null],"hn":"ESP-RF-Bridge-1","mac":"C82B964349C4","md":"Sonoff Bridge","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"RF-Bridge-1","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/C82B964349C4/sensors {"sn":{"Time":"2021-02-27T14:28:44"},"ver":1}
+tasmota/discovery/5CCF7F7A1EEE/config {"ip":"192.168.10.15","dn":"S20-5 Pflanzen Licht WZ","fn":["S20-5 Pflanzen Licht WZ",null,null,null,null,null,null,null],"hn":"ESP-S20-5","mac":"5CCF7F7A1EEE","md":"Sonoff S2X","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"S20-5","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/5CCF7F7A1EEE/sensors {"sn":{"Time":"2021-02-27T14:28:41"},"ver":1}
+tasmota/discovery/B4E62D1588CC/config {"ip":"192.168.11.173","dn":"ArbeitsZi","fn":["DHT-3 ArbeitsZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-3","mac":"B4E62D1588CC","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-3","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/B4E62D1588CC/sensors {"sn":{"Time":"2021-02-27T15:45:34","DHT11":{"Temperature":19.0,"Humidity":95.0,"DewPoint":18.2},"TempUnit":"C"},"ver":1}
+tasmota/discovery/98F4ABDA6F17/config {"ip":"192.168.1.25","dn":"SchlafZi","fn":["DHT-4 SchlafZi",null,null,null,null,null,null,null],"hn":"ESP-DHT-4","mac":"98F4ABDA6F17","md":"Sonoff Basic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.2.0","t":"DHT-4","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[1,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":0,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/98F4ABDA6F17/sensors {"sn":{"Time":"2021-02-27T14:29:46"},"ver":1}
+tasmota/discovery/84CCA89BF8D3/config {"ip":"192.168.10.203","dn":"LZ BÃ¼ro JÃ¶rg 3fach-weiss","fn":["Pow-3 LZ BÃ¼ro JÃ¶rg 3fach-weiss",null,null,null,null,null,null,null],"hn":"ESP-Pow-3","mac":"84CCA89BF8D3","md":"Sonoff Pow R2","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"Pow-3","ft":"%prefix%/%topic%/","tp":["cm0, cmnd/OLED-0/DisplayText[l4c1]LZ : 90 W ÿ ÿ0  stat/Pow-3/RESULT{"Var2":"90"}0  stat/Pow-3/RESULT{"Var1":"90"}0, cmnd/OLED-0/DisplayText[l4c1]LZ : 90 W ÿ ÿ0  stat/Pow-3/RESULT{"Var2":"90"}0  stat/Pow-3/RESULT{"Var1":"93"}0, cmnd/OLED-0/DisplayText[l4c1]LZ : 93 W ÿ
+tasmota/discovery/84F3EBB39578/config {"ip":"192.168.11.177","dn":"Cool","fn":["DHT-7 Cool",null,null,null,null,null,null,null],"hn":"ESP-DHT-7","mac":"84F3EBB39578","md":"Generic","ty":0,"if":0,"ofln":"Offline","onln":"Online","state":["OFF","ON","TOGGLE","HOLD"],"sw":"9.3.1","t":"DHT-7","ft":"%prefix%/%topic%/","tp":["cmnd","stat","tele"],"rl":[0,0,0,0,0,0,0,0],"swc":[-1,-1,-1,-1,-1,-1,-1,-1],"swn":[null,null,null,null,null,null,null,null],"btn":[0,0,0,0,0,0,0,0],"so":{"4":0,"11":0,"13":0,"17":1,"20":0,"30":0,"68":0,"73":0,"82":0,"114":0,"117":0},"lk":1,"lt_st":0,"sho":[0,0,0,0],"ver":1}
+tasmota/discovery/84F3EBB39578/sensors {"sn":{"Time":"2021-02-27T18:08:18","DHT11":{"Temperature":16.0,"Humidity":95.0,"DewPoint":15.2},"TempUnit":"C"},"ver":1}
