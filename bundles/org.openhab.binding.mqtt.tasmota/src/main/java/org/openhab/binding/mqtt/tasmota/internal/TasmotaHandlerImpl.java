@@ -32,7 +32,6 @@ import org.openhab.core.thing.binding.BaseThingHandler;
 import org.openhab.core.thing.binding.ThingHandlerCallback;
 import org.openhab.core.thing.binding.builder.ChannelBuilder;
 import org.openhab.core.thing.binding.builder.ThingBuilder;
-import org.openhab.core.thing.type.ChannelGroupTypeRegistry;
 import org.openhab.core.thing.type.ChannelType;
 import org.openhab.core.thing.type.ChannelTypeRegistry;
 import org.openhab.core.thing.type.ChannelTypeUID;
@@ -100,8 +99,6 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
                     "Stacktrace: \n" + //
                     "{}", this.getThing().getUID(), ExceptionHelper.compactStackTrace());
         }
-
-        channelGroupTypeRegistry = getService(ChannelGroupTypeRegistry.class);
 
         logger.debug("Finished initializing. Type: {}, UID: {}", thing.getThingTypeUID(), thing.getUID());
     }
