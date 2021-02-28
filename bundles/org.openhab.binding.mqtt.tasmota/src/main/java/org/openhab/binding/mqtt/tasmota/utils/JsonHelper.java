@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2010-2021 Contributors to the openHAB project
- *
+ * <p>
  * See the NOTICE file(s) distributed with this work for additional
  * information.
- *
+ * <p>
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
  * http://www.eclipse.org/legal/epl-2.0
- *
+ * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.mqtt.tasmota.utils;
@@ -22,6 +22,7 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -38,6 +39,12 @@ public class JsonHelper {
 
     public static Map<String, Object> jsonStringToMap(String baseKey, byte[] payload) {
         return jsonStringToMap(baseKey, new String(payload));
+    }
+
+    public static String toJson(Object value) throws JsonProcessingException {
+
+        final ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(value);
     }
 
     /**
