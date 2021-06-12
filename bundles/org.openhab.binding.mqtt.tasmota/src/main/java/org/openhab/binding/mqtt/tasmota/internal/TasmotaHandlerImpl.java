@@ -12,16 +12,9 @@
  */
 package org.openhab.binding.mqtt.tasmota.internal;
 
-import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.BINDING_ID;
-import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.CHANNEL_DIMMER;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
-import org.jetbrains.annotations.NotNull;
 import org.openhab.binding.mqtt.handler.BrokerHandler;
 import org.openhab.binding.mqtt.tasmota.utils.ExceptionHelper;
 import org.openhab.binding.mqtt.tasmota.utils.FileUtils;
@@ -40,6 +33,13 @@ import org.openhab.core.types.RefreshType;
 import org.openhab.core.types.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.BINDING_ID;
+import static org.openhab.binding.mqtt.tasmota.internal.TasmotaBindingConstants.CHANNEL_DIMMER;
 
 /**
  * The {@link TasmotaHandlerImpl} is responsible for handling commands, which are
@@ -196,7 +196,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
         return true;
     }
 
-    @NotNull
+    @NonNull
     private State toOpenhabStateValue(Object value) {
         State newChannelState = StringType.valueOf("" + value);
         if (value.getClass().isInstance(Date.class)) {
@@ -218,7 +218,7 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
     }
 
     private void addChannelIfMissing(Thing thing, String name, String description,
-            MessageConfigItem messageConfigItem) {
+                                     MessageConfigItem messageConfigItem) {
         logger.trace("addChannelIfMissing(Thing {},name: {}, description: {}) ", thing.getUID(), name, description);
 
         ChannelTypeUID channelTypeUID = new ChannelTypeUID(BINDING_ID, name);
@@ -321,8 +321,8 @@ public class TasmotaHandlerImpl extends BaseThingHandler implements TasmotaHandl
             ThingHandlerCallback callback = this.getCallback();
             if (callback == null) {
                 logger.error("updateState({},{}): Missing Callback in Thing {} {}\n" + //
-                        "Stacktrace: \n" + //
-                        "{}", channelID, state, this.getThing(), this.getThing().getUID(),
+                                "Stacktrace: \n" + //
+                                "{}", channelID, state, this.getThing(), this.getThing().getUID(),
                         ExceptionHelper.compactStackTrace());
             } else {
                 // logger.debug("Seen Callback '{}' in Thing {} {}\n" + //
